@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="day" data-lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yancy — Senior Backend Engineer · Big Data / Flink · AI 多代理</title>
+<meta name="description" id="metaDesc" content="Yancy — 12+ 年后端 / 大数据 / Flink Tech Lead。DigiPlus Interactive Corp（BGC, PH）带 8 人团队。远程协作 · Telegram @ukHarley" />
+<meta name="author" content="Yancy" />
+<meta name="theme-color" content="#6c47ff" />
+<meta property="og:type" content="website" />
+<meta property="og:title" id="ogTitle" content="Yancy — Senior Backend Engineer · Big Data / Flink · Multi-agent AI" />
+<meta property="og:description" id="ogDesc" content="12+ years backend / big data / Flink. Tech Lead at DigiPlus Interactive Corp (BGC, PH). Remote. Telegram @ukHarley" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Yancy — Senior Backend Engineer" />
+<meta name="twitter:description" id="twDesc" content="Backend / Flink / multi-agent AI Tech Lead. Remote. Telegram @ukHarley" />
+<link rel="canonical" href="./" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Yancy","jobTitle":"Senior Backend Engineer","email":"mailto:yancysu1006@gmail.com","url":"./","address":{"@type":"PostalAddress","addressLocality":"Taguig","addressRegion":"BGC","addressCountry":"PH"},"sameAs":["https://github.com/YancyZhang","https://t.me/ukHarley"],"knowsAbout":["Apache Flink","MaxCompute","LangGraph","Java","Go","Python"]}
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='15'%20fill='%23eef3f8'/%3E%3Crect%20x='5.5'%20y='5.5'%20width='53'%20height='53'%20rx='12'%20fill='none'%20stroke='%233d6dd8'%20stroke-opacity='0.5'%20stroke-width='1.5'/%3E%3Ctext%20x='32'%20y='34'%20font-family='Georgia,serif'%20font-size='36'%20font-weight='700'%20fill='%233d6dd8'%20text-anchor='middle'%20dominant-baseline='central'%3EY%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600&display=swap" />
+
+<style>
+:root{
+  /* dark companion, same purple/cyan family as the AlphaOdds light system */
+  --bg:#0d0e1a; --panel:rgba(26,24,46,.55); --chrome:rgba(255,255,255,.045); --surface:rgba(255,255,255,.05); --surface2:rgba(255,255,255,.07);
+  --editor:rgba(26,24,44,.5); --editor2:rgba(30,28,50,.4);
+  --ink:#eef0ff; --sub:#b7bce6; --sub2:#9298cc; --faint:#8890c4;
+  --line:rgba(150,160,255,.14); --line2:rgba(150,160,255,.24);
+  --accent:#7c5cff; --accent-hover:#9575ff; --accent-press:#6238e8;
+  --accent-soft:rgba(124,92,255,.14); --accent-soft2:rgba(124,92,255,.08);
+  --secondary:#22d3ee;
+  --t-k:#c9b3ff; --t-f:#22d3ee; --t-s:#6ee7b7; --t-n:#fbbf24; --t-t:#67e8f9; --t-p:#b794ff; --t-c:#8890c4; --t-o:#9298cc; --t-b:#fbbf24;
+  --red:#f87171; --yellow:#fbbf24; --green:#28c840;
+  --sp-xs:8px; --sp-sm:12px; --sp-md:16px; --sp-lg:24px; --sp-xl:32px; --sp-2xl:48px;
+  --r-sm:8px; --r:14px; --r-lg:18px;
+  --sh-card:0 2px 12px rgba(124,92,255,.14),0 12px 32px -20px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07);
+  --glass-blur:20px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:"Cormorant Garamond","Noto Serif SC",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --maxw:1080px; --wide:1240px;
+  --h-title:44px; --h-tabs:42px; --h-status:30px; --w-rail:250px;
+}
+[data-theme="day"]{
+  /* ported 1:1 from AlphaOdds/frontend/src/app/globals.css */
+  --bg:#f2f4fb; --panel:rgba(255,255,255,.92); --chrome:rgba(255,255,255,.85); --surface:rgba(255,255,255,.9); --surface2:rgba(241,243,252,.9);
+  --editor:rgba(255,255,255,.9); --editor2:rgba(247,248,253,.85);
+  --ink:#1a1c2e; --sub:#434770; --sub2:#5c6190; --faint:#8891b8;
+  --line:rgba(108,92,200,.14); --line2:rgba(124,92,255,.42);
+  --accent:#6c47ff; --accent-hover:#8563ff; --accent-press:#4f2fe0;
+  --accent-soft:rgba(108,71,255,.08); --accent-soft2:rgba(108,71,255,.05);
+  --secondary:#06b6d4;
+  --t-k:#6c47ff; --t-f:#0891b2; --t-s:#059669; --t-n:#d97706; --t-t:#06b6d4; --t-p:#7c3aed; --t-c:#8891b8; --t-o:#5c6190; --t-b:#d97706;
+  --red:#dc2626; --yellow:#d97706; --green:#059669;
+  --sh-card:0 2px 12px rgba(108,71,255,.07),0 16px 36px -22px rgba(108,71,255,.18),inset 0 1px 0 rgba(255,255,255,1);
+}
+.win,.win-bar,.heromets,.proof-grid,.stackcard,.proj,.earlier,.edu-card,.stat,.tchip,.envtag,.avail,.tb-hire,.wt.on,.btn.sec,.rail,.titlebar,.tabstrip,.langsel,.theme-toggle,.proof-card{
+  backdrop-filter:blur(var(--glass-blur)) saturate(160%);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+html[data-lang="zh"] .en{display:none!important}
+html[data-lang="en"] .zh{display:none!important}
+body{
+  font-family:var(--sans); background-color:var(--bg); color:var(--ink);
+  line-height:1.62; letter-spacing:-.011em; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; counter-reset:sec;
+  padding-top:calc(var(--h-title) + var(--h-tabs)); padding-bottom:var(--h-status);
+}
+/* aurora ambient wash — ported from AlphaOdds/frontend globals.css */
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;animation:aurora-drift 36s ease-in-out infinite alternate;
+  background:
+    radial-gradient(ellipse 900px 700px at 10% 5%,   rgba(124,92,255,.1), transparent 65%),
+    radial-gradient(ellipse 800px 600px at 88% 20%,  rgba(34,211,238,.08), transparent 65%),
+    radial-gradient(ellipse 1000px 800px at 50% 95%, rgba(147,51,234,.07), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 95% 75%,  rgba(219,39,119,.05), transparent 60%);
+}
+[data-theme="day"] body:before{
+  background:
+    radial-gradient(ellipse 900px 700px at 10% 5%,   rgba(108,71,255,.07), transparent 65%),
+    radial-gradient(ellipse 800px 600px at 88% 20%,  rgba(6,182,212,.06), transparent 65%),
+    radial-gradient(ellipse 1000px 800px at 50% 95%, rgba(147,51,234,.05), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 95% 75%,  rgba(219,39,119,.04), transparent 60%);
+}
+@keyframes aurora-drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-2%,1%) scale(1.06)}100%{transform:translate(1%,-1%) scale(1.03)}}
+body:after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(124,92,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,92,255,.05) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%);
+}
+[data-theme="day"] body:after{
+  background-image:
+    linear-gradient(rgba(108,71,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(108,71,255,.025) 1px,transparent 1px);
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  body:before,.hero .glow{animation:none}
+  .tb-hire .dot,.avail .dot,.statusbar .live{animation:none}
+}
+a{color:inherit;text-decoration:none}
+::selection{background:#7c5cff3d;color:#fff}
+[data-theme="day"] ::selection{background:#6c47ff33;color:#1a1c2e}
+.mono{font-family:var(--mono)}
+em{font-family:var(--serif);font-style:italic;font-weight:600}
+
+.tl{display:flex;gap:8px;flex:0 0 auto}
+.tl i{width:12px;height:12px;border-radius:50%;display:block;box-shadow:inset 0 0 0 .5px #00000018}
+.tl .r{background:var(--red)} .tl .y{background:var(--yellow)} .tl .g{background:var(--green)}
+
+.titlebar{
+  position:fixed;top:0;left:0;right:0;z-index:140;height:var(--h-title);
+  display:flex;align-items:center;gap:14px;padding:0 16px;
+  background:#06080e9e;backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);
+  border-bottom:1px solid rgba(164,184,255,.08);box-shadow:none;
+}
+[data-theme="day"] .titlebar{
+  background:#ffffffb8;border-bottom:1px solid rgba(60,90,140,.08);box-shadow:0 10px 32px -24px #3c5a8c47;
+}
+.tb-file{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.8rem;color:var(--sub);min-width:0}
+.tb-file .brand-s{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,#9575ff,#6c47ff);color:#fff;font-family:var(--serif);font-weight:700;font-size:.85rem;flex:0 0 auto}
+.tb-file b{color:var(--ink);font-weight:500}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;color:var(--sub2)}
+.tb-hire{
+  display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line2);color:var(--sub);background:var(--surface);font-size:.7rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+[data-theme="day"] .tb-hire{box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.tb-hire .dot{width:7px;height:7px;border-radius:50%;background:#3a9a6a;box-shadow:0 0 8px rgba(58,154,106,.55);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+  border:1px solid var(--line2);border-radius:8px;background:transparent;cursor:pointer;
+  color:var(--ink);transition:.25s var(--ease);
+}
+.theme-toggle:hover{background:#ffffff0f;border-color:#7c5cff59}
+.theme-toggle svg{width:15px;height:15px}
+.theme-toggle:hover svg{transform:rotate(15deg) scale(1.1)}
+.theme-toggle svg{transition:transform .25s var(--ease)}
+[data-theme="day"] .theme-toggle{background:#ffffffbf;border-color:#3c5a8c24;color:#2a3540}
+[data-theme="day"] .theme-toggle:hover{background:#fff;border-color:#6c47ff47}
+html[data-theme="day"] .icon-moon{display:none}
+html[data-theme="night"] .icon-sun{display:none}
+
+.langsel{
+  display:inline-flex;align-items:center;gap:2px;border:1px solid rgba(92,140,255,.38);
+  border-radius:10px;padding:3px;background:#7c5cff14;
+}
+[data-theme="day"] .langsel{border:1px solid rgba(60,90,140,.12);background:#ffffffb3}
+.langsel button{
+  appearance:none;border:0;background:transparent;cursor:pointer;font-family:var(--mono);
+  font-size:.7rem;color:var(--sub2);padding:4px 8px;border-radius:7px;line-height:1;font-weight:600;
+}
+.langsel button:hover{color:var(--ink);background:#7c5cff38}
+[data-theme="day"] .langsel button:hover{background:#6c47ff14}
+.langsel button.on{color:#fff;background:var(--accent);box-shadow:0 2px 10px -3px #7c5cffb3;font-weight:600}
+[data-theme="day"] .langsel button.on{color:#173047;background:#fff;box-shadow:0 1px 3px rgba(60,90,140,.16)}
+
+.tabstrip{
+  position:fixed;top:var(--h-title);left:0;right:0;z-index:130;height:var(--h-tabs);
+  display:flex;align-items:stretch;background:linear-gradient(180deg,#0a0c16c7,#06080e47);
+  overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(164,184,255,.06);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+[data-theme="day"] .tabstrip{
+  background:linear-gradient(180deg,#ffffffc7,#f0f5fc8c);border-bottom:1px solid rgba(60,90,140,.07);
+}
+.tabstrip::-webkit-scrollbar{display:none}
+.tab{
+  display:inline-flex;align-items:center;gap:8px;padding:0 16px;font-family:var(--mono);font-size:.78rem;
+  color:var(--sub2);white-space:nowrap;transition:color .2s,background .2s;position:relative;flex:0 0 auto;cursor:pointer;
+}
+.tab .fdot{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+.tab:hover{color:var(--ink);background:#ffffff08}
+.tab.active{color:var(--ink);background:transparent}
+[data-theme="day"] .tab:hover{background:#6c47ff0a}
+[data-theme="day"] .tab.active{background:#ffffff80}
+.tab.active:after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:2px;border-radius:2px;background:var(--accent);box-shadow:0 0 8px rgba(61,109,216,.35)}
+
+.rail{
+  position:fixed;top:calc(var(--h-title) + var(--h-tabs));left:0;bottom:var(--h-status);width:var(--w-rail);z-index:125;
+  background:#0c0c11db;border-right:1px solid rgba(164,184,255,.08);overflow-y:auto;padding:0 0 20px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:none;
+  display:flex;flex-direction:column;
+}
+[data-theme="day"] .rail{
+  background:#ffffffdb;border-right:1px solid rgba(60,90,140,.08);box-shadow:8px 0 28px -22px #3c5a8c40;
+}
+.rail-h{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sub2);padding:14px 16px 8px}
+.rail-h svg{width:13px;height:13px;flex:0 0 auto}
+.rail-tree{padding-bottom:8px}
+.rail a, .rail summary{
+  display:flex;align-items:center;gap:8px;padding:6px 16px;font-family:var(--mono);font-size:.76rem;color:var(--sub);
+  cursor:pointer;list-style:none;white-space:nowrap;min-width:0;border-left:2px solid transparent;
+}
+.rail a .fname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.rail a:hover, .rail summary:hover{color:var(--ink);background:#ffffff08}
+.rail a.active{color:var(--ink);background:var(--accent-soft2);border-left-color:var(--accent)}
+[data-theme="day"] .rail a:hover, [data-theme="day"] .rail summary:hover{background:#6c47ff0a}
+.rail summary::-webkit-details-marker{display:none}
+.rail details[open] > summary .fold{transform:rotate(90deg)}
+.rail .fold{display:inline-block;transition:transform .15s;color:var(--faint);font-size:.65rem}
+.rail .fdot{width:6px;height:6px;border-radius:1.5px;flex:0 0 auto;opacity:.9}
+.rail .indent{padding-left:34px}
+.rail details .indent{padding-left:40px}
+.rail-foot{margin-top:auto;padding:14px 16px 4px;border-top:1px solid var(--line)}
+.rail-foot a{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.76rem;color:var(--sub);padding:6px 0;transition:color .18s}
+.rail-foot a:hover{color:var(--accent)}
+.rail-foot svg{width:15px;height:15px;color:var(--sub2);flex:0 0 auto}
+
+.appmain{margin-left:var(--w-rail)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 32px}
+section{position:relative;padding:clamp(64px,9vh,108px) 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sub2);margin-bottom:18px;
+}
+.eyebrow:before{
+  counter-increment:sec;content:counter(sec,decimal-leading-zero);color:var(--accent);font-weight:700;
+  letter-spacing:.05em;font-variant-numeric:tabular-nums;
+}
+h2.head{
+  font-weight:300;font-size:clamp(2rem,4.6vw,3.3rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:22px;max-width:28ch;
+  color:var(--ink);
+}
+.lede{font-size:clamp(1.02rem,1.7vw,1.16rem);color:var(--sub);max-width:680px;line-height:1.72;letter-spacing:.002em}
+
+.hero{
+  position:relative;overflow:hidden;min-height:calc(100svh - var(--h-title) - var(--h-tabs) - var(--h-status));
+  display:grid;grid-template-columns:1.02fr 1.1fr;align-items:center;gap:clamp(30px,5vw,64px);
+  padding:clamp(40px,7vh,80px) clamp(20px,5vw,52px);border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 68% at 74% 40%, rgba(124,92,255,.12), transparent 72%),
+    radial-gradient(ellipse 40% 50% at 12% 80%, rgba(34,211,238,.06), transparent 70%),
+    linear-gradient(180deg, rgba(13,14,26,.12), transparent 76%);
+}
+[data-theme="day"] .hero{
+  background:
+    radial-gradient(ellipse 56% 60% at 78% 36%, rgba(108,71,255,.1), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 12% 78%, rgba(6,182,212,.08), transparent 68%),
+    linear-gradient(180deg, rgba(255,255,255,.35), transparent 70%);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.045) 1.1px,transparent 1.1px);background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 42%,#000 12%,transparent 78%);
+  mask-image:radial-gradient(ellipse 80% 70% at 60% 42%,#000 12%,transparent 78%);
+}
+[data-theme="day"] .hero:after{display:none}
+.hero>*{position:relative;z-index:1}
+.hero .glow{
+  position:absolute;left:74%;top:40%;transform:translate(-50%,-50%);width:min(720px,70vw);height:520px;z-index:0;
+  pointer-events:none;background:radial-gradient(ellipse at center, rgba(124,92,255,.12), transparent 70%);
+  filter:blur(18px);animation:breathe 8s ease-in-out infinite alternate;
+}
+[data-theme="day"] .hero .glow{
+  background:radial-gradient(ellipse at center, rgba(108,71,255,.14), transparent 70%);opacity:.7;
+}
+.hero .glow.b{display:none}
+@keyframes breathe{from{opacity:.75;transform:translate(-50%,-50%) scale(1)}to{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+.hero-l{position:relative;max-width:560px}
+.hero-l:before{
+  content:"ACT 01 / IDENTITY";position:absolute;right:0;top:-30px;font-family:var(--mono);font-size:.57rem;
+  letter-spacing:.2em;text-transform:uppercase;color:#8890c447;white-space:nowrap;pointer-events:none;
+}
+[data-theme="day"] .hero-l:before{color:#6c47ff61}
+.crumb{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.02em;color:var(--faint);margin-bottom:18px}
+.crumb .fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.crumb b{color:var(--sub);font-weight:500}
+.hero h1{
+  font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.05;
+  font-size:clamp(3rem,7vw,5rem);margin-bottom:6px;color:var(--ink);
+}
+.hero .role{font-family:var(--mono);font-size:clamp(.95rem,1.6vw,1.12rem);color:var(--t-f);margin-bottom:16px;letter-spacing:-.005em}
+.hero .role .sep{color:var(--faint);margin:0 8px}
+.techrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tchip{
+  display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.01em;
+  color:var(--ink);border:1px solid var(--line2);border-radius:980px;padding:6px 13px;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--surface);
+  transition:transform .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease);
+}
+[data-theme="day"] .tchip{border-color:#3c5a8c1f;background:var(--surface);color:#2a3540;box-shadow:0 8px 22px -16px #3c5a8c59,inset 0 1px 0 rgba(255,255,255,.6)}
+.tchip svg{width:14px;height:14px;color:var(--sub2)}
+.tchip:hover{transform:translateY(-2px);border-color:var(--accent-hover);background:var(--accent-soft2)}
+.avail{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.74rem;letter-spacing:.02em;color:var(--sub);
+  border:1px solid var(--line2);border-radius:980px;padding:6px 14px;margin-bottom:20px;
+  background:var(--surface);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+.avail .dot{width:7px;height:7px;border-radius:50%;background:#36d399;box-shadow:0 0 #36d39980;animation:pulse 2.6s ease-out infinite}
+[data-theme="day"] .avail{background:#2ea86e14;border-color:#2ea86e47;color:#1f6b45;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+[data-theme="day"] .avail .dot{background:#2ea86e}
+.hero .lede{margin-bottom:28px}
+.heromets{
+  display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--r);
+  background:linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.01)),var(--editor);
+  margin-bottom:22px;overflow:hidden;box-shadow:var(--sh-card);
+}
+[data-theme="day"] .heromets{background:linear-gradient(180deg,rgba(255,255,255,.7),transparent),var(--editor)}
+.heromets .hm{flex:1 1 auto;min-width:130px;display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-right:1px solid var(--line)}
+.heromets .hm:last-child{border-right:none}
+.heromets .hm b{font-size:1.28rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.heromets .hm span{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sub2)}
+.pastline{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:22px}
+.pastline .cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--sub2)}
+.pastline .cos{font-size:.9rem;font-weight:500;color:var(--sub);letter-spacing:.01em}
+
+.hero-r{display:flex;flex-direction:column;gap:16px;min-width:0}
+.win{background:var(--editor);border:1px solid var(--line2);border-radius:12px;overflow:hidden;box-shadow:0 34px 70px -34px #000000bf,inset 0 1px 0 rgba(255,255,255,.1);position:relative}
+[data-theme="day"] .win{background:var(--editor);border-color:var(--line2);box-shadow:0 28px 70px -40px #3c64aa66,inset 0 1px 0 rgba(255,255,255,.75)}
+.win:before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(122deg,rgba(255,255,255,.09) 0%,transparent 26%,transparent 74%,rgba(255,255,255,.04) 100%);
+}
+.hero-r .win{transform:perspective(1600px) rotateY(-3deg) rotateX(1.5deg);transform-origin:center}
+.win-bar{display:flex;align-items:center;gap:12px;height:40px;padding:0 13px;background:var(--chrome);border-bottom:1px solid var(--line)}
+.win-bar .tl i{width:11px;height:11px}
+.win-tabs{display:flex;gap:3px;overflow:hidden}
+.wt{font-family:var(--mono);font-size:.72rem;color:var(--sub2);padding:6px 12px;border-radius:8px 8px 0 0;white-space:nowrap;display:inline-flex;align-items:center;gap:7px}
+.wt .fdot{width:7px;height:7px;border-radius:2px}
+.wt.on{color:var(--ink);background:var(--editor);box-shadow:inset 0 1px #ffffff0d}
+.win-meta{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--sub2);display:flex;align-items:center;gap:8px}
+.code{font-family:var(--mono);font-size:.82rem;line-height:1.8;padding:14px 0;counter-reset:l;overflow-x:auto}
+.cl{display:block;white-space:pre;position:relative;padding-right:16px;min-height:1.8em}
+.cl:before{counter-increment:l;content:counter(l);display:inline-block;width:34px;padding-right:16px;margin-right:14px;text-align:right;color:var(--faint);opacity:.5;border-right:1px solid var(--line);user-select:none;font-variant-numeric:tabular-nums}
+.cl.hl{background:#7c5cff17;box-shadow:inset 2px 0 0 var(--accent)}
+.t-k{color:var(--sub)} .t-f{color:var(--ink)} .t-s{color:var(--accent)} .t-n{color:var(--ink)}
+.t-t{color:var(--ink)} .t-p{color:var(--sub)} .t-c{color:var(--faint);font-style:italic} .t-o{color:var(--faint)} .t-b{color:var(--accent)}
+
+.hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;font-size:.95rem;font-weight:500;font-family:inherit;
+  border-radius:980px;padding:12px 22px;transition:transform .22s var(--ease),background .22s var(--ease),box-shadow .22s var(--ease);
+  cursor:pointer;letter-spacing:-.01em;background:none;border:none;color:inherit;appearance:none;-webkit-appearance:none;
+}
+.btn.pri{background:linear-gradient(135deg,#6c47ff 0%,#06b6d4 100%);color:#fff;box-shadow:0 8px 28px -8px #7c5cff8c,0 0 0 1px #b794ff2e inset}
+.btn.pri:hover{background:linear-gradient(135deg,#9575ff,#8563ff);transform:translateY(-2px);box-shadow:0 8px 24px -6px #7c5cff99,0 0 0 1px #9575ff33 inset}
+.btn.pri:active{transform:scale(.98)}
+[data-theme="day"] .btn.pri{box-shadow:0 12px 28px -12px #6c47ff73}
+.btn.sec{color:var(--ink);border:1px solid var(--line2);padding:12px 20px;background:var(--surface);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.btn.sec:hover{background:#ffffff0d;border-color:var(--sub2)}
+[data-theme="day"] .btn.sec{background:var(--surface);border-color:#3c5a8c29;color:#2a3540;box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}
+[data-theme="day"] .btn.sec:hover{background:#fff;border-color:#6c47ff47}
+.btn:active{filter:brightness(.93)}
+.btn svg{width:16px;height:16px}
+.hero-links{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.hero-link{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;color:var(--sub2);transition:color .22s var(--ease)}
+.hero-link:hover{color:var(--accent)}
+[data-theme="day"] .hero-link{color:#6c47ff}
+.hero-link-sep{color:var(--faint);font-size:.72rem;opacity:.7}
+
+.recruiter-proof{padding:24px clamp(20px,5vw,44px);background:#080a11ad;border-bottom:1px solid var(--line)}
+[data-theme="day"] .recruiter-proof{background:transparent}
+.proof-intro{font-family:var(--mono);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sub2);margin-bottom:12px;text-align:center}
+.proof-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--editor);max-width:var(--wide);margin:0 auto}
+[data-theme="day"] .proof-grid{background:linear-gradient(180deg,#fff,#f7fafff5);border-color:rgba(60,90,140,.1);box-shadow:0 14px 36px -26px #3c64aa4d}
+.proof-card{display:flex;align-items:center;gap:12px;min-width:0;padding:17px 18px;border-right:1px solid var(--line)}
+.proof-card:last-child{border-right:0}
+.proof-card svg{width:19px;height:19px;color:var(--accent);flex:0 0 auto}
+.proof-card div{display:flex;flex-direction:column;min-width:0}
+.proof-card b{font-size:.88rem;font-weight:650;color:var(--ink);white-space:nowrap}
+.proof-card span{font-family:var(--mono);font-size:.65rem;color:var(--sub2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:900px){.proof-grid{grid-template-columns:repeat(2,1fr)}.proof-card{border-bottom:1px solid var(--line)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{
+  background:linear-gradient(180deg,rgba(255,255,255,.9),transparent 48%),var(--editor);
+  border:1px solid var(--line);border-radius:16px;padding:26px 20px;text-align:center;
+  transition:background .3s,border-color .3s,transform .3s;box-shadow:var(--sh-card);
+}
+.stat:hover{border-color:#6c47ff55;transform:translateY(-3px)}
+.stat b{display:block;font-size:1.7rem;font-weight:700;color:var(--ink);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--sub2)}
+
+.stackgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+@media (max-width:760px){.stackgrid{grid-template-columns:1fr}}
+.stackcard{background:var(--editor);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:var(--sh-card)}
+.stackcard h4{font-family:var(--mono);font-size:.78rem;letter-spacing:.03em;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.stackcard h4 .fdot{width:8px;height:8px;border-radius:2px}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:var(--mono);font-size:.74rem;color:var(--t-s);background:rgba(58,122,58,.08);
+  border:1px solid rgba(58,122,58,.22);border-radius:var(--r-sm);padding:4px 9px;transition:.2s;
+}
+.chip:hover{border-color:rgba(58,122,58,.5)}
+
+.company-head{margin-bottom:30px}
+.pastline{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.pastline .cap{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sub2)}
+.pastline .cos{font-size:1.05rem;font-weight:600;color:var(--ink)}
+.pastline .role{color:var(--t-f);font-family:var(--mono);font-size:.82rem}
+
+.proj{
+  border:1px solid var(--line);border-radius:var(--r);background:var(--editor);margin-bottom:14px;overflow:hidden;box-shadow:var(--sh-card);
+}
+.proj > summary{
+  display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;list-style:none;
+}
+.proj > summary::-webkit-details-marker{display:none}
+.proj > summary .fdot{width:9px;height:9px;border-radius:2px;flex:0 0 auto}
+.proj > summary .pname{font-weight:600;color:var(--ink);font-size:.98rem}
+.proj > summary .pver{font-family:var(--mono);font-size:.72rem;color:var(--faint)}
+.proj > summary .pdesc{color:var(--sub2);font-size:.84rem;margin-left:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.proj > summary .fold{margin-left:auto;color:var(--faint);font-size:.7rem;transition:transform .15s;flex:0 0 auto}
+.proj[open] > summary .fold{transform:rotate(90deg)}
+.proj .pbody{padding:0 22px 24px 22px;border-top:1px solid var(--line)}
+.proj .pbody h5{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--t-p);margin:20px 0 8px}
+.proj .pbody p{color:var(--sub);font-size:.92rem;line-height:1.72;margin-bottom:4px}
+.proj .pbody ul{margin:0;padding-left:0;list-style:none}
+.proj .pbody li{
+  color:var(--sub);font-size:.9rem;line-height:1.74;margin-bottom:10px;padding-left:20px;position:relative;
+}
+.proj .pbody li:before{content:"›";position:absolute;left:0;color:var(--accent);font-weight:700}
+.envtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.envtag{font-family:var(--mono);font-size:.68rem;color:var(--sub2);background:var(--surface2);border:1px solid var(--line);border-radius:var(--r-sm);padding:3px 8px}
+
+.earlier{border:1px solid var(--line);border-radius:var(--r);background:var(--editor);margin-bottom:10px;overflow:hidden;box-shadow:var(--sh-card)}
+.earlier > summary{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:14px 18px;cursor:pointer;list-style:none}
+.earlier > summary::-webkit-details-marker{display:none}
+.earlier > summary .fold{margin-left:auto;color:var(--faint);font-size:.7rem;transition:transform .15s}
+.earlier[open] > summary .fold{transform:rotate(90deg)}
+.earlier .ebody{padding:0 20px 20px;border-top:1px solid var(--line)}
+.earlier .ebody h5{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--t-p);margin:16px 0 8px}
+.earlier .ebody p{color:var(--sub);font-size:.88rem;line-height:1.7;margin:16px 0 12px}
+.earlier .ebody ul{margin:0;padding-left:0;list-style:none}
+.earlier .ebody li{color:var(--sub);font-size:.86rem;line-height:1.68;margin-bottom:8px;padding-left:18px;position:relative}
+.earlier .ebody li:before{content:"·";position:absolute;left:2px;color:var(--faint)}
+
+.about-figure{font-size:clamp(1.1rem,2.2vw,1.4rem);font-weight:500;letter-spacing:-.015em;line-height:1.5;color:var(--ink);max-width:760px;margin-top:18px}
+.about-figure b{color:var(--accent)}
+
+.edu-card{border:1px solid var(--line);border-radius:var(--r);background:var(--editor);padding:22px 24px;max-width:560px;margin-top:8px;box-shadow:var(--sh-card)}
+.edu-card .sch{font-weight:600;color:var(--ink);font-size:1.02rem;margin-bottom:4px}
+.edu-card .deg{color:var(--sub);font-size:.9rem}
+.edu-card .yr{font-family:var(--mono);color:var(--sub2);font-size:.78rem;margin-top:8px}
+
+footer a{color:var(--accent)}
+footer a:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center;color:var(--sub2);font-size:.82rem;line-height:1.7}
+.footer-inner{width:min(560px,100%);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px}
+.footer-name{font-family:var(--mono);font-size:.92rem;letter-spacing:.02em;color:var(--ink)}
+.footer-roles{font-size:.8rem;color:var(--sub2)}
+.footer-end{font-family:var(--mono);font-size:.7rem;color:var(--faint);letter-spacing:.1em;margin-top:6px}
+
+.statusbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:120;display:flex;align-items:stretch;gap:2px;
+  height:var(--h-status);font-family:var(--mono);font-size:.7rem;color:var(--sub);
+  background:var(--panel);border-top:1px solid var(--line);box-shadow:none;
+}
+[data-theme="day"] .statusbar{color:var(--sub);background:var(--panel);border-top:1px solid var(--line)}
+.statusbar .seg{display:inline-flex;align-items:center;gap:6px;padding:0 11px;white-space:nowrap;height:100%}
+.statusbar .seg svg{width:13px;height:13px;flex:0 0 auto}
+.statusbar .seg.accent{color:var(--accent);font-weight:600}
+.statusbar .live{width:7px;height:7px;border-radius:50%;background:#8ef0b8;box-shadow:0 0 8px #8ef0b899;animation:livePulse 2.4s ease-in-out infinite;flex:0 0 auto}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.45}}
+.statusbar .sp{margin-left:auto}
+.statusbar .hide-s{display:flex}
+@media (max-width:720px){.statusbar .hide-s{display:none}}
+
+@media (max-width:1119px){
+  .rail{transform:translateX(-102%);transition:transform .28s var(--ease)}
+  .rail.open{transform:translateX(0);box-shadow:0 30px 80px #0009}
+  [data-theme="day"] .rail.open{box-shadow:0 30px 80px #3c5a8c33}
+  .appmain{margin-left:0}
+  .rail-toggle{display:inline-flex!important}
+  .heromets{flex-direction:column}
+  .heromets .hm{border-right:none;border-bottom:1px solid var(--line)}
+  .heromets .hm:last-child{border-bottom:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  [data-theme="day"] body:before{right:12px;width:64px;height:64px}
+  .hero{grid-template-columns:1fr}
+  .hero-l{max-width:none}
+  .hero-r{order:-1}
+  .hero-r .win{transform:none}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+}
+.rail-toggle{display:none;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--sub);cursor:pointer;font-family:var(--mono);font-size:.8rem}
+
+/* minimal palette: one neutral dot everywhere, accent reserved for the active item */
+.fdot{background:var(--faint) !important;opacity:.55 !important}
+.tab.active .fdot,.rail a.active .fdot,.wt.on .fdot{background:var(--accent) !important;opacity:1 !important}
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8.3 8.3 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2Z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v1.6M12 19.4V21M4.9 4.9l1.1 1.1M18 18l1.1 1.1M3 12h1.6M19.4 12H21M4.9 19.1l1.1-1.1M18 6l1.1-1.1"/></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4.5 3.4 11.4c-.8.3-.8 1.5 0 1.8l4.6 1.5 1.7 5.2c.3.8 1.4 1 1.9.3l2.4-3.3 4.8 3.5c.7.5 1.7.1 1.9-.8L22 5.6c.2-.9-.7-1.6-1.5-1.1Z"/><path d="m9.8 14.6 8.4-7.2"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><line x1="16" y1="16" x2="20.5" y2="20.5"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3c2.8 2.6 2.8 15.4 0 18M12 3c-2.8 2.6-2.8 15.4 0 18"/></symbol>
+<symbol id="i-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="9" r="2.4"/><path d="M6 8.4v7.2M8.2 7.4l7.6 2.4M17.7 11.3c-.4 3-2.9 4.2-5.7 4.2"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17.5 19 6.5"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v10"/><polyline points="8 10.5 12 14.5 16 10.5"/><path d="M5 19.5h14"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><polyline points="4 7.5 12 13 20 7.5"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 13.5 14.5 8.5M8 11 6 13a3.2 3.2 0 0 0 4.5 4.5l2-2M16 13l2-2a3.2 3.2 0 0 0-4.5-4.5l-2 2"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.9 9.3 19.7 11 13.9 12.7 12 18.5 10.1 12.7 4.3 11 10.1 9.3z"/></symbol>
+<symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 9.5h12v6a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M16.5 10.5H18a2.5 2.5 0 0 1 0 5h-1.5"/><path d="M4 20.5h13"/></symbol>
+<symbol id="i-stream" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5c2.5-3 5.5-3 8 0s5.5 3 8 0"/><path d="M3.5 15.5c2.5-3 5.5-3 8 0s5.5 3 8 0"/></symbol>
+<symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><polyline points="7 10 10 12.5 7 15"/><line x1="12.5" y1="15" x2="16.5" y2="15"/></symbol>
+<symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c0-3 2.7-5 5.5-5s5.5 2 5.5 5"/><path d="M16 5.6A2.8 2.8 0 0 1 16 11"/><path d="M17 14.4c2.3.4 4 2.1 4 4.6"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="7" rx="2"/><rect x="3.5" y="13" width="17" height="7" rx="2"/><line x1="7" y1="7.5" x2="7.2" y2="7.5"/><line x1="7" y1="16.5" x2="7.2" y2="16.5"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5A1.5 1.5 0 0 1 5 5h4l2 2.2h8A1.5 1.5 0 0 1 20.5 8.7v9A1.5 1.5 0 0 1 19 19.2H5a1.5 1.5 0 0 1-1.5-1.5z"/></symbol>
+<symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2.5"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><line x1="3" y1="12.5" x2="21" y2="12.5"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 16.5 9 11 13 14.5 20.5 6"/><polyline points="15.5 6 20.5 6 20.5 11"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8 12 13 3 8z"/><path d="M3.5 12 12 16.7 20.5 12"/><path d="M3.5 16 12 20.7 20.5 16"/></symbol>
+</defs>
+</svg>
+
+<div class="tl-wrap" style="position:fixed;top:0;left:0;z-index:145;height:44px;display:flex;align-items:center;padding-left:16px;pointer-events:none">
+  <div class="tl"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+</div>
+
+<header class="titlebar">
+  <div style="width:64px"></div>
+  <div class="tb-file">
+    <span class="brand-s">Y</span>
+    <span><b>Yancy</b> — resume.md</span>
+  </div>
+  <div class="tb-right">
+    <button class="rail-toggle" id="railToggle" type="button" aria-label="Menu">☰</button>
+    <span class="tb-hire"><span class="dot"></span>available</span>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+      <svg class="icon-moon"><use href="#i-moon"></use></svg>
+      <svg class="icon-sun"><use href="#i-sun"></use></svg>
+    </button>
+    <div class="langsel" role="group" aria-label="Language">
+      <svg style="width:14px;height:14px;margin:0 3px 0 5px;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.7"><use href="#i-globe"></use></svg>
+      <button type="button" data-set-lang="zh" class="on">中</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabstrip" id="tabstrip">
+  <a class="tab" href="#hero" data-target="hero"><span class="fdot" style="background:var(--t-f)"></span>index.md</a>
+  <a class="tab" href="#summary" data-target="summary"><span class="fdot" style="background:var(--t-s)"></span>summary.md</a>
+  <a class="tab" href="#stack" data-target="stack"><span class="fdot" style="background:var(--t-n)"></span>skills.json</a>
+  <a class="tab" href="#experience" data-target="experience"><span class="fdot" style="background:var(--t-p)"></span>experience.ts</a>
+  <a class="tab" href="#education" data-target="education"><span class="fdot" style="background:var(--t-k)"></span>education.md</a>
+</nav>
+
+<aside class="rail" id="rail">
+  <div class="rail-h"><svg><use href="#i-search"></use></svg><span class="zh">资源管理器</span><span class="en">Explorer</span></div>
+  <div class="rail-tree">
+  <a href="#hero" data-target="hero"><span class="fdot" style="background:var(--t-f)"></span>index.md</a>
+  <a href="#summary" data-target="summary"><span class="fdot" style="background:var(--t-s)"></span>summary.md</a>
+  <a href="#stack" data-target="stack"><span class="fdot" style="background:var(--t-n)"></span>skills.json</a>
+  <details open>
+    <summary><span class="fold">▸</span>📁 experience/</summary>
+    <a class="indent" href="#exp-digiplus" data-target="experience"><span class="fdot" style="background:var(--t-p)"></span>DigiPlus/</a>
+    <a class="indent" href="#p-aibiz" data-target="experience"><span class="fdot" style="background:#3d6dd8"></span>AIBusinessPlatform.ts</a>
+    <a class="indent" href="#p-riskguard" data-target="experience"><span class="fdot" style="background:#a06820"></span>RiskGuard.ts</a>
+    <a class="indent" href="#p-videai" data-target="experience"><span class="fdot" style="background:#1a8a7a"></span>VideAI.ts</a>
+    <a class="indent" href="#p-chainpay" data-target="experience"><span class="fdot" style="background:#3a7a3a"></span>ChainPayGraph.go</a>
+    <a class="indent" href="#p-tradepilot" data-target="experience" title="TradePilot+StrategyForge.java"><span class="fdot" style="background:#a06820"></span><span class="fname">TradePilot+StrategyForge.java</span></a>
+    <a class="indent" href="#p-sportcore" data-target="experience"><span class="fdot" style="background:#2a7ab8"></span>SportCore.go</a>
+    <a class="indent" href="#p-digiinfo" data-target="experience"><span class="fdot" style="background:#6b4fa8"></span>DigiInfoMarket.ts</a>
+    <a class="indent" href="#p-alphaodds" data-target="experience"><span class="fdot" style="background:#2d5cb8"></span>AlphaOdds.ts</a>
+    <a class="indent" href="#p-infra" data-target="experience"><span class="fdot" style="background:#7080a0"></span>bigdata-infra.md</a>
+  </details>
+  <details>
+    <summary><span class="fold">▸</span>📁 earlier-roles/</summary>
+    <a class="indent" href="#e-ddu" data-target="experience">DDU.go</a>
+    <a class="indent" href="#e-seektop" data-target="experience">SeekTop.java</a>
+    <a class="indent" href="#e-victor" data-target="experience">Victor.java</a>
+    <a class="indent" href="#e-marlabs" data-target="experience">Marlabs.java</a>
+    <a class="indent" href="#e-finance" data-target="experience">consumer-finance.java</a>
+    <a class="indent" href="#e-sports" data-target="experience">sports-wms.java</a>
+    <a class="indent" href="#e-pharma" data-target="experience">pharma.java</a>
+    <a class="indent" href="#e-realestate" data-target="experience">real-estate.java</a>
+    <a class="indent" href="#e-bank" data-target="experience">commercial-bank.java</a>
+  </details>
+  <a href="#education" data-target="education"><span class="fdot" style="background:var(--t-k)"></span>education.md</a>
+  </div>
+  <div class="rail-foot">
+    <a href="https://github.com/YancyZhang" target="_blank" rel="noopener"><svg><use href="#i-terminal"></use></svg>GitHub</a>
+    <a href="#hero"><svg><use href="#i-briefcase"></use></svg>LinkedIn</a>
+    <a href="https://t.me/ukHarley" target="_blank" rel="noopener"><svg><use href="#i-tg"></use></svg>Telegram</a>
+    <a href="mailto:yancysu1006@gmail.com"><svg><use href="#i-mail"></use></svg>Email</a>
+  </div>
+</aside>
+
+<main class="appmain">
+
+  <section class="hero" id="hero">
+    <span class="glow" aria-hidden="true"></span>
+    <span class="glow b" aria-hidden="true"></span>
+    <div class="hero-l">
+      <div class="crumb"><span class="fdot" style="background:var(--t-f)"></span><b>yancy</b> / index.md</div>
+      <h1>Yancy</h1>
+      <div class="role">Senior Backend Engineer<span class="sep">·</span>Big Data / Flink<span class="sep">·</span><span class="zh">AI 多代理</span><span class="en">Multi-agent AI</span></div>
+
+      <div class="techrow">
+        <span class="tchip"><svg><use href="#i-cup"></use></svg>Java</span>
+        <span class="tchip"><svg><use href="#i-terminal"></use></svg>Go</span>
+        <span class="tchip"><svg><use href="#i-terminal"></use></svg>Python</span>
+        <span class="tchip"><svg><use href="#i-stream"></use></svg>Flink</span>
+        <span class="tchip"><svg><use href="#i-layers"></use></svg><span class="zh">大数据</span><span class="en">Big Data</span></span>
+        <span class="tchip"><svg><use href="#i-spark"></use></svg>AI Agent</span>
+        <span class="tchip"><svg><use href="#i-people"></use></svg><span class="zh">技术负责人</span><span class="en">Tech Lead</span></span>
+        <span class="tchip"><svg><use href="#i-server"></use></svg>Backend API</span>
+      </div>
+
+      <div class="avail">
+        <span class="dot"></span>
+        <span class="zh">可远程协作 · 英语办公 · 时区可协商</span>
+        <span class="en">Remote-ready · English for work · Flexible hours</span>
+      </div>
+
+      <p class="lede zh">12+ 年软件工程经验，横跨 Java / Python / Go / SQL 四大主力语言。目前在 DigiPlus Interactive Corp（BGC, 菲律宾）担任 Big Data / AI Engineer（Tech Lead），带 8 人团队从 0 到 1 落地 AIBusinessPlatform（Analyst / Agent / Customer 共享架构）以及 4 个生产级 AI 决策平台。英语流利，开放全球远程合作。</p>
+      <p class="lede en">12+ years in software engineering across Java, Python, Go, and SQL. Currently Big Data / AI Engineer (Tech Lead) at DigiPlus Interactive Corp in BGC, Philippines, leading an 8-person team that shipped AIBusinessPlatform (shared Analyst / Agent / Customer core) plus four production AI decision platforms from zero. Fluent English. Open to remote work worldwide.</p>
+
+      <div class="heromets">
+        <div class="hm"><b>12+</b><span class="zh">年经验</span><span class="en">Years Experience</span></div>
+        <div class="hm"><b>9</b><span class="zh">生产级平台</span><span class="en">Production Platforms</span></div>
+        <div class="hm"><b>70+</b><span class="zh">后端模块</span><span class="en">Backend Modules</span></div>
+        <div class="hm"><b>200+</b><span class="zh">已交付 API</span><span class="en">API Endpoints Shipped</span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="mailto:yancysu1006@gmail.com" class="btn pri"><span class="zh">合作咨询 ›</span><span class="en">Get in touch ›</span></a>
+        <a href="https://t.me/ukHarley" class="btn sec" target="_blank" rel="noopener"><svg><use href="#i-tg"></use></svg>Telegram</a>
+        <a href="resume.pdf" class="btn sec" id="resumeDl" download><svg><use href="#i-download"></use></svg><span class="zh">下载简历 PDF</span><span class="en">Download résumé PDF</span></a>
+      </div>
+      <div class="hero-links">
+        <a href="#experience" class="hero-link zh">查看专业经验</a>
+        <a href="#experience" class="hero-link en">View experience</a>
+        <span class="hero-link-sep" aria-hidden="true">·</span>
+        <a href="#education" class="hero-link zh">教育背景</a>
+        <a href="#education" class="hero-link en">Education</a>
+      </div>
+      <div class="pastline">
+        <span class="cap zh">曾任职</span><span class="cap en">Previously</span>
+        <span class="cos">DDU · SeekTop · Victor · Marlabs</span>
+      </div>
+    </div>
+
+    <div class="hero-r">
+      <div class="win">
+        <div class="win-bar">
+          <span class="tl" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></span>
+          <div class="win-tabs">
+            <span class="wt on"><span class="fdot" style="background:#82aaff"></span>Yancy.java</span>
+            <span class="wt"><span class="fdot" style="background:#f0ad5c"></span>stack.json</span>
+          </div>
+          <span class="win-meta"><span class="fdot" style="background:#82aaff"></span>Java · UTF-8</span>
+        </div>
+        <div class="code">
+          <span class="cl"><span class="t-c">// Big Data / Flink / AI Agent · 12y</span></span>
+          <span class="cl"><span class="t-k">public class</span> <span class="t-t">Engineer</span> {</span>
+          <span class="cl hl"><span class="t-k">private final</span> <span class="t-t">String</span> <span class="t-p">name</span> <span class="t-o">=</span> <span class="t-s">"Yancy"</span>;</span>
+          <span class="cl"><span class="t-k">private final</span> <span class="t-t">int</span> <span class="t-p">years</span> <span class="t-o">=</span> <span class="t-n">12</span>; <span class="t-c">// backend + big data</span></span>
+          <span class="cl"><span class="t-k">private final</span> <span class="t-t">List</span>&lt;<span class="t-t">String</span>&gt; <span class="t-p">stack</span> <span class="t-o">=</span> List.of(</span>
+          <span class="cl">  <span class="t-s">"Java"</span>, <span class="t-s">"Go"</span>, <span class="t-s">"Python"</span>, <span class="t-s">"Flink"</span>,</span>
+          <span class="cl">  <span class="t-s">"MaxCompute"</span>, <span class="t-s">"LangGraph"</span></span>
+          <span class="cl">);</span>
+          <span class="cl"><span class="t-k">private final boolean</span> <span class="t-p">remote</span> <span class="t-o">=</span> <span class="t-b">true</span>; <span class="t-c">// worldwide</span></span>
+          <span class="cl"><span class="t-k">private final boolean</span> <span class="t-p">openToWork</span> <span class="t-o">=</span> <span class="t-b">true</span>;</span>
+          <span class="cl"></span>
+          <span class="cl"><span class="t-t">Platform</span> <span class="t-f">build</span>(<span class="t-t">Idea</span> <span class="t-p">idea</span>) <span class="t-k">throws</span> <span class="t-t">Exception</span> {</span>
+          <span class="cl">  <span class="t-k">return</span> <span class="t-p">pipeline</span>.<span class="t-f">ingest</span>(<span class="t-p">idea</span>) <span class="t-c">// ODPS → stream</span></span>
+          <span class="cl">    .<span class="t-f">orchestrate</span>() <span class="t-c">// LLM agents</span></span>
+          <span class="cl">    .<span class="t-f">ship</span>(); <span class="t-c">// production</span></span>
+          <span class="cl">  }</span>
+          <span class="cl">}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="recruiter-proof">
+    <p class="proof-intro zh">招聘方 30 秒摘要</p>
+    <p class="proof-intro en">30-second recruiter summary</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <svg><use href="#i-briefcase"></use></svg>
+        <div><b class="zh">Tech Lead · 8 人团队</b><b class="en">Tech Lead · team of 8</b><span class="zh">大数据 / AI 决策平台</span><span class="en">Big data / AI decision platforms</span></div>
+      </div>
+      <div class="proof-card">
+        <svg><use href="#i-layers"></use></svg>
+        <div><b class="zh">4.2 亿 / 天</b><b class="en">420M / day</b><span class="zh">订单事件处理</span><span class="en">order events / day</span></div>
+      </div>
+      <div class="proof-card">
+        <svg><use href="#i-trend"></use></svg>
+        <div><b class="zh">4 次技术代际</b><b class="en">4 tech generations</b><span class="zh">单体 → 微服务 → 流处理 → LLM Agent</span><span class="en">monolith → microservices → streaming → LLM agents</span></div>
+      </div>
+      <div class="proof-card">
+        <svg><use href="#i-server"></use></svg>
+        <div><b>70+ / 200+</b><span class="zh">后端模块 / API</span><span class="en">backend modules / APIs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary">
+    <div class="wrap">
+      <div class="eyebrow">Summary</div>
+      <h2 class="head zh">12 年后端工程师，经历了 <em>4 次</em>技术代际更替</h2>
+      <h2 class="head en">A 12-year backend engineer through <em>4</em> technology generations</h2>
+      <p class="lede zh">从单体 Spring MVC 到 Spring Boot 微服务，从 Hibernate JDBC 到 PyODPS 大数据查询，从 Tomcat 单机到 Docker / K8s 云原生，从同步阻塞到 Apache Flink 实时流处理，从传统 REST API 到 FastAPI 异步 + LangGraph 多代理工作流 — 完整经历了后端工程的四次技术代际更替。</p>
+      <p class="lede en">From Spring MVC monoliths to Spring Boot microservices; from Hibernate JDBC to PyODPS; from single-node Tomcat to Docker / Kubernetes; from blocking I/O to Apache Flink streaming; from classic REST to FastAPI plus LangGraph multi-agent workflows — a full four-generation arc of backend engineering.</p>
+
+      <div class="about-figure zh">
+        前置 <b>Java / Go</b> 经验是地基 — 微服务架构、消息中间件、Flink 实时流、JVM 调优、SQL 优化 — 上层叠加 <b>LLM 多代理 / ML 集成 / RAG / CV</b> 等 AI 工程化能力，一个人能从「接 ODPS 表 → 设计实时管道 → 编排 LLM Agent → 输出可解释信号 → 前端可视化」打穿全栈。
+      </div>
+      <div class="about-figure en">
+        <b>Java / Go</b> is the foundation — microservices, messaging, Flink streaming, JVM tuning, SQL optimization — with <b>LLM multi-agent / ML / RAG / CV</b> on top. One person who can go from ODPS tables → realtime pipelines → LLM agent orchestration → explainable signals → frontend visualization.
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>Java</b><span>8 yrs · 2013–2021</span></div>
+        <div class="stat"><b>Go</b><span>2 yrs · 2022–2023</span></div>
+        <div class="stat"><b>Python + Big Data</b><span>~4 yrs · 2022–Now</span></div>
+        <div class="stat"><b>AI / LLM</b><span>~2 yrs · 2024–Now</span></div>
+      </div>
+
+      <div class="stackgrid" style="margin-top:28px">
+        <div class="stackcard">
+          <h4><span class="fdot" style="background:#2d5cb8"></span>Java 2013–2021</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Spring Boot / Cloud / MyBatis / Hibernate / Dubbo / JVM 调优 / 多线程 / GC / 锁 / Netty / 微服务拆分。从 Java 6 写到 Java 17，覆盖支付、风控、仓储、消费金融、制药、ERP、银行授信。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Spring Boot / Cloud / MyBatis / Hibernate / Dubbo / JVM tuning / concurrency / GC / locks / Netty / service splits. Java 6→17 across payments, risk, WMS, consumer finance, pharma, ERP, and bank credit.</p>
+        </div>
+        <div class="stackcard">
+          <h4><span class="fdot" style="background:var(--t-t)"></span>Go 2022–2023</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Goroutine / Channel / WebSocket / UDP。DDU 峰值 QPS 5K+，熟悉 Go 内存模型、协程调度、channel 模式与 select 多路复用。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / goroutines / channels / WebSocket / UDP. DDU peak 5K+ QPS. Go memory model, scheduler, channel patterns, select mux.</p>
+        </div>
+        <div class="stackcard">
+          <h4><span class="fdot" style="background:var(--t-s)"></span>Python + Flink</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">FastAPI + Pydantic v2 / PyODPS / MaxCompute / DataWorks / Flink DataStream+Table。日均 4.2 亿订单 + 7.37 亿广告点击。Backpressure、Checkpoint/Savepoint、Watermark、RocksDB vs HashMap、keyBy 加盐、4-tier UNION ALL / COLLECT_LIST / COUNT(*) 替代 COUNT DISTINCT。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">FastAPI + Pydantic v2 / PyODPS / MaxCompute / DataWorks / Flink DataStream+Table. 420M orders + 737M ad clicks/day. Backpressure, checkpoints, watermarks, RocksDB vs HashMap, salted keyBy, 4-tier UNION ALL / COLLECT_LIST / COUNT(*) vs DISTINCT.</p>
+        </div>
+        <div class="stackcard">
+          <h4><span class="fdot" style="background:var(--t-k)"></span>AI / LLM 2024–</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">LangGraph 5 代理 tit-for-tat 辩论，Claude / GPT-4o / Grok 三路路由 + Conformal Prediction。XGBoost / LightGBM / LSTM / Transformer / GNN 加权融合 + SHAP。pgvector + Pinecone RAG。YOLO / MediaPipe 实时 CV + xG。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">LangGraph 5-agent tit-for-tat debate, Claude / GPT-4o / Grok routing + conformal prediction. XGBoost / LightGBM / LSTM / Transformer / GNN + SHAP. pgvector + Pinecone RAG. YOLO / MediaPipe live CV + xG.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="eyebrow">Tech Stack</div>
+      <h2 class="head zh">技术能力 <em>矩阵</em></h2>
+      <h2 class="head en">Capability <em>matrix</em></h2>
+      <p class="lede zh">多语言全栈，当前重心在 JVM / Go 地基上的 Flink 实时与 LLM 多代理编排。早期企业栈（WebLogic、Struts、SOAP）见下方经历，不在这里铺开。</p>
+      <p class="lede en">Polyglot stack, current weight on Flink streaming and LLM multi-agent orchestration on a Java / Go base. Legacy enterprise tools live in earlier roles, not as a chip cloud.</p>
+
+      <div class="stackgrid">
+        <div class="stackcard"><h4><span class="fdot" style="background:var(--t-f)"></span><span class="zh">主力语言</span><span class="en">Core languages</span></h4>
+          <div class="chiprow">
+            <span class="chip">Java 8/11/17/21</span><span class="chip">Python 3.10+</span><span class="chip">Go</span><span class="chip">SQL</span><span class="chip">TypeScript</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:#2d5cb8"></span>Java</h4>
+          <div class="chiprow">
+            <span class="chip">Spring Boot / Cloud</span><span class="chip">MyBatis / JPA</span><span class="chip">Dubbo</span><span class="chip">Netty</span><span class="chip">JUnit</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:var(--t-n)"></span>Python</h4>
+          <div class="chiprow">
+            <span class="chip">FastAPI + Pydantic v2</span><span class="chip">PyODPS</span><span class="chip">LangChain / LangGraph</span><span class="chip">Pandas</span><span class="chip">scikit-learn</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:var(--t-t)"></span>Go</h4>
+          <div class="chiprow">
+            <span class="chip">Gin / Fiber</span><span class="chip">gRPC</span><span class="chip">WebSocket</span><span class="chip">Gorm</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:var(--t-k)"></span>AI / LLM</h4>
+          <div class="chiprow">
+            <span class="chip">LangGraph</span><span class="chip">Claude / GPT-4o / Grok</span><span class="chip">RAG (pgvector / Pinecone)</span><span class="chip">MCP</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:#2a7ab8"></span>ML / CV</h4>
+          <div class="chiprow">
+            <span class="chip">XGBoost / LightGBM</span><span class="chip">PyTorch</span><span class="chip">SHAP</span><span class="chip">YOLO / MediaPipe</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:var(--t-s)"></span><span class="zh">大数据 / 实时</span><span class="en">Big data / stream</span></h4>
+          <div class="chiprow">
+            <span class="chip">MaxCompute (ODPS)</span><span class="chip">DataWorks</span><span class="chip">Flink DataStream + Table + CEP</span><span class="chip">Kafka</span><span class="chip">Hologres</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:#3a7a3a"></span><span class="zh">存储 / 云</span><span class="en">Stores / cloud</span></h4>
+          <div class="chiprow">
+            <span class="chip">MySQL / PostgreSQL</span><span class="chip">Redis</span><span class="chip">ClickHouse</span><span class="chip">Alibaba Cloud</span><span class="chip">Docker / K8s</span>
+          </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wide">
+      <div class="eyebrow">Experience</div>
+      <h2 class="head zh">专业经验 <em>Professional Experience</em></h2>
+      <h2 class="head en">Professional <em>experience</em></h2>
+
+      <div class="company-head" id="exp-digiplus" style="margin-top:36px">
+        <div class="pastline">
+          <span class="cap"><span class="zh">2023.12 – 至今</span><span class="en">Dec 2023 – Present</span></span>
+          <span class="cos">DigiPlus Interactive Corp</span>
+          <span class="role">Big Data / AI Engineer (Tech Lead) · <span class="zh">团队 8 人</span><span class="en">team of 8</span></span>
+        </div>
+      <p class="lede zh">数字营销与互动娱乐集团（实时交易 / 风控场景）。核心产品日均 480K 笔交易、85K DAU、$267M 交易额、4.2 亿订单事件、7.37 亿广告点击。Big Data + AI 团队从 0 到 1 落地 AIBusinessPlatform 以及 4 个生产级 AI 决策平台。</p>
+      <p class="lede en">Digital marketing and interactive entertainment group (realtime trading / risk). Core product: 480K daily transactions, 85K DAU, $267M turnover, 420M order events, 737M ad clicks. The team shipped AIBusinessPlatform plus four production AI decision platforms.</p>
+      </div>
+
+      <details class="proj" open id="p-aibiz">
+        <summary>
+          <span class="fdot" style="background:#3d6dd8"></span>
+          <span class="pname">AIBusinessPlatform</span>
+          <span class="pdesc zh">AI 企业业务平台 · Analyst / Agent / Customer 共享架构</span>
+          <span class="pdesc en">Shared AI core for Analyst / Agent / Customer</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">前身 QueryForge（Text2SQL 数据分析）。按内部架构扩展为三个产品共享的 AI 核心：AI Analyst（数据分析）/ AI Agent（自动执行）/ AI Customer（客服销售）。三者共用同一套 LLM / RAG / Text2SQL / Workflow，而不是各自重复用户系统、Agent、权限、日志、数据库和知识库。</p>
+          <p class="en">Grew out of QueryForge (Text2SQL). One shared AI core for three products: Analyst (analytics), Agent (execution), Customer (support/sales). Shared LLM / RAG / Text2SQL / Workflow — not three copies of users, agents, RBAC, logs, DBs, and knowledge bases.</p>
+          <h5><span class="zh">技术架构</span><span class="en">Architecture</span></h5>
+          <p class="zh">5 层：可编辑安装的共享 Python 包 + Java 统一认证网关 + Nginx 入口 + Go Worker（Kafka / 通知 / 定时）+ 三个 FastAPI 后端 + 三个 Next.js 前端。CI：pytest + mvn test + tsc --noEmit；本地 Go / Python / Java 测试与 compose config 均通过。</p>
+          <p class="en">Five layers: editable-installed shared Python package + Java auth gateway + Nginx + Go worker (Kafka / notify / cron) + three FastAPI backends + three Next.js UIs. CI: pytest + mvn test + tsc --noEmit; local Go / Python / Java tests and compose config green.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🏗 <b>platform-common</b> — <span class="zh">把三产品重复的数仓目录 / 连接器 / LLM 客户端 / SQL 校验 / 认证 / Redis 收成共享 pip 包。数据源注册表默认按进程目录落盘，收成共享包后会误共享「谁注册了哪个源」；用独立环境变量把注册库拆开（真实数仓结构仍共享）。</span><span class="en">Collapsed duplicated catalog / connectors / LLM client / SQL validator / auth / Redis into a shared pip package. Datasource registry defaulted to process cwd, so three products accidentally shared registrations — split with an explicit env var (warehouse catalogs still shared).</span></li>
+            <li>🔐 <span class="zh">三产品统一 Java 认证网关 + SSO；前端共用同一 JWT，禁止浏览器直连 Python 服务。</span><span class="en">Single Java auth gateway + SSO; one JWT; no browser-to-Python bypass.</span></li>
+            <li>🚦 <span class="zh">Nginx 统一入口 + IP 限流；可切换 TLS。</span><span class="en">Nginx front door + IP rate limit; optional TLS.</span></li>
+            <li>📨 <span class="zh">Go Worker 消费通知类 Kafka topic（SMTP + Telegram）；其余 topic 只写回执（业务已在 Python 完成）；cron 由 Go 触发、Python 执行。</span><span class="en">Go worker: real SMTP + Telegram on the notification topic; other topics write receipts only (Python already ran the work); cron = Go WHEN, Python HOW.</span></li>
+            <li>🗄 <span class="zh">Redis 用于会话 / Agent 状态 / 租户限流 / 审批锁。未配置时诚实 no-op；审批竞态另有数据库原子更新兜底。</span><span class="en">Redis for session / agent state / tenant rate limit / approval lock. Honest no-op when unset; DB atomic update as last race guard.</span></li>
+            <li>🧩 <span class="zh">领域模型覆盖项目 / Agent / 工作流 / 任务；套餐配额与执行类权限可调。</span><span class="en">Domain: project / agent / workflow / task; plan quotas and execution permissions are patchable.</span></li>
+            <li>🤝 <span class="zh">统一对话入口按产品上下文路由到各 Python AI Gateway，并保留各产品原有 API 形状。</span><span class="en">Unified chat entry routes by product context to each Python AI gateway, keeping existing API shapes.</span></li>
+            <li>✅ <span class="zh">诚实披露：Analyst 对接生产数仓；Agent 有 Tool+Workflow 与高风险人工审批；Customer 混合语义检索 + 退款审批幂等。本机 Docker 端到端通常未拉起，不冒充已验证。</span><span class="en">Honest status: Analyst on a live warehouse; Agent Tool+Workflow with HITL for high-risk ops; Customer hybrid search + idempotent refunds. Local Docker E2E usually not up — not claimed as proven.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Python 3.10+ / FastAPI</span><span class="envtag">Java 17 + Spring Boot 3</span><span class="envtag">Go</span><span class="envtag">Kafka</span><span class="envtag">Redis</span><span class="envtag">Nginx</span><span class="envtag">PostgreSQL + pgvector</span><span class="envtag">SQLite</span><span class="envtag">Next.js 14</span><span class="envtag">Docker Compose</span><span class="envtag">GitHub Actions</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-riskguard">
+        <summary>
+          <span class="fdot" style="background:#a06820"></span>
+          <span class="pname">RiskGuard</span>
+          <span class="pdesc zh">实时风控与反作弊分析平台</span>
+          <span class="pdesc en">Realtime risk &amp; anti-cheat</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">基于阿里云 MaxCompute 的实时风控决策平台，&lt;300ms 响应支撑交易前干预。规模：16 风控决策模块 / 53 API / 16 可视化 Panel / 27 热点 Job 并行预热，日均 4.2 亿订单事件 + 7.37 亿广告点击，跨两个 ODPS 项目接入核心订单与行为表。</p>
+          <p class="en">MaxCompute-backed realtime risk platform, &lt;300ms for pre-trade intervention. Scale: 16 decision modules / 53 APIs / 16 panels / 27 warmup jobs, 420M daily order events + 737M ad clicks, core order and behavior tables across two ODPS projects.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🔧 <span class="zh">ODPS 查询层封装（跨 project + schema 混合查询），处理多 BU 联合视图 + 权限拒绝兜底 + Tunnel 重连。</span><span class="en">PyODPS query layer across projects/schemas, multi-BU union views, permission fallback, Tunnel reconnect.</span></li>
+            <li>⚡ <span class="zh">MaxCompute SQL 性能调优 — 把多个 ADS 任务从 4h+ 优化到 &lt;30 min（4-tier UNION ALL / COLLECT_LIST+LATERAL VIEW / COUNT(*) 替代 COUNT DISTINCT / ROW_NUMBER 去重 / MAPJOIN / skewindata / 整数比较替代 DATEADD / ten×ten cross join 替代 N 行 UNION ALL）。</span><span class="en">MaxCompute SQL: several ADS jobs from 4h+ to &lt;30 min (4-tier UNION ALL, COLLECT_LIST+LATERAL VIEW, COUNT(*) vs DISTINCT, ROW_NUMBER, MAPJOIN, skewindata, integer compare vs DATEADD, ten×ten vs N-way UNION ALL).</span></li>
+            <li>🕸 <span class="zh">NetworkX 知识图谱 + 风险评分引擎 — 识别可疑交易 / 作弊广告点击 / 异常存提 / KOL 网络拓扑 / collusion clustering / multi-account 关联。</span><span class="en">NetworkX knowledge graph + risk scoring: suspicious trades, ad-click fraud, deposit/withdraw anomalies, KOL topology, collusion clustering, multi-account links.</span></li>
+            <li>🚀 <span class="zh">27 热点 Job 并行预热 — 冷启从 600s+ 压到 60–120s，30min TTL 缓存命中 &lt;300ms。</span><span class="en">27 parallel warmup jobs: cold start 600s+ → 60–120s; 30min TTL cache hits &lt;300ms.</span></li>
+            <li>📊 <span class="zh">16 可视化 Panel — Risk Radar / Transaction Pattern / Anomaly Stream / KOL Network / Wool Hunter (XGBoost AUC 0.967) / AML 等。</span><span class="en">16 panels — Risk Radar / Transaction Pattern / Anomaly Stream / KOL Network / Wool Hunter (XGBoost AUC 0.967) / AML.</span></li>
+            <li>⚠ <span class="zh">Flink 实时风控 — Java DataStream + CEP：5 min 窗口连续 10 笔 same price+amount 触发警报，RocksDB state + 增量 checkpoint + externalized retention。</span><span class="en">Flink DataStream + CEP: 10 same-price+amount trades in 5 min fires an alert; RocksDB + incremental checkpoint + externalized retention.</span></li>
+            <li>🛠 <span class="zh">DataWorks 调度治理：编写 _di / _wi / _mi 三粒度留存表 INSERT，以及 SelectDB/Doris DDL 转换。</span><span class="en">DataWorks: _di/_wi/_mi retention INSERT scripts plus SelectDB/Doris DDL conversion.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">PyODPS</span><span class="envtag">NetworkX</span><span class="envtag">Java 11 + Flink</span><span class="envtag">DataWorks</span><span class="envtag">Hologres</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-videai">
+        <summary>
+          <span class="fdot" style="background:#1a8a7a"></span>
+          <span class="pname">VideAI / DashFlix</span>
+          <span class="pdesc zh">AI 内容理解与推荐平台</span>
+          <span class="pdesc en">AI content understanding &amp; recs</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">面向 DashFlix 视频产品的 AI 内容理解、推荐与多模态审核平台。820 部剧集 / 145,967 行 catalog，统一视频帧+字幕+弹幕+用户行为到向量空间。规模：17 后端模块 / 16 前端组件 / 52 API / 18 前端 Tab / 26 dashboard 并行预热 98.3s 完成，首屏后 &lt;50ms 缓存命中。</p>
+          <p class="en">AI understanding, recommendation, and multimodal moderation for DashFlix. 820 titles / 145,967 catalog rows; frames + subtitles + comments + behavior in one vector space. Scale: 17 backend modules / 16 UI components / 52 APIs / 18 tabs / 26 dashboards warmed in 98.3s, then &lt;50ms cache hits.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🎬 <span class="zh">多模态内容理解管道 — 视频帧抽样 + PaddleOCR + Whisper ASR + LLM 剧情摘要，统一进 pgvector 768 维向量空间。</span><span class="en">Multimodal pipeline — frame sampling + PaddleOCR + Whisper ASR + LLM summaries into pgvector 768-d.</span></li>
+            <li>🔍 <span class="zh">RAG 检索系统 — pgvector 语义召回 + Cohere Rerank，「找类似剧」Top-10 召回准确率 80%+，P95 延迟 &lt;800ms。</span><span class="en">RAG — pgvector recall + Cohere Rerank; similar-title Top-10 accuracy 80%+, P95 &lt;800ms.</span></li>
+            <li>🤖 <span class="zh">LangGraph 多代理工作流 — lang_detect / conversion / recommend / dialog 4 代理，剧情问答 8 秒出答案。</span><span class="en">LangGraph 4-agent workflow (lang_detect / conversion / recommend / dialog); plot Q&amp;A in 8s.</span></li>
+            <li>📈 <span class="zh">用户行为分析模块 — ODPS 日级用户事件 → dashboard 缓存层，26 dashboard 并行预热。</span><span class="en">Daily ODPS events → dashboard cache; 26 parallel warmups.</span></li>
+            <li>🐳 Docker Compose — PostgreSQL pgvector + Redis + FastAPI + Next.js.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">PaddleOCR</span><span class="envtag">Whisper</span><span class="envtag">Cohere Rerank</span><span class="envtag">pgvector</span><span class="envtag">LangGraph</span><span class="envtag">Docker Compose</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-chainpay">
+        <summary>
+          <span class="fdot" style="background:#3a7a3a"></span>
+          <span class="pname">ChainPayGraph</span>
+          <span class="pdesc zh">Web3 支付风控网关</span>
+          <span class="pdesc en">Web3 payment risk gateway</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">集团评估接入加密货币充提通道（跨链 USDT/USDC）面临的欺诈/洗钱/钓鱼地址风险。需要 Go 高并发网关 + AI 风控 Agent + 图谱风控的实时拦截系统，且在 Neo4j/Milvus/Kafka 不可用时优雅降级（fail-closed 设计）。</p>
+          <p class="en">Evaluating crypto deposit/withdraw rails (cross-chain USDT/USDC) against fraud, AML, and phishing. Needed a Go high-concurrency gateway + AI risk agents + graph risk, fail-closed when Neo4j/Milvus/Kafka are down.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🔗 <span class="zh">Go 高并发风控网关 — gRPC + OpenTelemetry 全链路追踪，幂等 Pipeline 统一 8 个调用点，Bloom Filter 三层校验（内存 + Redis + 定期重建），Kafka 事件总线解耦。</span><span class="en">Go gateway — gRPC + OpenTelemetry, idempotent pipeline at 8 call sites, 3-layer Bloom (memory + Redis + rebuild), Kafka bus.</span></li>
+            <li>🕸 <span class="zh">AML / Behavior / Phishing 三 Agent 并行风控 — Neo4j GraphRAG 识别 peeling / mixer / layering 洗钱模式，Milvus 向量检索比对钓鱼地址；Behavior Agent 用真实训练的 GradientBoostingClassifier 替换阈值规则（holdout AUC 0.876 vs 规则基线 0.629；模拟数据 + 熔断阈值把关，避免过拟合结果上线）。</span><span class="en">AML / Behavior / Phishing agents in parallel — Neo4j GraphRAG for peeling / mixer / layering, Milvus phishing lookup; Behavior Agent GradientBoostingClassifier holdout AUC 0.876 vs rule baseline 0.629, with simulated data + circuit-breaker so an overfit score cannot ship.</span></li>
+            <li>⚙ <span class="zh">跨项目真实集成 — 与 RiskGuard 的 XGBoost 提现风险模型、TradePilot 钱包风险预检 MCP 工具真实 gRPC/HTTP 互调。</span><span class="en">Live gRPC/HTTP to RiskGuard XGBoost withdraw model and TradePilot wallet precheck MCP tools.</span></li>
+            <li>✅ <span class="zh">工程化与 CI — go build/vet/test 全绿，GitHub Actions 三 job 流水线。Flink 实时特征管道 / Solana Watcher 在文档里如实标「规划中」，不冒充已完成。</span><span class="en">CI green (build/vet/test), 3-job GitHub Actions. Flink feature pipeline / Solana Watcher labeled planned — not described as shipped.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Go</span><span class="envtag">gRPC</span><span class="envtag">Neo4j</span><span class="envtag">Milvus</span><span class="envtag">Kafka</span><span class="envtag">scikit-learn</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-tradepilot">
+        <summary>
+          <span class="fdot" style="background:#a06820"></span>
+          <span class="pname">TradePilot / StrategyForge</span>
+          <span class="pdesc zh">AI 多代理量化交易平台</span>
+          <span class="pdesc en">Multi-agent quant trading</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">双项目联动：StrategyForge 负责策略回测/参数优化/模拟盘，TradePilot 负责真实下单执行 + LLM 多代理客服/分析 + HITL 风控确认。验证「策略生成」到「真实执行」全链路用真实 Spring Boot 微服务 + MCP 协议工具打通。</p>
+          <p class="en">Paired systems: StrategyForge backtests/optimizes/paper-trades; TradePilot executes live + LLM multi-agent ops + HITL risk. End-to-end via Spring Boot microservices + MCP tools.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>☕ <span class="zh">Java 21 + Spring Cloud Gateway 微服务集群 — TradePilot 8 服务（gateway / order / position / wallet / market-data / risk-guard / conversation / agent-orchestrator）/ StrategyForge 7 服务，order-svc / position-svc 真实 JPA 持久化（此前 position-svc 无存储层、每次现造假数据）。</span><span class="en">Java 21 + Spring Cloud Gateway — TradePilot 8 services (gateway / order / position / wallet / market-data / risk-guard / conversation / agent-orchestrator) / StrategyForge 7; order-svc / position-svc on JPA (position-svc previously had no store and invented data per request).</span></li>
+            <li>🤖 <span class="zh">MCP 工具注册 + HITL 风控确认 — 反射式注册 13 个工具，下单/风控类保留纯 metadata 防止绕过人工确认；另用官方 MCP Python SDK 实现真协议 server/client。</span><span class="en">13 MCP tools via reflection; order/risk stay metadata-only so HITL cannot be skipped; official MCP Python SDK server/client.</span></li>
+            <li>📈 <span class="zh">真实回测引擎 — bar-by-bar 回测，golden-file 测试锁定精确 Sharpe/Sortino；修复过年化收益符号 bug 与 Spring 构造函数歧义 bug。</span><span class="en">Bar-by-bar backtester, golden-file Sharpe/Sortino; fixed annualized-return sign bug and Spring ctor ambiguity.</span></li>
+            <li>🔐 <span class="zh">API Key 网关鉴权 — 排查发现两个网关此前完全没有鉴权，新增 GlobalFilter 中间件，现场验证 401/放行/健康检查三种情况。</span><span class="en">API-key GlobalFilter after finding both gateways had no auth; verified 401 / allow / health.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 21</span><span class="envtag">Spring Boot 3</span><span class="envtag">Anthropic MCP SDK</span><span class="envtag">LangChain4j</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-sportcore">
+        <summary>
+          <span class="fdot" style="background:#2a7ab8"></span>
+          <span class="pname">SportCore</span>
+          <span class="pdesc zh">高并发订单撮合引擎</span>
+          <span class="pdesc en">High-concurrency matching engine</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">体育交易场景下单侧对撮合引擎，验证 mutex 保护 vs ring buffer 无锁队列在真实高并发下的表现差异，并堵住钱包/订单接口此前 0 测试覆盖带来的资金安全隐患。</p>
+          <p class="en">Sports-trading matching engine: mutex vs lock-free ring buffer under real concurrency, plus closing a zero-coverage hole on wallet/order money paths.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>⚡ <span class="zh">Fiber + gnet 双协议网关 — 5K 并发连接头对头 benchmark，如实记录 ring buffer 只有 8+ goroutine 时才反超 mutex 这个不完全符合直觉的真实结果。</span><span class="en">Fiber + gnet dual gateway — 5K-conn benchmark; ring buffer only beat mutex at 8+ goroutines.</span></li>
+            <li>💰 <span class="zh">撮合引擎 + 钱包/订单模块 — 价格-时间优先撮合，补齐 0 覆盖的下单/冻结/释放资金链路 33 个测试。</span><span class="en">Price-time matching; 33 tests covering place/freeze/release that previously had zero coverage.</span></li>
+            <li>🔒 <span class="zh">IDOR 越权漏洞修复 — 排查发现钱包/订单接口直接信任客户端 user_id，新增 API Key 鉴权中间件 + 越权回归测试。</span><span class="en">IDOR fix — wallet/order trusted client user_id; API-key middleware + regression tests.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Go</span><span class="envtag">Fiber v2</span><span class="envtag">gnet v2</span><span class="envtag">go-redis / miniredis</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-digiinfo">
+        <summary>
+          <span class="fdot" style="background:#6b4fa8"></span>
+          <span class="pname">DigiInfoMarket</span><span class="pver">v0.4.0</span>
+          <span class="pdesc zh">AI 预测市场情报平台</span>
+          <span class="pdesc en">AI prediction-market intelligence</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">面向信息套利 / 对冲 / 合规审计，把预测市场、情报订阅、人才发现与数据市场打通：LMSR AMM + 5 代理辩论 + 分层 Alpha 信号 + Polygon/USDC/UMA 结算 + Stripe。订阅 ARR $3.1M / 首年 ROI 13× 为业务目标，不是已实现收入。</p>
+          <p class="en">For information arbitrage, funds, and compliance: prediction markets, intel subscriptions, talent discovery, and a data marketplace — LMSR AMM + 5-agent debate + tiered alpha + Polygon/USDC/UMA + Stripe. $3.1M ARR / 13× year-1 ROI are business targets, not booked revenue.</p>
+          <h5><span class="zh">技术架构</span><span class="en">Architecture</span></h5>
+          <p class="zh">规模：19 后端模块 / 19 前端 Panel / 75+ API / 6 组导航。核心模块：alpha_engine / billing (Stripe) / data_marketplace / debate / market_resolver (UMA) / news_ingest / onchain (Polygon+USDC) / sso (Azure AD/Okta) / talent_scorer / webhook (Slack/Discord)。</p>
+          <p class="en">Scale: 19 backend modules / 19 panels / 75+ APIs / 6 nav groups. Core: alpha_engine, Stripe billing, data_marketplace, debate, UMA market_resolver, news_ingest, Polygon+USDC onchain, Azure AD/Okta SSO, talent_scorer, Slack/Discord webhook.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🏦 <b>LMSR AMM</b> — <span class="zh">Hanson 对数市场评分（b 参数连续报价），base_spread 0.5–1.5% 动态调整（volatility_penalty 接近 0/1 时 +0–1%），Sharpe / VaR，流动性成本下降 60%。</span><span class="en">Hanson LMSR (continuous b-curve quotes), base_spread 0.5–1.5% (volatility_penalty +0–1% near 0/1), Sharpe / VaR, liquidity cost −60%.</span></li>
+            <li>🧠 <b>5-agent debate + conformal calibration</b> — <span class="zh">3 LLM 路由 + 启发式 fallback，信号置信度 +25%。</span><span class="en">3-LLM router + heuristic fallback, signal confidence +25%.</span></li>
+            <li>💰 <b>Alpha Signals</b> — Free EV≥8% / Pro EV≥2% / Enterprise EV≥0.5% · <span class="zh">Free 层 Teaser 字段 nulled。</span><span class="en">Free-tier teaser fields nulled.</span></li>
+            <li>🚀 <b>AI market creation</b> — <span class="zh">热点新闻到市场上线 ~8 秒，Resolution Agent 自动结算。</span><span class="en">Hot news to listed market in ~8s; Resolution Agent auto-settles.</span></li>
+            <li>⛓ <b>Onchain</b> — Polygon + USDC + UMA · <span class="zh">智能合约结算 / dry-run 防误操作。</span><span class="en">contract settlement / dry-run guards.</span></li>
+            <li>📡 <b>SSO + Stripe + Webhook</b> — Azure AD/Okta OIDC + Stripe 订阅生命周期 · <span class="zh">Slack/Discord 15 条 webhook 事件。</span><span class="en">Slack/Discord, 15 webhook events.</span></li>
+            <li>💹 <b>Data Marketplace</b> — <span class="zh">时序数据分层定价卖给机构客户（目标首年 ARR $1.2M，非已实现）。</span><span class="en">tiered time-series sold to institutions (year-1 ARR $1.2M is a target, not booked).</span></li>
+            <li>🎨 <span class="zh">统一玻璃态 UI，跨多个内部产品复用同一套皮肤。</span><span class="en">Shared glass UI reused across internal products.</span></li>
+            <li>📊 <span class="zh">从生产数仓多 BU 联合视图抽取真实交易与行为样本做演示与验收。</span><span class="en">Live trade and behavior samples from production warehouse union views for demos and acceptance.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">FastAPI</span><span class="envtag">LangGraph</span><span class="envtag">Web3.py</span><span class="envtag">UMA Oracle</span><span class="envtag">Stripe SDK</span><span class="envtag">Azure AD / Okta</span><span class="envtag">Slack / Discord webhook</span><span class="envtag">Next.js 14</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-alphaodds">
+        <summary>
+          <span class="fdot" style="background:#2d5cb8"></span>
+          <span class="pname">AlphaOdds</span><span class="pver">v2.3.0</span>
+          <span class="pdesc zh">AI 体育数据智能决策平台</span>
+          <span class="pdesc en">AI sports-data decision platform</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">传统体育数据平台的痛点：人工定价慢、单一源比对、新闻滞后、套利空间难识别、推荐千篇一律。AlphaOdds 做成「ML 集成 + LLM 代理辩论 + 多源套利 + 时序 + 新闻聚合 + 反作弊 + Live CV」一体化决策系统。margin 7%→9–11% / 留存 +30% / VIP 转化 +20% / 风险拦截 +95% / 首年 ROI 13.3× 为产品目标；下方回测与验收数字为已测结果。</p>
+          <p class="en">Legacy sports-data pain: slow manual pricing, single-source comparison, news lag, missed arb, one-size recs. AlphaOdds unifies ML ensemble + LLM agent debate + multi-source arb + time-series + news + anti-cheat + live CV. Margin 7%→9–11% / retention +30% / VIP +20% / risk intercept +95% / 13.3× year-1 ROI are product targets; backtest and acceptance numbers below are measured.</p>
+          <h5><span class="zh">技术架构</span><span class="en">Architecture</span></h5>
+          <p class="zh">4 层：Next.js 前端 / FastAPI 核心 / LangGraph + ML 集群 / 样本切片 + 生产数仓实时查询（Kafka 规划中）。规模：19 后端模块 / 10 前端 Panel / 83 API / 5 LLM 代理 / 8 数据源监控。</p>
+          <p class="en">Four layers: Next.js / FastAPI / LangGraph + ML cluster / sample slices + live warehouse queries (Kafka planned). Scale: 19 backend modules / 10 panels / 83 APIs / 5 LLM agents / 8 source monitors.</p>
+          <h5><span class="zh">我个人负责的 9 大模块</span><span class="en">Nine modules I owned</span></h5>
+          <ul>
+            <li>🧮 <b>ML Predictive Models</b> — <span class="zh">5 模型加权（XGBoost 0.28 / LightGBM 0.26 / LSTM 0.22 / Transformer 0.14 / GNN 0.10），8 组 60 维特征（近期状态 / 伤停 / 天气 / 主客场 / H2H / xG·PPDA / 教练战术 / 社媒），胜负+得分区间+让分 7 档+Bivariate Poisson Top10，Conformal 95% CI + SHAP，Backtest 5 年准确率 54.2% / ROI 8.4% / Sharpe 1.32 / Brier 0.198 / AUC 0.748。</span><span class="en">Weighted ensemble (XGBoost 0.28 / LightGBM 0.26 / LSTM 0.22 / Transformer 0.14 / GNN 0.10), 8 groups / 60-dim (form / injuries / weather / home-away / H2H / xG·PPDA / tactics / social), win-draw-loss + score band + 7-line handicap + Bivariate Poisson Top10, conformal 95% CI + SHAP. 5-year backtest: 54.2% / 8.4% ROI / Sharpe 1.32 / Brier 0.198 / AUC 0.748.</span></li>
+            <li>⚡ <b>Arbitrage Monitor</b> — <span class="zh">8 家数据源，Σ(1/best_price)&lt;1 + Kelly，ARIMA(1,1,1)+LSTM 7 步预测，GPT-4o + Grok 交叉验证新闻；敞口仪表板 $5.27M open / 180ms lag / 24h 1240 条新闻。</span><span class="en">8 sources, Σ(1/best_price)&lt;1 + Kelly, ARIMA(1,1,1)+LSTM 7-step, GPT-4o + Grok news; $5.27M open exposure / 180ms lag / 1240 news/24h.</span></li>
+            <li>🧠 <b>5-Agent Debate Engine</b> — <span class="zh">LangGraph 状态机驱动 Research / Stats / Odds / Risk / Synthesis 5 异构 LLM（Claude Sonnet 4.5 / GPT-4o / DeepSeek-V3 / Grok 4 / Claude Opus）tit-for-tat 3 轮辩论，权重 Stats 0.24 + Research 0.22 + Synthesis 0.20 + Odds 0.20 + Risk 0.14 + Conformal 校准，3 LLM 路由 + 启发式 fallback。</span><span class="en">LangGraph state machine: Research / Stats / Odds / Risk / Synthesis on Claude Sonnet 4.5 / GPT-4o / DeepSeek-V3 / Grok 4 / Claude Opus; 3-round tit-for-tat; weights 0.24/0.22/0.20/0.20/0.14 + conformal; 3-LLM router + heuristic fallback.</span></li>
+            <li>💹 <b>Dynamic Pricing Engine</b> — <span class="zh">ML fair value + AMM 自动定价，异常资金流 / 价格突变 / liability / CLV，风险状态 GREEN/YELLOW/RED，24 场 × 多市场 ~150 quote / 5 项运动。</span><span class="en">ML fair value + AMM, flow/spike/liability/CLV, GREEN/YELLOW/RED, 24 events × ~150 quotes / 5 sports.</span></li>
+            <li>🛡 <b>Risk Engine</b> — <span class="zh">High-Value User（活跃度≥80）/ Arbitrage（1/price_a+1/price_b&lt;0.985）/ Incentive Abuse / Collusion（IP/设备/NetworkX）四类反作弊 + v2.3 User Wellness（LSTM+规则，0–100，7 类信号），6 类干预（auto_limit / cooling / self_assessment / helpline / manual_review / pause）。</span><span class="en">Four anti-cheat classes (activity≥80, arb 1/a+1/b&lt;0.985, incentive abuse, IP/device/NetworkX collusion) + v2.3 User Wellness (LSTM+rules, 0–100, 7 signals) and 6 interventions (limit / cooling / assessment / helpline / review / pause).</span></li>
+            <li>🎥 <b>Live CV Pro</b> — <span class="zh">MediaPipe Pose + YOLO v8 球员追踪（坐标/速度/跑动/pressing），StatsBomb-style xG + 20×14 热力图；xG 偏差&gt;3pp 自动调价 2–5%；近 10 min xG 激增&gt;0.3 触发 Momentum Shift。</span><span class="en">MediaPipe Pose + YOLO v8 tracking (coords/speed/distance/pressing), live xG + 20×14 heatmaps; &gt;3pp xG miss auto-reprice 2–5%; 10-min xG surge &gt;0.3 fires momentum shift.</span></li>
+            <li>🎯 <b>RecSys Pro</b> — <span class="zh">DeepFM 16-dim embedding + FM cross + 运动偏好 + tier 加权（Diamond ×1.1 / Gold ×1.05 / Silver ×1.0 / Bronze ×0.95），Half-Kelly（bankroll + 风险偏好 0.2–0.5）+ 4-leg 组合（combined_price × ai_prob &gt; 1）。</span><span class="en">DeepFM 16-dim + FM cross + sport bias + tier weights (Diamond ×1.1 / Gold ×1.05 / Silver ×1.0 / Bronze ×0.95), Half-Kelly (bankroll + 0.2–0.5 risk) + 4-leg parlays (combined_price × ai_prob &gt; 1).</span></li>
+            <li>📑 <b>AI Copilot Pro</b> — <span class="zh">Bull/Bear/Data/Judge 四段研报 &lt;2 秒，5 语言 zh/en/tl/id/vi，Azure Xiaoxiao/Yunyang + ElevenLabs Adam TTS。</span><span class="en">Bull/Bear/Data/Judge briefs in &lt;2s, 5 languages zh/en/tl/id/vi, Azure Xiaoxiao/Yunyang + ElevenLabs Adam TTS.</span></li>
+            <li>📥 <b>Real Data Loader</b> — <span class="zh">生产数仓抽样交易与台账接入 10 个 Panel（不含账号明文）。</span><span class="en">warehouse sample trades and ledger across 10 panels (no account identifiers).</span></li>
+          </ul>
+          <h5><span class="zh">技术亮点 / 难点</span><span class="en">Hard parts</span></h5>
+          <ul>
+            <li class="zh">5 模型加权融合后归一化保证 Σprob=1.0，SHAP 贡献分解出每组特征的方向与自然语言叙述。</li>
+            <li class="en">Weighted fusion renormalized so Σprob=1.0; SHAP explains each feature group in natural language.</li>
+            <li class="zh">用 LLM 把新闻处理延迟从 5–15min 压到 &lt;60s，自动量化 impact_pp 并触发调价。</li>
+            <li class="en">LLM news path cut latency from 5–15 min to &lt;60s, auto-quantified impact_pp and triggered repricing.</li>
+            <li class="zh">真实 SABA2 实测 margin 9.42% vs mock 模型差 0.22pp，B2B 客户验收通过率 60%→92%。</li>
+            <li class="en">Live SABA2 margin 9.42% vs mock delta 0.22pp; B2B acceptance 60%→92%.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">FastAPI 0.115</span><span class="envtag">LangGraph</span><span class="envtag">XGBoost 2.1</span><span class="envtag">PyTorch 2.4</span><span class="envtag">statsmodels</span><span class="envtag">OpenCV / YOLO v8</span><span class="envtag">Next.js 14</span><span class="envtag">MaxCompute</span><span class="envtag">Kafka + Flink (planned)</span><span class="envtag">Pinecone RAG</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-infra">
+        <summary>
+          <span class="fdot" style="background:#7080a0"></span>
+          <span class="pname">Big Data and Intelligence Team</span>
+          <span class="pdesc zh">横向基建</span>
+          <span class="pdesc en">Shared infrastructure</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">DigiPlus 大数据团队基础建设角色 — 为 4 个上层产品提供稳定可靠的数据服务，支撑离线 + 实时全栈链路。</p>
+          <p class="en">Platform role for DigiPlus big-data: reliable data services for four product surfaces, batch + realtime.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🔧 <span class="zh">离线 + 实时统一平台 — MaxCompute 批处理 + Realtime Compute for Flink + DataWorks + Hologres。</span><span class="en">Unified platform — MaxCompute batch + Flink realtime + DataWorks + Hologres.</span></li>
+            <li>⚡ <span class="zh">Flink 生产运维 SOP — Backpressure（busyTimeMsPerSecond / idleTimeMsPerSecond）、Checkpoint/Savepoint（RETAIN_ON_CANCELLATION + 5 retained + incremental）、Watermark/Window incremental aggregation、State Backend（HashMap vs RocksDB + SPINNING_DISK_OPTIMIZED_HIGH_MEM）、keyBy 加盐 + LocalKeyByPartition + 两阶段聚合、KafkaSource Offset 失效改 timestamp 启动、State Processor API 把几十 GB savepoint 裁到几 GB、异常恢复 SOP（--allowNonRestoredState / partition.discovery.interval.ms）。</span><span class="en">Flink SOP — backpressure (busy/idle ms), checkpoint/savepoint (RETAIN_ON_CANCELLATION, 5 retained, incremental), incremental window agg, HashMap vs RocksDB, salted keyBy + two-stage agg, KafkaSource timestamp startup on bad offsets, State Processor API shrinking tens-of-GB savepoints, recovery SOP (--allowNonRestoredState / partition.discovery.interval.ms).</span></li>
+            <li>📨 DataHub + Kafka — P99 &lt;200ms, <span class="zh">日吞吐 7+ 亿事件</span><span class="en">700M+ events/day</span>.</li>
+            <li>📊 <span class="zh">MaxCompute SQL 性能调优规范（公司级）— 多个 ADS 任务从 4h+ 优化到 &lt;30 min。</span><span class="en">Company-wide MaxCompute SQL playbook — ADS jobs 4h+ → &lt;30 min.</span></li>
+            <li>☁ <span class="zh">DataWorks 任务编排 — 任务依赖管理、口径治理、SLA 保证。</span><span class="en">DataWorks orchestration — deps, metric governance, SLAs.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Apache Flink</span><span class="envtag">Airflow</span><span class="envtag">Kafka</span><span class="envtag">RocketMQ</span><span class="envtag">ClickHouse</span>
+          </div>
+        </div>
+      </details>
+
+      <div style="margin-top:56px">
+        <div class="eyebrow" style="counter-increment:none">Earlier Roles</div>
+        <h2 class="head zh" style="font-size:1.7rem;margin-bottom:26px">更早的职业经历</h2>
+        <h2 class="head en" style="font-size:1.7rem;margin-bottom:26px">Earlier roles</h2>
+      </div>
+
+      <details class="earlier" id="e-ddu">
+        <summary><span class="cap">2022.01 – 2023.01</span><span class="cos">DDU · Digital Entertainment Platform</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Golang Developer · <span class="zh">团队 6 人</span><span class="en">team of 6</span></span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">在线娱乐平台，定位是让用户快速拥有一个全新的娱乐网站，已打通多品类互动娱乐内容（体育资讯、真人互动、休闲游戏、棋牌、IM 语音等）和支付渠道。团队负责后端核心 + 第三方支付通道集成 + 体育数据 feed 集成，峰值 QPS 5K+，平均响应 &lt;80ms。</p>
+          <p class="en">Online entertainment platform: sports, live, casual, cards, IM voice, and payments. Owned core backend, third-party payment rails, and sports feeds. Peak 5K+ QPS, avg latency &lt;80ms.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">用 Golang 构建可扩展、模块化后端：组件开发、对接其他 Web 服务、故障排除与性能优化、技术方案探索、技术文档、代码审查。</li>
+            <li class="en">Built modular Go backends: components, service integrations, troubleshooting, performance work, design notes, docs, and code review.</li>
+            <li class="zh">深入 Goroutine / Channel 常见模式、Go 模板、代码生成（Stringer 等）以及团队 Go 框架与工具栈。</li>
+            <li class="en">Go idioms: goroutine/channel patterns, templates, codegen (Stringer), and the team’s Go stack.</li>
+            <li class="zh">Gin + Gorm + Viper + Zap + JWT + MD5；MySQL + Redis 双层缓存；峰值 QPS 5K+，平均响应 &lt;80ms。</li>
+            <li class="en">Gin + Gorm + Viper + Zap + JWT + MD5; MySQL + Redis cache; peak 5K+ QPS, avg &lt;80ms.</li>
+            <li class="zh">WebSocket + UDP 实时通信 — IM 语音房间、体育直播互动、实时数据推送，支撑万级并发长连接。</li>
+            <li class="en">WebSocket + UDP for IM voice rooms, live sports, and realtime push; 10k-class long connections.</li>
+            <li class="zh">gRPC + Protocol Buffers 微服务通信；多个 C 端 API + 后台对接 + 第三方支付通道 + 体育数据 feed。</li>
+            <li class="en">gRPC + Protobuf; C-end APIs, admin, payment rails, and sports-data feeds.</li>
+            <li class="zh">参与 code review 与技术文档，推动代码规范与单测覆盖率从 30% 提升到 70%。</li>
+            <li class="en">Code review and docs; unit-test coverage 30% → 70%.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Go 1.18+</span><span class="envtag">Gin / Gorm</span><span class="envtag">gRPC</span><span class="envtag">WebSocket / UDP</span><span class="envtag">MySQL + Redis</span><span class="envtag">JWT</span><span class="envtag">Jenkins</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-seektop">
+        <summary><span class="cap">2020.07 – 2021.12</span><span class="cos">SeekTop</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Senior Engineer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">游戏棋牌公司。团队负责核心后端微服务化改造与高并发优化，涉及游戏房间 / 支付 / 用户积分 / 区块链 / 数字货币等多模块。</p>
+          <p class="en">Card-game company: microservice rewrite and high-concurrency work across rooms, payments, points, blockchain, and crypto wallets.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">深入 Java 与常见开源框架；JVM 垃圾收集器 / 集合 / 多线程 / 网络 IO / 锁 / 事件 / 异常 / 泛型有实践经验。</li>
+            <li class="en">Java internals in production: GC, collections, concurrency, network I/O, locks, events, exceptions, generics.</li>
+            <li class="zh">Netty 高性能网络 / Spring IOC·AOP·MVC / MyBatis / Dubbo RPC；集合、多线程、JVM 原理与底层优化。</li>
+            <li class="en">Netty, Spring (IOC/AOP/MVC), MyBatis, Dubbo RPC; collections, threading, JVM tuning.</li>
+            <li class="zh">MySQL 原理与 SQL 优化：事务、锁、索引、慢 SQL、执行计划、分库分表。</li>
+            <li class="en">MySQL: transactions, locks, indexes, slow-SQL / explain, sharding.</li>
+            <li class="zh">Spring Boot + Spring Cloud（Eureka / Config / Gateway / Hystrix / Feign）：核心服务拆分、API 设计、服务间通信与熔断降级。</li>
+            <li class="en">Spring Cloud (Eureka / Config / Gateway / Hystrix / Feign): service splits, APIs, inter-service calls, circuit-breaking.</li>
+            <li class="zh">RabbitMQ / RocketMQ / Kafka：批量发送、消费者并发、消息幂等、死信、积压排查与重试。</li>
+            <li class="en">RabbitMQ / RocketMQ / Kafka: batching, consumer concurrency, idempotency, DLQ, backlog and retry.</li>
+            <li class="zh">Zookeeper / Etcd 服务发现与配置；分布式缓存；高并发、高可用架构落地。</li>
+            <li class="en">Zookeeper / Etcd discovery and config; distributed cache; HA under load.</li>
+            <li class="zh">Elasticsearch / Solr 线上使用与优化 — 索引设计、查询性能、分词器、热点缓存。</li>
+            <li class="en">Elasticsearch / Solr: index design, query perf, analyzers, hot-key cache.</li>
+            <li class="zh">区块链 / 数字货币：钱包接入、链上交易追踪、合约调用等后端实现。</li>
+            <li class="en">Crypto wallets, on-chain tracking, and contract-call backends.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8/11</span><span class="envtag">Spring Cloud</span><span class="envtag">Dubbo / Netty</span><span class="envtag">MySQL / Redis</span><span class="envtag">Kafka / MQ</span><span class="envtag">ES / Solr</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-victor">
+        <summary><span class="cap">2019.10 – 2020.06</span><span class="cos">Victor</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Senior Engineer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">全球服务公司。Web 应用跟踪总借出记录、EMI、邮件/短信提醒、向客户付息、罚金计算、贷款申请门户与月度收入。主要范围是把遗留应用重新设计为微服务架构。</p>
+          <p class="en">Global services firm: lending ledgers, EMI, email/SMS reminders, interest and penalties, loan portal, monthly income — redesigning a legacy app into microservices.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">Spring Boot 2.0 微服务：单体拆分、服务边界、API 网关与服务间通信。</li>
+            <li class="en">Spring Boot 2.0 split: service boundaries, API gateway, inter-service communication.</li>
+            <li class="zh">Spring Security + JWT：登录认证、信用报告查询与申请人信息访问的完整授权体系。</li>
+            <li class="en">Spring Security + JWT for login, credit-report queries, and applicant-data access.</li>
+            <li class="zh">Hibernate 4.3.0 + MySQL 5.7：映射类、Session/事务；优化 N+1、懒加载与级联。</li>
+            <li class="en">Hibernate 4.3 + MySQL 5.7: mappings, sessions/tx; N+1, lazy-load, and cascade tuning.</li>
+            <li class="zh">多个 XML/JSON REST 服务：校验客户账户、查询贷款状态、提交申请等。</li>
+            <li class="en">XML/JSON REST services: account checks, loan status, application submit.</li>
+            <li class="zh">HTML5 / JS / CSS3 / Angular 7 / Bootstrap 4.2.1 SPA，前后端联调与 UI 性能。</li>
+            <li class="en">Angular 7 + Bootstrap 4.2.1 SPA; frontend/backend integration and UI perf.</li>
+            <li class="zh">Tomcat 7 Mock Server、Stub 数据、契约测试。</li>
+            <li class="en">Tomcat 7 mock/stub servers and contract tests.</li>
+            <li class="zh">TDD：JUnit 4 + Mockito 2 单元/集成测试，核心模块覆盖 80%+。</li>
+            <li class="en">TDD with JUnit 4 + Mockito 2; core coverage 80%+.</li>
+            <li class="zh">Git + Jenkins CI/CD，编写 Jenkinsfile，自动化 build / test / deploy。</li>
+            <li class="en">Git + Jenkinsfile CI/CD for build / test / deploy.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8</span><span class="envtag">Spring Boot 2</span><span class="envtag">Spring Security / JWT</span><span class="envtag">Hibernate 4.3</span><span class="envtag">Angular 7</span><span class="envtag">Jenkins</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-marlabs">
+        <summary><span class="cap">2019.04 – 2019.09</span><span class="cos">Marlabs Inc.</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">RMT（Risk Management Tool）为投资者合规提供定制服务。因新增风险识别规则，需在现有 RMT 中加入对应功能，并修改评估 / 监控流程，以满足 SEC / FINRA 最新合规要求。</p>
+          <p class="en">Risk Management Tool (RMT): new SEC/FINRA rules and updated assessment/monitoring flows for investor-protection compliance.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">Spring Boot 微服务：Controller / Service 分层、模块拆分与接口设计，缩短服务上线配置成本。</li>
+            <li class="en">Spring Boot services: controller/service split, module boundaries, and APIs with little boilerplate.</li>
+            <li class="zh">Spring AOP 声明式事务，并与 REST 集成；把事务、日志、性能监控、安全抽到 Aspect，代码复用度提升 40%。</li>
+            <li class="en">Spring AOP transactions + REST; extracted tx/logging/perf/security into aspects; reuse +40%.</li>
+            <li class="zh">Java 8 Lambda / Stream 批量处理，把嵌套 for 的报表生成从 30s 优化到 6s。</li>
+            <li class="en">Java 8 streams cut nested-loop report generation 30s → 6s.</li>
+            <li class="zh">Hibernate 持久层：实体关系、Cascade / Fetch、一二级缓存调优。</li>
+            <li class="en">Hibernate: entity relations, cascade/fetch, L1/L2 cache tuning.</li>
+            <li class="zh">SQL / Oracle PL/SQL 存储过程、视图与索引；复杂报表函数。</li>
+            <li class="en">SQL and Oracle PL/SQL procedures, views, indexes, and report functions.</li>
+            <li class="zh">Log4J 分级日志（DEBUG / INFO / WARN / ERROR）与切片归档。</li>
+            <li class="en">Log4J levels and rolling archives.</li>
+            <li class="zh">Git / SVN / Bitbucket 分支策略与 code review；Linux / Windows 上的 trunk/branch/release。</li>
+            <li class="en">Git / SVN / Bitbucket branching and review on Linux and Windows.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8</span><span class="envtag">Spring Boot / AOP</span><span class="envtag">Hibernate</span><span class="envtag">Oracle PL/SQL</span><span class="envtag">Angular 4</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-finance">
+        <summary><span class="cap">2018.09 – 2018.12</span><span class="cos zh">某消费金融</span><span class="cos en">Consumer finance</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">按 PMA / FMA / 信贷员新需求调整信用风险评估标准与计分模型，补齐监管与审计报表，支持信贷员实时查询客户信用画像、风险评分、还款历史。</p>
+          <p class="en">Credit-risk scoring restated for PMA/FMA/loan-officer needs: live profiles, scores, repayment history, and audit reporting.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">OOP / 多线程 / 异常 / 集合落地，提升可维护性与并发处理能力。</li>
+            <li class="en">OOP, threading, exceptions, and collections for maintainability under concurrency.</li>
+            <li class="zh">Spring Boot 微服务：评分模型服务、报表服务、合规审计服务独立部署。</li>
+            <li class="en">Spring Boot split: scoring, reports, and compliance audit as separate deploys.</li>
+            <li class="zh">Hibernate 持久层：POJO 注解映射、事务、Cascade / Fetch，隔离级别按金融场景配置。</li>
+            <li class="en">Hibernate mappings, tx, cascade/fetch; isolation set for finance.</li>
+            <li class="zh">J2EE 模式：Business Delegate / Factory / Singleton / Session Facade / Service Locator / DAO。</li>
+            <li class="en">J2EE patterns: Business Delegate, Factory, Singleton, Session Facade, Service Locator, DAO.</li>
+            <li class="zh">MySQL schema、SQL / PL/SQL / 触发器 / 视图；复杂评分逻辑用存储过程实现。</li>
+            <li class="en">MySQL schema, SQL/PL-SQL/triggers/views; scoring logic in stored procedures.</li>
+            <li class="zh">Log4J + JIRA 分配、跟踪、报告与审计，建立 issue tracking 与 SLA 监控。</li>
+            <li class="en">Log4J + JIRA tracking, reporting, and SLA monitoring.</li>
+            <li class="zh">SOAP / WSDL / UDDI Web 服务，对接征信局与银行流水。</li>
+            <li class="en">SOAP / WSDL / UDDI services to credit bureaus and bank-statement feeds.</li>
+            <li class="zh">GitFlow：功能开始时从主干拉分支，完成后合并并开新分支。</li>
+            <li class="en">GitFlow: feature branches off trunk, merge, and cut the next branch.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8</span><span class="envtag">Spring Boot 2</span><span class="envtag">Hibernate 4</span><span class="envtag">MySQL / PL-SQL</span><span class="envtag">SOAP / WSDL</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-sports">
+        <summary><span class="cap">2018.01 – 2018.08</span><span class="cos zh">某体育</span><span class="cos en">Sports / WMS</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">仓库管理系统（WMS）实时库存库，云上 Web 系统支撑较大规模库存操作 — 入库、出库、盘点、调拨、报损、库存预警全流程。</p>
+          <p class="en">Cloud WMS for large-scale inventory: inbound, outbound, cycle count, transfer, write-off, and stock alerts.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">多线程 + Collection 框架，为高并发库存同步、扫码出入库提供线程安全。</li>
+            <li class="en">Threading + collections for thread-safe inventory sync and scan in/out.</li>
+            <li class="zh">Spring DI / IOC：核心 Bean 与 ApplicationContext 配置。</li>
+            <li class="en">Spring DI/IOC: core beans and ApplicationContext.</li>
+            <li class="zh">Spring MVC REST：统一 API 风格、错误码、版本管理。</li>
+            <li class="en">Spring MVC REST with consistent APIs, error codes, and versioning.</li>
+            <li class="zh">Java 8 Lambda / 增强并发用于集合与数组操作。</li>
+            <li class="en">Java 8 lambdas and concurrency utilities for collections and arrays.</li>
+            <li class="zh">Hibernate + HQL；乐观锁防超卖、悲观锁处理扣减。</li>
+            <li class="en">Hibernate + HQL; optimistic lock against oversell, pessimistic lock on deduct.</li>
+            <li class="zh">J2EE 模式：Singleton / Session Facade / Business Delegate / DAO。</li>
+            <li class="en">Singleton, Session Facade, Business Delegate, DAO.</li>
+            <li class="zh">SQL / PL/SQL 存储过程、函数、触发器、游标、序列、索引；日终结账、库存对账、报表批处理。</li>
+            <li class="en">PL/SQL procedures, functions, triggers, cursors, sequences, indexes for day-end, recon, reports.</li>
+            <li class="zh">Maven 打包部署到 Oracle WebLogic；Jenkins 持续集成。</li>
+            <li class="en">Maven deploy to Oracle WebLogic; Jenkins CI.</li>
+            <li class="zh">功能前先写 JUnit（TDD），核心模块覆盖 80%+。</li>
+            <li class="en">TDD with JUnit before features; core coverage 80%+.</li>
+            <li class="zh">SOAP 对接 ERP / SAP：主数据同步、订单回传、财务对账。</li>
+            <li class="en">SOAP to ERP/SAP for master data, order callbacks, and recon.</li>
+            <li class="zh">Log4J 调试级排障；Git 版本控制 + Jenkins 持续构建流水线。</li>
+            <li class="en">Log4J debug, Git, and Jenkins build pipeline.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8</span><span class="envtag">Spring MVC / Boot</span><span class="envtag">Hibernate 4</span><span class="envtag">Oracle WebLogic</span><span class="envtag">SOAP / ERP</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-pharma">
+        <summary><span class="cap">2016.01 – 2017.05</span><span class="cos zh">某制药</span><span class="cos en">Pharma</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">特殊药物处方系统。上线前靠在线服务下单，回头客成本很高。本项目自动化处方审批、库存查询、配送跟踪、医生协同，把人工数天缩短到分钟级。</p>
+          <p class="en">Specialty-drug prescribing: approvals, inventory, delivery tracking, doctor collab — days of manual work to minutes, replacing a costly repeat-order workflow.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">UML Rational Rose：用例 / 序列 / 活动图，完成业务建模、领域分析、模块边界。</li>
+            <li class="en">UML (use case / sequence / activity) for domain analysis and module boundaries.</li>
+            <li class="zh">POJO 业务层 + Spring 打通 UI / 服务 / DAO，依赖注入降低耦合。</li>
+            <li class="en">POJO business layer + Spring across UI/service/DAO with DI.</li>
+            <li class="zh">表示层与持久层 J2EE 模式：Singleton / Factory / Business Delegate / DAO / Service Locator。</li>
+            <li class="en">Presentation and persistence patterns: Singleton, Factory, Business Delegate, DAO, Service Locator.</li>
+            <li class="zh">Spring IOC 把 DAO 注入业务层，便于单测 mock 与数据源切换。</li>
+            <li class="en">IOC-injected DAOs for mocks and datasource swaps.</li>
+            <li class="zh">Hibernate ORM + 映射文件做后端持久化。</li>
+            <li class="en">Hibernate ORM with mapping files for persistence.</li>
+            <li class="zh">HQL 访问 Oracle：关联查询、聚合、分页优化。</li>
+            <li class="en">HQL on Oracle: joins, aggregates, pagination.</li>
+            <li class="zh">Native Query 处理 ORM 表达不了的复杂 DML。</li>
+            <li class="en">Native queries for DML Hibernate could not express.</li>
+            <li class="zh">Maven parent-pom / child-module 与依赖管理。</li>
+            <li class="en">Maven parent/child modules and dependency management.</li>
+            <li class="zh">Log4J 滚动日志与异步 appender；监控错误并修复。</li>
+            <li class="en">Log4J rolling + async appenders; error monitoring.</li>
+            <li class="zh">IBM WebSphere：EAR 打包、数据源、JMS 资源、集群部署。</li>
+            <li class="en">WebSphere EAR packaging, datasources, JMS resources, cluster deploy.</li>
+            <li class="zh">IntelliJ IDEA：编辑、调试、测试模板、EJB 模板生成。</li>
+            <li class="en">IntelliJ for edit/debug, test templates, EJB stubs.</li>
+            <li class="zh">Spring JMS 发布订阅 + MDB；与 ERP / WMS / 物流异步集成。</li>
+            <li class="en">Spring JMS pub/sub + MDBs to ERP / WMS / logistics.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8</span><span class="envtag">Spring / Hibernate</span><span class="envtag">IBM WebSphere</span><span class="envtag">JMS / MDB</span><span class="envtag">Oracle</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-realestate">
+        <summary><span class="cap">2013.11 – 2015.12</span><span class="cos zh">某地产</span><span class="cos en">Real estate</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">Real Builder — 面向房地产承包的完整 ERP：销售/计费、采购、机器维护、建筑模块、财务会计，把分散在 Excel 与多套独立系统的数据整合到统一平台。</p>
+          <p class="en">Real Builder — real-estate ERP: sales/billing, procurement, machine maintenance, construction, accounting — replacing Excel and siloed apps.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">HTML5 / CSS3 / JavaScript 界面，响应式适配 PC 与移动浏览器。</li>
+            <li class="en">HTML5/CSS3/JS UI, responsive for desktop and mobile.</li>
+            <li class="zh">Spring MVC：Controller / Service / DAO 分层与 REST 接口。</li>
+            <li class="en">Spring MVC controller/service/DAO and REST APIs.</li>
+            <li class="zh">多线程 / ExecutorService、异常、集合；报表生成与批量导入走后台任务池。</li>
+            <li class="en">ExecutorService pools for reports and bulk imports.</li>
+            <li class="zh">Maven 依赖、多环境 profile、Nexus 私服。</li>
+            <li class="en">Maven deps, env profiles, Nexus.</li>
+            <li class="zh">JDBC + MySQL：复杂 SQL、PreparedStatement 防注入、批量提交。</li>
+            <li class="en">JDBC + MySQL: complex SQL, prepared statements, batch commits.</li>
+            <li class="zh">Tomcat 本地/开发部署：JNDI 数据源、Session 持久化、HTTPS 证书。</li>
+            <li class="en">Tomcat JNDI datasources, session persistence, HTTPS certs.</li>
+            <li class="zh">Log4J 覆盖异常、警告、堆栈与调试，按模块 / 级别分流。</li>
+            <li class="en">Log4J across modules and levels for errors, warns, stacks, debug.</li>
+            <li class="zh">MySQL schema、索引、慢查询、备份恢复。</li>
+            <li class="en">MySQL schema, indexes, slow-query hunt, backup/restore.</li>
+            <li class="zh">JIRA 缺陷跟踪、优先级与团队讨论；bug triage 与 sprint 节奏。</li>
+            <li class="en">JIRA triage, priority, and sprint cadence.</li>
+            <li class="zh">敏捷 Scrum 全流程：daily standup、sprint planning、retrospective；开发到测试到生产的 TDD。</li>
+            <li class="en">Scrum end-to-end (standup, planning, retro) with TDD through test and prod.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java</span><span class="envtag">Spring MVC</span><span class="envtag">JDBC / MySQL</span><span class="envtag">Tomcat</span><span class="envtag">JIRA / Scrum</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="earlier" id="e-bank">
+        <summary><span class="cap">2011.11 – 2013.10</span><span class="cos zh">某商业银行</span><span class="cos en">Commercial bank</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">B/S 台账系统（Struts2 + Spring + iBatis），配合个人综合授信消费贷款：集中管理自然人授信额度、额度使用、担保信息；贷款信息从个贷系统读取。面向信贷员、审批员、风控员、合规员。</p>
+          <p class="en">B/S consumer-loan ledger (Struts2 + Spring + iBatis) for credit limits, utilization, and collateral; loan rows from the retail-loan system. Roles: officers, approvers, risk, compliance.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">Spring 服务端 REST：事件注册与分配处理；接口规范、错误码、版本控制。</li>
+            <li class="en">Spring REST for event registration and assignment; API contract, errors, versioning.</li>
+            <li class="zh">TDD：JUnit 单元 / 集成 / 系统测试，核心模块覆盖 75%+。</li>
+            <li class="en">TDD with JUnit unit/integration/system tests; core coverage 75%+.</li>
+            <li class="zh">Java 8 Lambda / 函数式接口，压缩内联调用、提高可读性。</li>
+            <li class="en">Java 8 lambdas and functional interfaces for tighter, readable call sites.</li>
+            <li class="zh">AJAX + JSON 异步加载，减少全页刷新。</li>
+            <li class="en">AJAX + JSON to cut full-page reloads.</li>
+            <li class="zh">Oracle 12c：授信额度 / 担保 / 流水核心表与复杂查询索引。</li>
+            <li class="en">Oracle 12c tables for limits, collateral, ledger; index work on heavy queries.</li>
+            <li class="zh">HTML5 / CSS3 / Bootstrap 3.3.7 / jQuery：响应式表格、动态表单、AJAX 联动校验。</li>
+            <li class="en">Bootstrap 3.3.7 + jQuery: responsive tables, dynamic forms, AJAX validation.</li>
+            <li class="zh">Log4J 滚动日志 + ERROR 邮件告警。</li>
+            <li class="en">Log4J rolling logs and ERROR email alerts.</li>
+            <li class="zh">Tomcat 7.0 JNDI 数据源：连接池、超时、健康检查。</li>
+            <li class="en">Tomcat 7.0 JNDI pool, timeouts, health checks.</li>
+            <li class="zh">JDBC PreparedStatement 防注入，并提升执行计划缓存命中。</li>
+            <li class="en">PreparedStatement against injection and for plan-cache hits.</li>
+            <li class="zh">与 DevOps 一起做发布：SVN / Jenkins / Tomcat 脚本，手工 2 小时压到自动化 15 分钟。</li>
+            <li class="en">SVN/Jenkins/Tomcat deploy scripts with DevOps; 2h manual → 15 min automated.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 8</span><span class="envtag">Struts2 / Spring / iBatis</span><span class="envtag">Oracle 12c</span><span class="envtag">Tomcat 7</span><span class="envtag">Jenkins / SVN</span>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="eyebrow">Education</div>
+      <h2 class="head zh">教育 <em>Background</em></h2>
+      <h2 class="head en">Education</h2>
+      <div class="edu-card">
+        <div class="sch zh">天津商业大学</div>
+        <div class="sch en">Tianjin University of Commerce</div>
+        <div class="deg zh">工商管理学士</div>
+        <div class="deg en">Bachelor of Business Administration</div>
+        <div class="yr">2006.09 – 2010.07</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">Yancy</div>
+      <div class="footer-roles zh">Senior Backend Engineer · Big Data / Flink · AI 多代理 · Based in BGC, PH</div>
+      <div class="footer-roles en">Senior Backend Engineer · Big Data / Flink · Multi-agent AI · Based in BGC, PH</div>
+      <div class="footer-roles"><a href="mailto:yancysu1006@gmail.com">yancysu1006@gmail.com</a> · <a href="https://github.com/YancyZhang" target="_blank" rel="noopener">GitHub</a> · <a href="https://t.me/ukHarley" target="_blank" rel="noopener">Telegram @ukHarley</a></div>
+      <div class="footer-end mono">— END OF RESUME —</div>
+    </div>
+  </footer>
+
+</main>
+
+<div class="statusbar">
+  <span class="seg accent"><svg><use href="#i-git"></use></svg>main</span>
+  <span class="seg hide-s"><svg><use href="#i-check"></use></svg>0 errors</span>
+  <span class="seg"><span class="live"></span><span class="zh">12+ 年经验 · Manila, PH · 开放远程</span><span class="en">12+ yrs · Manila, PH · Open to remote</span></span>
+  <span class="sp"></span>
+  <span class="seg hide-s">UTF-8</span>
+  <span class="seg hide-s">LF</span>
+  <span class="seg zh">中文</span>
+  <span class="seg en">EN</span>
+</div>
+
+<script>
+(function(){
+  var sections = ['hero','summary','stack','experience','education'].map(function(id){ return document.getElementById(id); });
+
+  function setActive(id){
+    document.querySelectorAll('.tab').forEach(function(t){
+      t.classList.toggle('active', t.getAttribute('data-target') === id);
+    });
+    document.querySelectorAll('.rail a[data-target]').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-target') === id);
+    });
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) setActive(e.target.id);
+    });
+  }, {rootMargin:'-40% 0px -55% 0px'});
+  sections.forEach(function(s){ if (s) io.observe(s); });
+  setActive('hero');
+
+  var railToggle = document.getElementById('railToggle');
+  var rail = document.getElementById('rail');
+  if (railToggle) railToggle.addEventListener('click', function(){ rail.classList.toggle('open'); });
+  if (rail) {
+    rail.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ rail.classList.remove('open'); });
+    });
+  }
+
+  function setTheme(theme){
+    var day = theme === 'day';
+    document.documentElement.setAttribute('data-theme', day ? 'day' : 'night');
+    var btn = document.getElementById('themeToggle');
+    if (btn) btn.setAttribute('aria-label', day ? 'Switch to dark theme' : 'Switch to light theme');
+    try { localStorage.setItem('yancy-theme', day ? 'day' : 'night'); } catch (e) {}
+  }
+  var themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) themeToggle.addEventListener('click', function(){
+    var isDay = document.documentElement.getAttribute('data-theme') === 'day';
+    setTheme(isDay ? 'night' : 'day');
+  });
+  try {
+    var savedTheme = localStorage.getItem('yancy-theme');
+    if (savedTheme === 'day' || savedTheme === 'night') setTheme(savedTheme);
+  } catch (e) {}
+
+  var descZh = 'Yancy — 12+ 年后端 / 大数据 / Flink Tech Lead。DigiPlus Interactive Corp（BGC, PH）带 8 人团队。远程协作 · Telegram @ukHarley';
+  var descEn = 'Yancy — 12+ years backend / big data / Flink Tech Lead at DigiPlus Interactive Corp (BGC, PH). Remote. Telegram @ukHarley';
+  function setLang(lang){
+    var en = lang === 'en';
+    document.documentElement.setAttribute('data-lang', en ? 'en' : 'zh');
+    document.documentElement.lang = en ? 'en' : 'zh-CN';
+    try { localStorage.setItem('yancy-lang', en ? 'en' : 'zh'); } catch (e) {}
+    document.querySelectorAll('.langsel button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-set-lang') === (en ? 'en' : 'zh'));
+    });
+    document.title = en
+      ? 'Yancy — Senior Backend Engineer · Big Data / Flink · Multi-agent AI'
+      : 'Yancy — Senior Backend Engineer · Big Data / Flink · AI 多代理';
+    var d = en ? descEn : descZh;
+    var el;
+    el = document.getElementById('metaDesc'); if (el) el.setAttribute('content', d);
+    el = document.getElementById('ogDesc'); if (el) el.setAttribute('content', d);
+    el = document.getElementById('twDesc'); if (el) el.setAttribute('content', d);
+    el = document.getElementById('ogTitle'); if (el) el.setAttribute('content', document.title);
+    el = document.getElementById('resumeDl'); if (el) el.setAttribute('href', en ? 'resume-en.pdf' : 'resume.pdf');
+  }
+  document.querySelectorAll('.langsel button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-set-lang')); });
+  });
+  try {
+    var saved = localStorage.getItem('yancy-lang');
+    if (saved === 'en' || saved === 'zh') setLang(saved);
+  } catch (e) {}
+})();
+</script>
+
+</body>
+</html>
