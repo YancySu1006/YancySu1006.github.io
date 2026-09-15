@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Yancy — Senior Backend Engineer · Big Data / Flink · AI 多代理</title>
-<meta name="description" id="metaDesc" content="Yancy — 12+ 年后端 / 大数据 / Flink Tech Lead。DigiPlus Interactive Corp（BGC, PH）带 8 人团队。远程协作 · Telegram @ukHarley" />
+<meta name="description" id="metaDesc" content="Yancy — 15 年后端 / 大数据 / Flink Tech Lead。DigiPlus Interactive Corp（BGC, PH）带 8 人团队。远程协作 · Telegram @ukHarley" />
 <meta name="author" content="Yancy" />
 <meta name="theme-color" content="#6c47ff" />
 <meta property="og:type" content="website" />
 <meta property="og:title" id="ogTitle" content="Yancy — Senior Backend Engineer · Big Data / Flink · Multi-agent AI" />
-<meta property="og:description" id="ogDesc" content="12+ years backend / big data / Flink. Tech Lead at DigiPlus Interactive Corp (BGC, PH). Remote. Telegram @ukHarley" />
+<meta property="og:description" id="ogDesc" content="15 years backend / big data / Flink. Tech Lead at DigiPlus Interactive Corp (BGC, PH). Remote. Telegram @ukHarley" />
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary" />
@@ -286,7 +286,9 @@ h2.head{
 .crumb b{color:var(--sub);font-weight:500}
 .hero h1{
   font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.05;
-  font-size:clamp(3rem,7vw,5rem);margin-bottom:6px;color:var(--ink);
+  font-size:clamp(3rem,7vw,5rem);margin-bottom:6px;
+  background:linear-gradient(118deg, var(--ink) 6%, var(--t-f) 52%, var(--t-p) 96%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hero .role{font-family:var(--mono);font-size:clamp(.95rem,1.6vw,1.12rem);color:var(--t-f);margin-bottom:16px;letter-spacing:-.005em}
 .hero .role .sep{color:var(--faint);margin:0 8px}
@@ -317,7 +319,11 @@ h2.head{
 [data-theme="day"] .heromets{background:linear-gradient(180deg,rgba(255,255,255,.7),transparent),var(--editor)}
 .heromets .hm{flex:1 1 auto;min-width:130px;display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-right:1px solid var(--line)}
 .heromets .hm:last-child{border-right:none}
-.heromets .hm b{font-size:1.28rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.heromets .hm b{font-size:1.28rem;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.heromets .hm:nth-child(1) b{color:var(--t-p)}
+.heromets .hm:nth-child(2) b{color:var(--t-f)}
+.heromets .hm:nth-child(3) b{color:var(--t-s)}
+.heromets .hm:nth-child(4) b{color:var(--t-n)}
 .heromets .hm span{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sub2)}
 .pastline{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:22px}
 .pastline .cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--sub2)}
@@ -383,13 +389,68 @@ h2.head{
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 .stat{
-  background:linear-gradient(180deg,rgba(255,255,255,.9),transparent 48%),var(--editor);
   border:1px solid var(--line);border-radius:16px;padding:26px 20px;text-align:center;
-  transition:background .3s,border-color .3s,transform .3s;box-shadow:var(--sh-card);
+  transition:background .3s,border-color .3s,transform .3s,box-shadow .3s;box-shadow:var(--sh-card);
 }
-.stat:hover{border-color:#6c47ff55;transform:translateY(-3px)}
-.stat b{display:block;font-size:1.7rem;font-weight:700;color:var(--ink);margin-bottom:4px;font-variant-numeric:tabular-nums}
-.stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--sub2)}
+.stat:hover{transform:translateY(-3px)}
+.stat b{display:block;font-size:1.7rem;font-weight:700;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase}
+.stat.tone-java{
+  background:linear-gradient(165deg,rgba(61,109,216,.42),rgba(13,14,26,.35) 58%),var(--editor);
+  border-color:rgba(125,162,255,.42);
+}
+.stat.tone-java b{color:#c5d6ff}
+.stat.tone-java span{color:#8aa3dc}
+.stat.tone-go{
+  background:linear-gradient(165deg,rgba(34,211,238,.34),rgba(13,14,26,.35) 58%),var(--editor);
+  border-color:rgba(34,211,238,.4);
+}
+.stat.tone-go b{color:#9af3ff}
+.stat.tone-go span{color:#6bb8c9}
+.stat.tone-py{
+  background:linear-gradient(165deg,rgba(16,185,129,.34),rgba(13,14,26,.35) 58%),var(--editor);
+  border-color:rgba(110,231,183,.38);
+}
+.stat.tone-py b{color:#a8f5d4}
+.stat.tone-py span{color:#6aaa8e}
+.stat.tone-ai{
+  background:linear-gradient(165deg,rgba(124,92,255,.42),rgba(13,14,26,.35) 58%),var(--editor);
+  border-color:rgba(167,139,250,.45);
+}
+.stat.tone-ai b{color:#e0d4ff}
+.stat.tone-ai span{color:#b8a0ff}
+[data-theme="day"] .stat.tone-java{
+  background:linear-gradient(180deg,rgba(61,109,216,.14),#fff 56%);
+  border-color:rgba(45,92,184,.22);
+}
+[data-theme="day"] .stat.tone-java b{color:#2d5cb8}
+[data-theme="day"] .stat.tone-java span{color:#5a7ab8}
+[data-theme="day"] .stat.tone-go{
+  background:linear-gradient(180deg,rgba(6,182,212,.14),#fff 56%);
+  border-color:rgba(8,145,178,.22);
+}
+[data-theme="day"] .stat.tone-go b{color:#0e7490}
+[data-theme="day"] .stat.tone-go span{color:#0e7490cc}
+[data-theme="day"] .stat.tone-py{
+  background:linear-gradient(180deg,rgba(5,150,105,.14),#fff 56%);
+  border-color:rgba(5,150,105,.22);
+}
+[data-theme="day"] .stat.tone-py b{color:#047857}
+[data-theme="day"] .stat.tone-py span{color:#047857cc}
+[data-theme="day"] .stat.tone-ai{
+  background:linear-gradient(180deg,rgba(108,71,255,.14),#fff 56%);
+  border-color:rgba(108,71,255,.22);
+}
+[data-theme="day"] .stat.tone-ai b{color:#6c47ff}
+[data-theme="day"] .stat.tone-ai span{color:#6c47ffcc}
+#summary .stackgrid .stackcard:nth-child(1) h4{color:#b4c8ff}
+#summary .stackgrid .stackcard:nth-child(2) h4{color:#7eeeff}
+#summary .stackgrid .stackcard:nth-child(3) h4{color:#8ff0c8}
+#summary .stackgrid .stackcard:nth-child(4) h4{color:#d4c4ff}
+[data-theme="day"] #summary .stackgrid .stackcard:nth-child(1) h4{color:#2d5cb8}
+[data-theme="day"] #summary .stackgrid .stackcard:nth-child(2) h4{color:#0e7490}
+[data-theme="day"] #summary .stackgrid .stackcard:nth-child(3) h4{color:#047857}
+[data-theme="day"] #summary .stackgrid .stackcard:nth-child(4) h4{color:#6c47ff}
 
 .stackgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
 @media (max-width:760px){.stackgrid{grid-template-columns:1fr}}
@@ -573,20 +634,30 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
     <a class="indent" href="#p-riskguard" data-target="experience"><span class="fdot" style="background:#a06820"></span>RiskGuard.ts</a>
     <a class="indent" href="#p-videai" data-target="experience"><span class="fdot" style="background:#1a8a7a"></span>VideAI.ts</a>
     <a class="indent" href="#p-chainpay" data-target="experience"><span class="fdot" style="background:#3a7a3a"></span>ChainPayGraph.go</a>
-    <a class="indent" href="#p-tradepilot" data-target="experience" title="TradePilot+StrategyForge.java"><span class="fdot" style="background:#a06820"></span><span class="fname">TradePilot+StrategyForge.java</span></a>
-    <a class="indent" href="#p-sportcore" data-target="experience"><span class="fdot" style="background:#2a7ab8"></span>SportCore.go</a>
     <a class="indent" href="#p-digiinfo" data-target="experience"><span class="fdot" style="background:#6b4fa8"></span>DigiInfoMarket.ts</a>
     <a class="indent" href="#p-alphaodds" data-target="experience"><span class="fdot" style="background:#2d5cb8"></span>AlphaOdds.ts</a>
     <a class="indent" href="#p-infra" data-target="experience"><span class="fdot" style="background:#7080a0"></span>bigdata-infra.md</a>
   </details>
   <details>
+    <summary><span class="fold">▸</span>📁 independent/</summary>
+    <a class="indent" href="#exp-indie" data-target="experience"><span class="fdot" style="background:var(--t-t)"></span>indie/</a>
+    <a class="indent" href="#p-tradepilot" data-target="experience" title="TradePilot+StrategyForge.java"><span class="fdot" style="background:#a06820"></span><span class="fname">TradePilot+StrategyForge.java</span></a>
+    <a class="indent" href="#p-sportcore" data-target="experience"><span class="fdot" style="background:#2a7ab8"></span>SportCore.go</a>
+    <a class="indent" href="#p-gogate" data-target="experience"><span class="fdot" style="background:#0891b2"></span>GoGate.go</a>
+    <a class="indent" href="#p-agentflow" data-target="experience"><span class="fdot" style="background:#22d3ee"></span>AgentFlow.go</a>
+    <a class="indent" href="#p-slotforge" data-target="experience"><span class="fdot" style="background:#7c3aed"></span>SlotForge.py</a>
+    <a class="indent" href="#p-ldr" data-target="experience"><span class="fdot" style="background:#2d5cb8"></span>LDR.java</a>
+    <a class="indent" href="#p-rgsentry" data-target="experience"><span class="fdot" style="background:#c45c26"></span>RGSentry.py</a>
+    <a class="indent" href="#p-growthforge" data-target="experience" title="LTVForge+CausalMix+BonusForge.py"><span class="fdot" style="background:#0e7490"></span><span class="fname">LTV+Causal+Bonus.py</span></a>
+  </details>
+  <details>
     <summary><span class="fold">▸</span>📁 earlier-roles/</summary>
-    <a class="indent" href="#e-ddu" data-target="experience">DDU.go</a>
-    <a class="indent" href="#e-seektop" data-target="experience">SeekTop.java</a>
+    <a class="indent" href="#e-seektop" data-target="experience">SeekTop.go</a>
     <a class="indent" href="#e-victor" data-target="experience">Victor.java</a>
     <a class="indent" href="#e-marlabs" data-target="experience">Marlabs.java</a>
     <a class="indent" href="#e-finance" data-target="experience">consumer-finance.java</a>
     <a class="indent" href="#e-sports" data-target="experience">sports-wms.java</a>
+    <a class="indent" href="#e-ecommerce" data-target="experience">ecommerce.php</a>
     <a class="indent" href="#e-pharma" data-target="experience">pharma.java</a>
     <a class="indent" href="#e-realestate" data-target="experience">real-estate.java</a>
     <a class="indent" href="#e-bank" data-target="experience">commercial-bank.java</a>
@@ -624,16 +695,16 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
 
       <div class="avail">
         <span class="dot"></span>
-        <span class="zh">可远程协作 · 英语办公 · 时区可协商</span>
-        <span class="en">Remote-ready · English for work · Flexible hours</span>
+        <span class="zh">可远程协作 · 英语办公 · 时区可协商 · Owner 闭环</span>
+        <span class="en">Remote-ready · English for work · Flexible hours · End-to-end owner</span>
       </div>
 
-      <p class="lede zh">12+ 年软件工程经验，横跨 Java / Python / Go / SQL 四大主力语言。目前在 DigiPlus Interactive Corp（BGC, 菲律宾）担任 Big Data / AI Engineer（Tech Lead），带 8 人团队从 0 到 1 落地 AIBusinessPlatform（Analyst / Agent / Customer 共享架构）以及 4 个生产级 AI 决策平台。英语流利，开放全球远程合作。</p>
-      <p class="lede en">12+ years in software engineering across Java, Python, Go, and SQL. Currently Big Data / AI Engineer (Tech Lead) at DigiPlus Interactive Corp in BGC, Philippines, leading an 8-person team that shipped AIBusinessPlatform (shared Analyst / Agent / Customer core) plus four production AI decision platforms from zero. Fluent English. Open to remote work worldwide.</p>
+      <p class="lede zh">15 年软件工程经验，横跨 Java / Python / Go / SQL 四大主力语言。目前在 DigiPlus Interactive Corp（BGC, 菲律宾）担任 Big Data / AI Engineer（Tech Lead），带 8 人团队从 0 到 1 落地 6 个生产平台：AIBusinessPlatform（共享核心）、4 个 AI 决策平台（RiskGuard / VideAI / DigiInfoMarket / AlphaOdds）与 ChainPayGraph 风控网关。英语流利，开放全球远程合作。</p>
+      <p class="lede en">15 years in software engineering across Java, Python, Go, and SQL. Currently Big Data / AI Engineer (Tech Lead) at DigiPlus Interactive Corp in BGC, Philippines, leading an 8-person team that shipped six production platforms: AIBusinessPlatform (shared core), four AI decision platforms (RiskGuard / VideAI / DigiInfoMarket / AlphaOdds), and the ChainPayGraph risk gateway. Fluent English. Open to remote work worldwide.</p>
 
       <div class="heromets">
-        <div class="hm"><b>12+</b><span class="zh">年经验</span><span class="en">Years Experience</span></div>
-        <div class="hm"><b>9</b><span class="zh">生产级平台</span><span class="en">Production Platforms</span></div>
+        <div class="hm"><b>15</b><span class="zh">年经验</span><span class="en">Years Experience</span></div>
+        <div class="hm"><b>6</b><span class="zh">生产级平台</span><span class="en">Production Platforms</span></div>
         <div class="hm"><b>70+</b><span class="zh">后端模块</span><span class="en">Backend Modules</span></div>
         <div class="hm"><b>200+</b><span class="zh">已交付 API</span><span class="en">API Endpoints Shipped</span></div>
       </div>
@@ -652,7 +723,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
       </div>
       <div class="pastline">
         <span class="cap zh">曾任职</span><span class="cap en">Previously</span>
-        <span class="cos">DDU · SeekTop · Victor · Marlabs</span>
+        <span class="cos">SeekTop · Victor · Marlabs</span>
       </div>
     </div>
 
@@ -667,10 +738,10 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           <span class="win-meta"><span class="fdot" style="background:#82aaff"></span>Java · UTF-8</span>
         </div>
         <div class="code">
-          <span class="cl"><span class="t-c">// Big Data / Flink / AI Agent · 12y</span></span>
+          <span class="cl"><span class="t-c">// Big Data / Flink / AI Agent · 15y</span></span>
           <span class="cl"><span class="t-k">public class</span> <span class="t-t">Engineer</span> {</span>
           <span class="cl hl"><span class="t-k">private final</span> <span class="t-t">String</span> <span class="t-p">name</span> <span class="t-o">=</span> <span class="t-s">"Yancy"</span>;</span>
-          <span class="cl"><span class="t-k">private final</span> <span class="t-t">int</span> <span class="t-p">years</span> <span class="t-o">=</span> <span class="t-n">12</span>; <span class="t-c">// backend + big data</span></span>
+          <span class="cl"><span class="t-k">private final</span> <span class="t-t">int</span> <span class="t-p">years</span> <span class="t-o">=</span> <span class="t-n">15</span>; <span class="t-c">// backend + big data</span></span>
           <span class="cl"><span class="t-k">private final</span> <span class="t-t">List</span>&lt;<span class="t-t">String</span>&gt; <span class="t-p">stack</span> <span class="t-o">=</span> List.of(</span>
           <span class="cl">  <span class="t-s">"Java"</span>, <span class="t-s">"Go"</span>, <span class="t-s">"Python"</span>, <span class="t-s">"Flink"</span>,</span>
           <span class="cl">  <span class="t-s">"MaxCompute"</span>, <span class="t-s">"LangGraph"</span></span>
@@ -715,8 +786,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
   <section id="summary">
     <div class="wrap">
       <div class="eyebrow">Summary</div>
-      <h2 class="head zh">12 年后端工程师，经历了 <em>4 次</em>技术代际更替</h2>
-      <h2 class="head en">A 12-year backend engineer through <em>4</em> technology generations</h2>
+      <h2 class="head zh">15 年后端工程师，经历了 <em>4 次</em>技术代际更替</h2>
+      <h2 class="head en">A 15-year backend engineer through <em>4</em> technology generations</h2>
       <p class="lede zh">从单体 Spring MVC 到 Spring Boot 微服务，从 Hibernate JDBC 到 PyODPS 大数据查询，从 Tomcat 单机到 Docker / K8s 云原生，从同步阻塞到 Apache Flink 实时流处理，从传统 REST API 到 FastAPI 异步 + LangGraph 多代理工作流 — 完整经历了后端工程的四次技术代际更替。</p>
       <p class="lede en">From Spring MVC monoliths to Spring Boot microservices; from Hibernate JDBC to PyODPS; from single-node Tomcat to Docker / Kubernetes; from blocking I/O to Apache Flink streaming; from classic REST to FastAPI plus LangGraph multi-agent workflows — a full four-generation arc of backend engineering.</p>
 
@@ -728,32 +799,32 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
       </div>
 
       <div class="stats">
-        <div class="stat"><b>Java</b><span>8 yrs · 2013–2021</span></div>
-        <div class="stat"><b>Go</b><span>2 yrs · 2022–2023</span></div>
-        <div class="stat"><b>Python + Big Data</b><span>~4 yrs · 2022–Now</span></div>
-        <div class="stat"><b>AI / LLM</b><span>~2 yrs · 2024–Now</span></div>
+        <div class="stat tone-java"><b>Java</b><span>15 yrs · 2011–Now</span></div>
+        <div class="stat tone-go"><b>Go</b><span>6 yrs · 2020–Now</span></div>
+        <div class="stat tone-py"><b>Python + Big Data</b><span>3 yrs · 2023–Now</span></div>
+        <div class="stat tone-ai"><b>AI / LLM</b><span>3 yrs · 2023–Now</span></div>
       </div>
 
       <div class="stackgrid" style="margin-top:28px">
         <div class="stackcard">
-          <h4><span class="fdot" style="background:#2d5cb8"></span>Java 2013–2021</h4>
-          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Spring Boot / Cloud / MyBatis / Hibernate / Dubbo / JVM 调优 / 多线程 / GC / 锁 / Netty / 微服务拆分。从 Java 6 写到 Java 17，覆盖支付、风控、仓储、消费金融、制药、ERP、银行授信。</p>
-          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Spring Boot / Cloud / MyBatis / Hibernate / Dubbo / JVM tuning / concurrency / GC / locks / Netty / service splits. Java 6→17 across payments, risk, WMS, consumer finance, pharma, ERP, and bank credit.</p>
+          <h4><span class="fdot" style="background:#2d5cb8"></span>Java 2011–Now</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Spring Boot / Cloud Gateway / MyBatis / JPA / Hibernate / JUC / JVM 调优。2011–2020 Java 6/7/8 为主业；2020–2023 主业为 Go，Java 未断。2021 起自研用 Java 17；2023 起 DigiPlus Java 17 认证网关 / Flink，自研 TradePilot 用 Java 21。覆盖支付、风控、仓储、消费金融、制药、ERP、银行授信。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Spring Boot / Cloud Gateway / MyBatis / JPA / Hibernate / JUC / JVM tuning. Java 6/7/8 as the day job through 2020; Go was primary 2020–2023 without dropping Java. Java 17 on independent work from 2021; Java 17 gateway / Flink at DigiPlus and Java 21 on independent TradePilot from 2023. Payments, risk, WMS, consumer finance, pharma, ERP, bank credit.</p>
         </div>
         <div class="stackcard">
-          <h4><span class="fdot" style="background:var(--t-t)"></span>Go 2022–2023</h4>
-          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Goroutine / Channel / WebSocket / UDP。DDU 峰值 QPS 5K+，熟悉 Go 内存模型、协程调度、channel 模式与 select 多路复用。</p>
-          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / goroutines / channels / WebSocket / UDP. DDU peak 5K+ QPS. Go memory model, scheduler, channel patterns, select mux.</p>
+          <h4><span class="fdot" style="background:var(--t-t)"></span>Go 2020–Now</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Protobuf / Goroutine / Channel / Context。SeekTop 峰值 QPS 5K+，PHP 存量可迁 Go；DigiPlus 仍用 Go Worker / ChainPayGraph。SportCore 自 2021，GoGate / AgentFlow 自 2023。多级缓存、限流熔断、灰度、OpenTelemetry / pprof。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Protobuf / goroutines / channels / context. SeekTop peak 5K+ QPS, PHP leftovers moved to Go; DigiPlus still uses Go. SportCore from 2021, GoGate / AgentFlow from 2023. Multi-tier cache, rate limit / circuit break / canary, OpenTelemetry / pprof.</p>
         </div>
         <div class="stackcard">
-          <h4><span class="fdot" style="background:var(--t-s)"></span>Python + Flink</h4>
-          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">FastAPI + Pydantic v2 / PyODPS / MaxCompute / DataWorks / Flink DataStream+Table。日均 4.2 亿订单 + 7.37 亿广告点击。Backpressure、Checkpoint/Savepoint、Watermark、RocksDB vs HashMap、keyBy 加盐、4-tier UNION ALL / COLLECT_LIST / COUNT(*) 替代 COUNT DISTINCT。</p>
-          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">FastAPI + Pydantic v2 / PyODPS / MaxCompute / DataWorks / Flink DataStream+Table. 420M orders + 737M ad clicks/day. Backpressure, checkpoints, watermarks, RocksDB vs HashMap, salted keyBy, 4-tier UNION ALL / COLLECT_LIST / COUNT(*) vs DISTINCT.</p>
+          <h4><span class="fdot" style="background:var(--t-s)"></span>Python + Flink 2023–Now</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">FastAPI + Pydantic v2 / PyODPS / MaxCompute / Spark SQL / Hive / Iceberg。DataWorks / Flink DataStream+Table+CEP。数仓分层 ODS/DWD/DWS/ADS，湖仓一体（Iceberg 表格式 + Spark 批 + Flink 流），日均 4.2 亿订单 + 7.37 亿广告点击。Backpressure、Checkpoint/Savepoint、Watermark、Exactly-Once；ClickHouse / Doris 查询加速；任务 SLA 与数据质量。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">FastAPI + Pydantic v2 / PyODPS / MaxCompute / Spark SQL / Hive / Iceberg. DataWorks / Flink DataStream+Table+CEP. ODS/DWD/DWS/ADS plus lakehouse (Iceberg tables, Spark batch, Flink stream). 420M orders + 737M ad clicks/day. Backpressure, checkpoints, watermarks, exactly-once; ClickHouse / Doris serving; job SLAs and data quality.</p>
         </div>
         <div class="stackcard">
-          <h4><span class="fdot" style="background:var(--t-k)"></span>AI / LLM 2024–</h4>
-          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">LangGraph 5 代理 tit-for-tat 辩论，Claude / GPT-4o / Grok 三路路由 + Conformal Prediction。XGBoost / LightGBM / LSTM / Transformer / GNN 加权融合 + SHAP。pgvector + Pinecone RAG。YOLO / MediaPipe 实时 CV + xG。</p>
-          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">LangGraph 5-agent tit-for-tat debate, Claude / GPT-4o / Grok routing + conformal prediction. XGBoost / LightGBM / LSTM / Transformer / GNN + SHAP. pgvector + Pinecone RAG. YOLO / MediaPipe live CV + xG.</p>
+          <h4><span class="fdot" style="background:var(--t-k)"></span>AI / LLM 2023–Now</h4>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">LangGraph / LangChain 多代理编排，Claude / GPT-4o / Grok 路由 + Prompt / Function Calling / MCP / SSE。RAG（pgvector / Pinecone / Milvus）+ Embedding。HITL 审批、成本监控与评测。日常用 Cursor / Claude Code / Copilot 做生成、重构、测试与排障。XGBoost / LightGBM / LSTM / Transformer / GNN + SHAP。YOLO / MediaPipe 实时 CV。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">LangGraph / LangChain multi-agent orchestration, Claude / GPT-4o / Grok routing + prompt / function calling / MCP / SSE. RAG (pgvector / Pinecone / Milvus) + embeddings. HITL approvals, cost controls, and evals. Daily Cursor / Claude Code / Copilot for generate / refactor / test / debug. XGBoost / LightGBM / LSTM / Transformer / GNN + SHAP. YOLO / MediaPipe live CV.</p>
         </div>
       </div>
     </div>
@@ -770,23 +841,23 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
       <div class="stackgrid">
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-f)"></span><span class="zh">主力语言</span><span class="en">Core languages</span></h4>
           <div class="chiprow">
-            <span class="chip">Java 8/11/17/21</span><span class="chip">Python 3.10+</span><span class="chip">Go</span><span class="chip">SQL</span><span class="chip">TypeScript</span>
+            <span class="chip">Java 8/11/17/21</span><span class="chip">Go</span><span class="chip">PHP 7/8</span><span class="chip">Python 3.10+</span><span class="chip">SQL</span><span class="chip">TypeScript</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:#2d5cb8"></span>Java</h4>
           <div class="chiprow">
-            <span class="chip">Spring Boot / Cloud</span><span class="chip">MyBatis / JPA</span><span class="chip">Dubbo</span><span class="chip">Netty</span><span class="chip">JUnit</span>
+            <span class="chip">Spring Boot / Cloud Gateway</span><span class="chip">MyBatis / JPA</span><span class="chip">JUC / JVM</span><span class="chip">Kafka / Redis</span><span class="chip">JUnit / Mockito</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-n)"></span>Python</h4>
           <div class="chiprow">
-            <span class="chip">FastAPI + Pydantic v2</span><span class="chip">PyODPS</span><span class="chip">LangChain / LangGraph</span><span class="chip">Pandas</span><span class="chip">scikit-learn</span>
+            <span class="chip">FastAPI + Pydantic v2</span><span class="chip">PyODPS</span><span class="chip">LangChain / LangGraph</span><span class="chip">Pandas</span><span class="chip">scikit-learn</span><span class="chip">Airflow</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-t)"></span>Go</h4>
           <div class="chiprow">
-            <span class="chip">Gin / Fiber</span><span class="chip">gRPC</span><span class="chip">WebSocket</span><span class="chip">Gorm</span>
+            <span class="chip">Gin / gRPC / Protobuf</span><span class="chip">Fiber / gnet</span><span class="chip">PHP 7/8（可读可迁）</span><span class="chip">WebSocket / SSE</span><span class="chip">Gorm / go-redis</span><span class="chip">限流 / 熔断 / 灰度</span><span class="chip">OpenTelemetry / Prometheus</span><span class="chip">pprof / Docker / K8s</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-k)"></span>AI / LLM</h4>
           <div class="chiprow">
-            <span class="chip">LangGraph</span><span class="chip">Claude / GPT-4o / Grok</span><span class="chip">RAG (pgvector / Pinecone)</span><span class="chip">MCP</span>
+            <span class="chip">LangGraph / LangChain</span><span class="chip">Claude / GPT-4o / Grok</span><span class="chip">RAG / Embedding / pgvector / Pinecone / Milvus</span><span class="chip">MCP / Function Calling</span><span class="chip">Prompt / 结构化输出</span><span class="chip">HITL / 审批流 / 灰度</span><span class="chip">成本监控 / Eval</span><span class="chip">SSE</span><span class="chip">Claude Code / Cursor / Copilot</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:#2a7ab8"></span>ML / CV</h4>
           <div class="chiprow">
@@ -794,11 +865,11 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-s)"></span><span class="zh">大数据 / 实时</span><span class="en">Big data / stream</span></h4>
           <div class="chiprow">
-            <span class="chip">MaxCompute (ODPS)</span><span class="chip">DataWorks</span><span class="chip">Flink DataStream + Table + CEP</span><span class="chip">Kafka</span><span class="chip">Hologres</span>
+            <span class="chip">MaxCompute (ODPS)</span><span class="chip">Spark / Spark SQL</span><span class="chip">Hive</span><span class="chip">Iceberg / 湖仓</span><span class="chip">DataWorks / Airflow</span><span class="chip">Flink DataStream + Table + CEP</span><span class="chip">Kafka / DataHub</span><span class="chip">Hologres / ClickHouse / Doris</span><span class="chip">ODS / DWD / DWS / ADS</span><span class="chip">数据质量 / SLA</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:#3a7a3a"></span><span class="zh">存储 / 云</span><span class="en">Stores / cloud</span></h4>
           <div class="chiprow">
-            <span class="chip">MySQL / PostgreSQL</span><span class="chip">Redis</span><span class="chip">ClickHouse</span><span class="chip">Alibaba Cloud</span><span class="chip">Docker / K8s</span>
+            <span class="chip">MySQL / PostgreSQL</span><span class="chip">Redis</span><span class="chip">ClickHouse</span><span class="chip">Alibaba Cloud</span><span class="chip">Docker / K8s</span><span class="chip">Nginx</span><span class="chip">Grafana / Prometheus</span>
           </div></div>
       </div>
     </div>
@@ -816,8 +887,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           <span class="cos">DigiPlus Interactive Corp</span>
           <span class="role">Big Data / AI Engineer (Tech Lead) · <span class="zh">团队 8 人</span><span class="en">team of 8</span></span>
         </div>
-      <p class="lede zh">数字营销与互动娱乐集团（实时交易 / 风控场景）。核心产品日均 480K 笔交易、85K DAU、$267M 交易额、4.2 亿订单事件、7.37 亿广告点击。Big Data + AI 团队从 0 到 1 落地 AIBusinessPlatform 以及 4 个生产级 AI 决策平台。</p>
-      <p class="lede en">Digital marketing and interactive entertainment group (realtime trading / risk). Core product: 480K daily transactions, 85K DAU, $267M turnover, 420M order events, 737M ad clicks. The team shipped AIBusinessPlatform plus four production AI decision platforms.</p>
+      <p class="lede zh">数字营销与互动娱乐集团（实时交易 / 风控场景）。核心产品日均 480K 笔交易、85K DAU、$267M 交易额、4.2 亿订单事件、7.37 亿广告点击。Big Data + AI 团队从 0 到 1 落地 6 个生产平台：AIBusinessPlatform、4 个 AI 决策平台（RiskGuard / VideAI / DigiInfoMarket / AlphaOdds）与 ChainPayGraph 风控网关。</p>
+      <p class="lede en">Digital marketing and interactive entertainment group (realtime trading / risk). Core product: 480K daily transactions, 85K DAU, $267M turnover, 420M order events, 737M ad clicks. The team shipped six production platforms: AIBusinessPlatform, four AI decision platforms (RiskGuard / VideAI / DigiInfoMarket / AlphaOdds), and ChainPayGraph.</p>
       </div>
 
       <details class="proj" open id="p-aibiz">
@@ -844,6 +915,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
             <li>🗄 <span class="zh">Redis 用于会话 / Agent 状态 / 租户限流 / 审批锁。未配置时诚实 no-op；审批竞态另有数据库原子更新兜底。</span><span class="en">Redis for session / agent state / tenant rate limit / approval lock. Honest no-op when unset; DB atomic update as last race guard.</span></li>
             <li>🧩 <span class="zh">领域模型覆盖项目 / Agent / 工作流 / 任务；套餐配额与执行类权限可调。</span><span class="en">Domain: project / agent / workflow / task; plan quotas and execution permissions are patchable.</span></li>
             <li>🤝 <span class="zh">统一对话入口按产品上下文路由到各 Python AI Gateway，并保留各产品原有 API 形状。</span><span class="en">Unified chat entry routes by product context to each Python AI gateway, keeping existing API shapes.</span></li>
+            <li>🎛 <span class="zh">Prompt / 模型路由 / 租户限流与成本边界；高风险工具 HITL 审批；日志审计与灰度。日常用 Cursor / Claude Code 做重构、补测与排障，不盲信生成代码。</span><span class="en">Prompt / model routing / tenant rate limits and cost caps; HITL for high-risk tools; audit logs and canaries. Daily Cursor / Claude Code for refactor / tests / triage — generated code is reviewed, not trusted blindly.</span></li>
             <li>✅ <span class="zh">诚实披露：Analyst 对接生产数仓；Agent 有 Tool+Workflow 与高风险人工审批；Customer 混合语义检索 + 退款审批幂等。本机 Docker 端到端通常未拉起，不冒充已验证。</span><span class="en">Honest status: Analyst on a live warehouse; Agent Tool+Workflow with HITL for high-risk ops; Customer hybrid search + idempotent refunds. Local Docker E2E usually not up — not claimed as proven.</span></li>
           </ul>
           <div class="envtags">
@@ -919,7 +991,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           <ul>
             <li>🔗 <span class="zh">Go 高并发风控网关 — gRPC + OpenTelemetry 全链路追踪，幂等 Pipeline 统一 8 个调用点，Bloom Filter 三层校验（内存 + Redis + 定期重建），Kafka 事件总线解耦。</span><span class="en">Go gateway — gRPC + OpenTelemetry, idempotent pipeline at 8 call sites, 3-layer Bloom (memory + Redis + rebuild), Kafka bus.</span></li>
             <li>🕸 <span class="zh">AML / Behavior / Phishing 三 Agent 并行风控 — Neo4j GraphRAG 识别 peeling / mixer / layering 洗钱模式，Milvus 向量检索比对钓鱼地址；Behavior Agent 用真实训练的 GradientBoostingClassifier 替换阈值规则（holdout AUC 0.876 vs 规则基线 0.629；模拟数据 + 熔断阈值把关，避免过拟合结果上线）。</span><span class="en">AML / Behavior / Phishing agents in parallel — Neo4j GraphRAG for peeling / mixer / layering, Milvus phishing lookup; Behavior Agent GradientBoostingClassifier holdout AUC 0.876 vs rule baseline 0.629, with simulated data + circuit-breaker so an overfit score cannot ship.</span></li>
-            <li>⚙ <span class="zh">跨项目真实集成 — 与 RiskGuard 的 XGBoost 提现风险模型、TradePilot 钱包风险预检 MCP 工具真实 gRPC/HTTP 互调。</span><span class="en">Live gRPC/HTTP to RiskGuard XGBoost withdraw model and TradePilot wallet precheck MCP tools.</span></li>
+            <li>⚙ <span class="zh">跨项目集成 — 与 RiskGuard 的 XGBoost 提现风险模型真实 gRPC/HTTP 互调；与自研 TradePilot 钱包预检做过联调验证，不计入 DigiPlus 生产。</span><span class="en">Live gRPC/HTTP to the RiskGuard XGBoost withdraw model; TradePilot wallet precheck was a side-project integration, not DigiPlus production.</span></li>
             <li>✅ <span class="zh">工程化与 CI — go build/vet/test 全绿，GitHub Actions 三 job 流水线。Flink 实时特征管道 / Solana Watcher 在文档里如实标「规划中」，不冒充已完成。</span><span class="en">CI green (build/vet/test), 3-job GitHub Actions. Flink feature pipeline / Solana Watcher labeled planned — not described as shipped.</span></li>
           </ul>
           <div class="envtags">
@@ -927,57 +999,10 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div>
         </div>
       </details>
-      <details class="proj" id="p-tradepilot">
-        <summary>
-          <span class="fdot" style="background:#a06820"></span>
-          <span class="pname">TradePilot / StrategyForge</span>
-          <span class="pdesc zh">AI 多代理量化交易平台</span>
-          <span class="pdesc en">Multi-agent quant trading</span>
-          <span class="fold">▸</span>
-        </summary>
-        <div class="pbody">
-          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">双项目联动：StrategyForge 负责策略回测/参数优化/模拟盘，TradePilot 负责真实下单执行 + LLM 多代理客服/分析 + HITL 风控确认。验证「策略生成」到「真实执行」全链路用真实 Spring Boot 微服务 + MCP 协议工具打通。</p>
-          <p class="en">Paired systems: StrategyForge backtests/optimizes/paper-trades; TradePilot executes live + LLM multi-agent ops + HITL risk. End-to-end via Spring Boot microservices + MCP tools.</p>
-          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
-          <ul>
-            <li>☕ <span class="zh">Java 21 + Spring Cloud Gateway 微服务集群 — TradePilot 8 服务（gateway / order / position / wallet / market-data / risk-guard / conversation / agent-orchestrator）/ StrategyForge 7 服务，order-svc / position-svc 真实 JPA 持久化（此前 position-svc 无存储层、每次现造假数据）。</span><span class="en">Java 21 + Spring Cloud Gateway — TradePilot 8 services (gateway / order / position / wallet / market-data / risk-guard / conversation / agent-orchestrator) / StrategyForge 7; order-svc / position-svc on JPA (position-svc previously had no store and invented data per request).</span></li>
-            <li>🤖 <span class="zh">MCP 工具注册 + HITL 风控确认 — 反射式注册 13 个工具，下单/风控类保留纯 metadata 防止绕过人工确认；另用官方 MCP Python SDK 实现真协议 server/client。</span><span class="en">13 MCP tools via reflection; order/risk stay metadata-only so HITL cannot be skipped; official MCP Python SDK server/client.</span></li>
-            <li>📈 <span class="zh">真实回测引擎 — bar-by-bar 回测，golden-file 测试锁定精确 Sharpe/Sortino；修复过年化收益符号 bug 与 Spring 构造函数歧义 bug。</span><span class="en">Bar-by-bar backtester, golden-file Sharpe/Sortino; fixed annualized-return sign bug and Spring ctor ambiguity.</span></li>
-            <li>🔐 <span class="zh">API Key 网关鉴权 — 排查发现两个网关此前完全没有鉴权，新增 GlobalFilter 中间件，现场验证 401/放行/健康检查三种情况。</span><span class="en">API-key GlobalFilter after finding both gateways had no auth; verified 401 / allow / health.</span></li>
-          </ul>
-          <div class="envtags">
-            <span class="envtag">Java 21</span><span class="envtag">Spring Boot 3</span><span class="envtag">Anthropic MCP SDK</span><span class="envtag">LangChain4j</span>
-          </div>
-        </div>
-      </details>
-      <details class="proj" id="p-sportcore">
-        <summary>
-          <span class="fdot" style="background:#2a7ab8"></span>
-          <span class="pname">SportCore</span>
-          <span class="pdesc zh">高并发订单撮合引擎</span>
-          <span class="pdesc en">High-concurrency matching engine</span>
-          <span class="fold">▸</span>
-        </summary>
-        <div class="pbody">
-          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">体育交易场景下单侧对撮合引擎，验证 mutex 保护 vs ring buffer 无锁队列在真实高并发下的表现差异，并堵住钱包/订单接口此前 0 测试覆盖带来的资金安全隐患。</p>
-          <p class="en">Sports-trading matching engine: mutex vs lock-free ring buffer under real concurrency, plus closing a zero-coverage hole on wallet/order money paths.</p>
-          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
-          <ul>
-            <li>⚡ <span class="zh">Fiber + gnet 双协议网关 — 5K 并发连接头对头 benchmark，如实记录 ring buffer 只有 8+ goroutine 时才反超 mutex 这个不完全符合直觉的真实结果。</span><span class="en">Fiber + gnet dual gateway — 5K-conn benchmark; ring buffer only beat mutex at 8+ goroutines.</span></li>
-            <li>💰 <span class="zh">撮合引擎 + 钱包/订单模块 — 价格-时间优先撮合，补齐 0 覆盖的下单/冻结/释放资金链路 33 个测试。</span><span class="en">Price-time matching; 33 tests covering place/freeze/release that previously had zero coverage.</span></li>
-            <li>🔒 <span class="zh">IDOR 越权漏洞修复 — 排查发现钱包/订单接口直接信任客户端 user_id，新增 API Key 鉴权中间件 + 越权回归测试。</span><span class="en">IDOR fix — wallet/order trusted client user_id; API-key middleware + regression tests.</span></li>
-          </ul>
-          <div class="envtags">
-            <span class="envtag">Go</span><span class="envtag">Fiber v2</span><span class="envtag">gnet v2</span><span class="envtag">go-redis / miniredis</span>
-          </div>
-        </div>
-      </details>
       <details class="proj" id="p-digiinfo">
         <summary>
           <span class="fdot" style="background:#6b4fa8"></span>
-          <span class="pname">DigiInfoMarket</span><span class="pver">v0.4.0</span>
+          <span class="pname">DigiInfoMarket</span>
           <span class="pdesc zh">AI 预测市场情报平台</span>
           <span class="pdesc en">AI prediction-market intelligence</span>
           <span class="fold">▸</span>
@@ -1009,7 +1034,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
       <details class="proj" id="p-alphaodds">
         <summary>
           <span class="fdot" style="background:#2d5cb8"></span>
-          <span class="pname">AlphaOdds</span><span class="pver">v2.3.0</span>
+          <span class="pname">AlphaOdds</span>
           <span class="pdesc zh">AI 体育数据智能决策平台</span>
           <span class="pdesc en">AI sports-data decision platform</span>
           <span class="fold">▸</span>
@@ -1057,18 +1082,217 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
         </summary>
         <div class="pbody">
           <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">DigiPlus 大数据团队基础建设角色 — 为 4 个上层产品提供稳定可靠的数据服务，支撑离线 + 实时全栈链路。</p>
-          <p class="en">Platform role for DigiPlus big-data: reliable data services for four product surfaces, batch + realtime.</p>
+          <p class="zh">DigiPlus 大数据团队基础建设角色 — 为上述生产产品提供稳定可靠的数据服务，支撑离线 + 实时全栈链路（数仓分层 ODS/DWD/DWS/ADS、指标口径、SLA）。</p>
+          <p class="en">Platform role for DigiPlus big-data: reliable batch + realtime services for the production products above (ODS/DWD/DWS/ADS, metric governance, SLAs).</p>
           <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
           <ul>
-            <li>🔧 <span class="zh">离线 + 实时统一平台 — MaxCompute 批处理 + Realtime Compute for Flink + DataWorks + Hologres。</span><span class="en">Unified platform — MaxCompute batch + Flink realtime + DataWorks + Hologres.</span></li>
+            <li>🔧 <span class="zh">离线 + 实时统一平台 — MaxCompute 批处理 + Spark SQL / Hive + Iceberg 湖仓 + Realtime Compute for Flink + DataWorks + Hologres；数仓分层 ODS/DWD/DWS/ADS，ClickHouse / SelectDB(Doris) 查询加速。</span><span class="en">Unified platform — MaxCompute batch + Spark SQL / Hive + Iceberg lakehouse + Flink realtime + DataWorks + Hologres; ODS/DWD/DWS/ADS; ClickHouse / SelectDB (Doris) serving.</span></li>
             <li>⚡ <span class="zh">Flink 生产运维 SOP — Backpressure（busyTimeMsPerSecond / idleTimeMsPerSecond）、Checkpoint/Savepoint（RETAIN_ON_CANCELLATION + 5 retained + incremental）、Watermark/Window incremental aggregation、State Backend（HashMap vs RocksDB + SPINNING_DISK_OPTIMIZED_HIGH_MEM）、keyBy 加盐 + LocalKeyByPartition + 两阶段聚合、KafkaSource Offset 失效改 timestamp 启动、State Processor API 把几十 GB savepoint 裁到几 GB、异常恢复 SOP（--allowNonRestoredState / partition.discovery.interval.ms）。</span><span class="en">Flink SOP — backpressure (busy/idle ms), checkpoint/savepoint (RETAIN_ON_CANCELLATION, 5 retained, incremental), incremental window agg, HashMap vs RocksDB, salted keyBy + two-stage agg, KafkaSource timestamp startup on bad offsets, State Processor API shrinking tens-of-GB savepoints, recovery SOP (--allowNonRestoredState / partition.discovery.interval.ms).</span></li>
             <li>📨 DataHub + Kafka — P99 &lt;200ms, <span class="zh">日吞吐 7+ 亿事件</span><span class="en">700M+ events/day</span>.</li>
             <li>📊 <span class="zh">MaxCompute SQL 性能调优规范（公司级）— 多个 ADS 任务从 4h+ 优化到 &lt;30 min。</span><span class="en">Company-wide MaxCompute SQL playbook — ADS jobs 4h+ → &lt;30 min.</span></li>
-            <li>☁ <span class="zh">DataWorks 任务编排 — 任务依赖管理、口径治理、SLA 保证。</span><span class="en">DataWorks orchestration — deps, metric governance, SLAs.</span></li>
+            <li>☁ <span class="zh">DataWorks 任务编排 — 任务依赖、口径治理、数据质量与 SLA；指标中台意识，避免口径漂移。</span><span class="en">DataWorks orchestration — deps, metric governance, data quality, SLAs; shared metric definitions.</span></li>
           </ul>
           <div class="envtags">
-            <span class="envtag">Apache Flink</span><span class="envtag">Airflow</span><span class="envtag">Kafka</span><span class="envtag">RocketMQ</span><span class="envtag">ClickHouse</span>
+            <span class="envtag">Apache Flink</span><span class="envtag">Spark / Spark SQL</span><span class="envtag">Hive / Iceberg</span><span class="envtag">Airflow</span><span class="envtag">Kafka</span><span class="envtag">RocketMQ</span><span class="envtag">ClickHouse</span>
+          </div>
+        </div>
+      </details>
+
+      <div class="company-head" id="exp-indie" style="margin-top:56px">
+        <div class="pastline">
+          <span class="cap"><span class="zh">2021 – 至今</span><span class="en">2021 – Present</span></span>
+          <span class="cos zh">自研项目</span><span class="cos en">Independent / side projects</span>
+          <span class="role"><span class="zh">非 DigiPlus 生产交付</span><span class="en">Not DigiPlus production</span></span>
+        </div>
+        <p class="lede zh">业余自研，不计入 DigiPlus 生产：SportCore 自 2021（Go 撮合）；GoGate / AgentFlow / TradePilot / SlotForge 自 2023（AI 网关、编排、量化与数学引擎）；LDR（法币同步决策沙箱）、RGSentry（责任游戏）、LTVForge / CausalMix / BonusForge（LTV · 因果 · 促销 OPE）。</p>
+        <p class="lede en">Side projects, not DigiPlus production: SportCore from 2021 (Go matching); GoGate / AgentFlow / TradePilot / SlotForge from 2023 (AI gateway, orchestration, quant, math engine); LDR (fiat decision sandbox), RGSentry (responsible gaming), LTVForge / CausalMix / BonusForge (LTV · causal · promo OPE).</p>
+      </div>
+
+      <details class="proj" id="p-tradepilot">
+        <summary>
+          <span class="fdot" style="background:#a06820"></span>
+          <span class="pname">TradePilot / StrategyForge</span>
+          <span class="pdesc zh">AI 多代理量化交易平台</span>
+          <span class="pdesc en">Multi-agent quant trading</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">双项目联动：StrategyForge 负责策略回测/参数优化/模拟盘，TradePilot 负责真实下单执行 + LLM 多代理客服/分析 + HITL 风控确认。验证「策略生成」到「真实执行」全链路用真实 Spring Boot 微服务 + MCP 协议工具打通。</p>
+          <p class="en">Paired systems: StrategyForge backtests/optimizes/paper-trades; TradePilot executes live + LLM multi-agent ops + HITL risk. End-to-end via Spring Boot microservices + MCP tools.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>☕ <span class="zh">Java 21 + Spring Cloud Gateway 微服务集群 — TradePilot 8 服务（gateway / order / position / wallet / market-data / risk-guard / conversation / agent-orchestrator）/ StrategyForge 7 服务，order-svc / position-svc 真实 JPA 持久化（此前 position-svc 无存储层、每次现造假数据）。</span><span class="en">Java 21 + Spring Cloud Gateway — TradePilot 8 services (gateway / order / position / wallet / market-data / risk-guard / conversation / agent-orchestrator) / StrategyForge 7; order-svc / position-svc on JPA (position-svc previously had no store and invented data per request).</span></li>
+            <li>🤖 <span class="zh">MCP 工具注册 + HITL 风控确认 — 反射式注册 13 个工具，下单/风控类保留纯 metadata 防止绕过人工确认；另用官方 MCP Python SDK 实现真协议 server/client。</span><span class="en">13 MCP tools via reflection; order/risk stay metadata-only so HITL cannot be skipped; official MCP Python SDK server/client.</span></li>
+            <li>📈 <span class="zh">真实回测引擎 — bar-by-bar 回测，golden-file 测试锁定精确 Sharpe/Sortino；修复过年化收益符号 bug 与 Spring 构造函数歧义 bug。</span><span class="en">Bar-by-bar backtester, golden-file Sharpe/Sortino; fixed annualized-return sign bug and Spring ctor ambiguity.</span></li>
+            <li>🔐 <span class="zh">API Key 网关鉴权 — 排查发现两个网关此前完全没有鉴权，新增 GlobalFilter 中间件，现场验证 401/放行/健康检查三种情况。</span><span class="en">API-key GlobalFilter after finding both gateways had no auth; verified 401 / allow / health.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 21</span><span class="envtag">Spring Boot 3</span><span class="envtag">Anthropic MCP SDK</span><span class="envtag">LangChain4j</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-sportcore">
+        <summary>
+          <span class="fdot" style="background:#2a7ab8"></span>
+          <span class="pname">SportCore</span>
+          <span class="pdesc zh">高并发订单撮合引擎</span>
+          <span class="pdesc en">High-concurrency matching engine</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">体育交易场景下单侧对撮合引擎，验证 mutex 保护 vs ring buffer 无锁队列在真实高并发下的表现差异，并堵住钱包/订单接口此前 0 测试覆盖带来的资金安全隐患。</p>
+          <p class="en">Sports-trading matching engine: mutex vs lock-free ring buffer under real concurrency, plus closing a zero-coverage hole on wallet/order money paths.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>⚡ <span class="zh">Fiber + gnet 双协议网关 — 5K 并发连接头对头 benchmark，如实记录 ring buffer 只有 8+ goroutine 时才反超 mutex 这个不完全符合直觉的真实结果。</span><span class="en">Fiber + gnet dual gateway — 5K-conn benchmark; ring buffer only beat mutex at 8+ goroutines.</span></li>
+            <li>💰 <span class="zh">撮合引擎 + 钱包/订单模块 — 价格-时间优先撮合，补齐 0 覆盖的下单/冻结/释放资金链路 33 个测试。</span><span class="en">Price-time matching; 33 tests covering place/freeze/release that previously had zero coverage.</span></li>
+            <li>🔒 <span class="zh">IDOR 越权漏洞修复 — 排查发现钱包/订单接口直接信任客户端 user_id，新增 API Key 鉴权中间件 + 越权回归测试。</span><span class="en">IDOR fix — wallet/order trusted client user_id; API-key middleware + regression tests.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Go</span><span class="envtag">Fiber v2</span><span class="envtag">gnet v2</span><span class="envtag">go-redis / miniredis</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-gogate">
+        <summary>
+          <span class="fdot" style="background:#0891b2"></span>
+          <span class="pname">GoGate</span>
+          <span class="pdesc zh">Go AI 网关 · 限流 / 熔断 / 语义缓存 / 成本追踪</span>
+          <span class="pdesc en">Go AI gateway · rate limit / circuit breaker / semantic cache / cost ledger</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">对标 Portkey / Helicone / LiteLLM Proxy 的自研 Go AI 网关，挡在业务代码和 OpenAI / Anthropic 等 LLM 供应商之间，业务方只需把 base_url 指向网关、协议保持 OpenAI 兼容格式，统一收敛限流熔断、语义缓存、成本追踪与多供应商故障转移。</p>
+          <p class="en">A Go AI gateway modeled on Portkey / Helicone / LiteLLM Proxy, sitting between business code and OpenAI / Anthropic — one policy for rate limiting, circuit breaking, semantic caching, cost tracking and failover behind an OpenAI-compatible API.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🚦 <span class="zh">令牌桶限流 + 三态熔断器（closed/open/half-open）均做内存/Redis 双后端；2000 并发压容量 1000 的令牌桶实测精确放行 1000 次；两个网关实例 + 隔离 Redis 实测限流配额、精确缓存命中、熔断状态三项均跨实例共享（Lua 脚本保证原子性）。</span><span class="en">Token-bucket limiter + 3-state circuit breaker, both memory/Redis dual-backend; 2000 concurrent requests against a 1000-capacity bucket allow exactly 1000; two gateway instances + isolated Redis verified rate-limit quota, exact-cache hits, and breaker state all shared across instances (Lua for atomicity).</span></li>
+            <li>💾 <span class="zh">两级缓存 — 精确缓存（SHA-256 请求指纹 + TTL）+ 语义缓存（向量余弦相似度）；语义缓存从词袋 hash 近似升级为接入本地 sentence-transformers sidecar 的真实 embedding，"取消订单" vs "退订" 相似度从 ≈0 提升到 0.68，阈值随之从 0.92 调到 0.6（附实测数据）。</span><span class="en">Two-tier cache — exact (SHA-256 fingerprint + TTL) and semantic (cosine similarity); upgraded the semantic layer from bag-of-words hashing to a real embedding via a local sentence-transformers sidecar, lifting "cancel order" vs "unsubscribe" similarity from ≈0 to 0.68 and retuning the threshold from 0.92 to 0.6 with measured data.</span></li>
+            <li>📡 <span class="zh">SSE 流式透传 + OpenAI / Anthropic 双供应商真实 HTTP 客户端（各自鉴权协议差异真实实现），按熔断器状态自动 failover；OpenTelemetry 全链路 span 覆盖限流 / 缓存 / 供应商调用 / 记账各阶段，按 team 维度的成本账本。</span><span class="en">SSE passthrough + real OpenAI / Anthropic HTTP clients (each provider's own auth scheme), automatic failover by breaker state; OpenTelemetry spans across rate-limit / cache / provider-call / billing stages, plus a per-team cost ledger.</span></li>
+            <li>🔀 <span class="zh">Redis 迁移设计成一个开关 — 默认零依赖纯内存单机模式，<b>GOGATE_REDIS_ADDR</b> 非空时限流器 / 两级缓存 / 熔断器状态整体切到 Redis 后端，多实例共享状态，Redis 抖动时 fail-open 而不是整体拒绝服务。</span><span class="en">Redis migration is a single switch — default zero-dependency in-memory mode; setting <b>GOGATE_REDIS_ADDR</b> moves limiter / cache / breaker state to Redis for multi-instance sharing, fail-open on Redis hiccups instead of denying service.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Go</span><span class="envtag">Redis</span><span class="envtag">OpenTelemetry</span><span class="envtag">OpenAI / Anthropic API</span><span class="envtag">SSE</span><span class="envtag">sentence-transformers</span><span class="envtag">Next.js</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-agentflow">
+        <summary>
+          <span class="fdot" style="background:#22d3ee"></span>
+          <span class="pname">AgentFlow</span>
+          <span class="pdesc zh">Go 原生多代理 / LLM 工作流编排库</span>
+          <span class="pdesc en">Go-native multi-agent LLM orchestration library</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">Go 生态里对标 LangGraph 的编排原语基本空白——AgentFlow 提供 Graph + State + Node + Executor 这套最小必要抽象：顺序执行、并行 fan-out/fan-in、按运行时 State 条件分支、超时重试、HITL 人工确认中断-恢复，核心库不依赖任何 LLM SDK，可以和自研 GoGate 网关组合使用。</p>
+          <p class="en">Fills the LangGraph-shaped gap in Go — Graph + State + Node + Executor primitives for sequential execution, parallel fan-out/fan-in, State-driven conditional branching, timeout/retry, and HITL interrupt/resume, with zero LLM-SDK dependency in the core; pairs with GoGate as the gateway layer underneath.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🧩 <span class="zh">图执行引擎 — 并发安全 State（泛型 Get[T]/GetOr[T]），条件分支就是 Node.Run 的返回值而非独立抽象；Parallel 用真实 goroutine + WaitGroup 并发，测试用可控 sleep 时长断言总耗时低于顺序执行下限，证明真并发而非伪装。</span><span class="en">Graph execution engine — concurrency-safe State (generic Get[T]/GetOr[T]); branching is just a Node.Run return value, not a separate abstraction; Parallel runs real goroutines + WaitGroup, with tests asserting wall time below the sequential lower bound to prove genuine concurrency.</span></li>
+            <li>⏸ <span class="zh">HITL 人工确认中断/恢复 — <b>WithInterruptBefore</b> 在敏感节点（如放款）前真正暂停：调用栈已完全退出、HTTP 请求已正常返回，<b>*Paused</b> 哨兵类型带着待恢复节点名；<b>Resume(ctx, fromNode, state)</b> 从原地续跑不重跑历史节点；State 实现 MarshalJSON/UnmarshalJSON，测试验证序列化后丢弃原指针、反序列化出新对象仍可正确 Resume。</span><span class="en">HITL interrupt/resume — <b>WithInterruptBefore</b> genuinely pauses before sensitive nodes (e.g. releasing a refund): the call stack has fully returned and the HTTP request already completed; a <b>*Paused</b> sentinel carries the pending node name, and <b>Resume(ctx, fromNode, state)</b> continues in place without replaying prior nodes; State implements MarshalJSON/UnmarshalJSON, with a test proving a serialize-discard-deserialize round trip still resumes correctly.</span></li>
+            <li>🎫 <span class="zh">电商客服工单分诊示例 — Classifier → Retriever → Responder → Reviewer → RefundApproval 六节点图，退款类工单在文案审核通过后仍需进入独立的人工放款审批关卡，<b>cmd/agentflow-server</b> 暴露 <b>/api/run</b> 与 <b>/api/runs/{id}/resume</b> 两个真实端点。</span><span class="en">E-commerce support-triage example — a six-node graph (Classifier → Retriever → Responder → Reviewer → RefundApproval); refund tickets still hit a separate human approval gate even after the reply passes review, with <b>cmd/agentflow-server</b> exposing real <b>/api/run</b> and <b>/api/runs/{id}/resume</b> endpoints.</span></li>
+            <li>🔍 <span class="zh">向量检索 — 接入真实 Qdrant（Cosine 距离 + HNSW 索引 + ANN top-K），Qdrant 不可达时自动降级为关键词匹配兜底；中文语料没有空格分词，改用汉字 unigram/bigram，并现场排查出一次哈希碰撞导致的误召回（无关查询相似度反而更高），加大哈希维度后修复。</span><span class="en">Vector retrieval — wired to real Qdrant (cosine distance + HNSW + ANN top-K), auto-degrading to keyword matching when Qdrant is unreachable; switched Chinese tokenization to character unigrams/bigrams (no whitespace boundaries), and diagnosed a live hash-collision bug where an unrelated query scored higher than relevant ones, fixed by widening the hash dimension.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Go</span><span class="envtag">Qdrant</span><span class="envtag">goroutine / channel</span><span class="envtag">HITL</span><span class="envtag">LLM orchestration</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-slotforge">
+        <summary>
+          <span class="fdot" style="background:#7c3aed"></span>
+          <span class="pname">SlotForge</span>
+          <span class="pdesc zh">老虎机数学引擎与 Spin API 后端</span>
+          <span class="pdesc en">Slot-machine math engine &amp; spin API backend</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">面向 Slot / Casino Game 的数学模型工作台——闭式 RTP 分解 + 全窗口穷举交叉验证 + 大规模仿真标定，落地成 Python 后端 + FastAPI 服务 + Next.js 策划工作台，覆盖游戏后端 API 设计、确定性 RNG、结果可复现审计与发布门禁。</p>
+          <p class="en">A math workbench for slot/casino games — closed-form RTP breakdown, exhaustive cross-validation, and large-scale simulation calibration, shipped as a Python backend + FastAPI service + Next.js planning UI covering game-backend API design, deterministic RNG, replayable audit, and release gating.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🎰 <span class="zh">OutcomeEngine 状态机（spin → RoundResult）+ 确定性 RNG，配合 seed 复现工具做结果审计，杜绝"线上分数对不上账"。</span><span class="en">OutcomeEngine state machine (spin → RoundResult) + deterministic RNG, paired with a seed-replay tool for result audit — no "the payout doesn't match the log" gaps.</span></li>
+            <li>🧮 <span class="zh">RTP/命中率/Feature 触发率闭式期望推导与全窗口穷举交叉验证双路径互证，不是拿仿真估算冒充精确解；不同 RTP 档位（96%/94%）权重逐位相同、只有赔付缩放不同，用测试锁定。</span><span class="en">Closed-form expectation for RTP / hit rate / feature-trigger rate cross-verified against exhaustive full-window enumeration — not a simulation estimate dressed up as exact; two RTP tiers (96%/94%) share identical weights with only payout scaling different, locked by tests.</span></li>
+            <li>🔌 <span class="zh">FastAPI 暴露 /v1/spin /v1/theory /v1/sim /audit/replay，含配置结构校验与发布门禁（spec_fail_reasons）；77 条 pytest 用例（含 2 条全窗口穷举回归）。</span><span class="en">FastAPI exposes /v1/spin /v1/theory /v1/sim /audit/replay with config validation and a release gate (spec_fail_reasons); 77 pytest cases including 2 exhaustive full-window regressions.</span></li>
+            <li>🔍 <span class="zh">两轮自我代码评审（docs/REVIEW.md）：发现并修复幂等、性能（19.4s→0.75s）与配置校验类 bug，记录发现-修复-验证全过程。</span><span class="en">Two self-review passes (docs/REVIEW.md): found and fixed idempotency, performance (19.4s→0.75s), and config-validation bugs, with the full find-fix-verify trail documented.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Python 3.11</span><span class="envtag">FastAPI</span><span class="envtag">Pydantic</span><span class="envtag">pytest</span><span class="envtag">Next.js</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-ldr">
+        <summary>
+          <span class="fdot" style="background:#2d5cb8"></span>
+          <span class="pname">LDR · Ledger Decision Room</span>
+          <span class="pdesc zh">法币收单同步决策沙箱</span>
+          <span class="pdesc en">Fiat acquirer decision sandbox</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">补 RiskGuard（事后分析）和 ChainPayGraph（链上闸口）都不覆盖的一环：法币订单进通道前做 ALLOW / CHALLENGE / REJECT，通道 webhook 再对账。虚构商户与通道、本地造单，不接真实银行卡、不做链上、不做撮合。</p>
+          <p class="en">Fills the gap neither RiskGuard (post-settlement) nor ChainPayGraph (on-chain gate) covers: ALLOW / CHALLENGE / REJECT before a fiat order hits a channel, then reconcile webhooks. Fictional merchants and channels, locally generated orders — no real cards, no chain, no matching.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>☕ <span class="zh">Java 17 + Spring Boot 3.3 ledger-api — Flyway 20 张业务表；支付下单、四条硬规则、对账 run、成功率指标、人工 override；决策权只在 Rule ∪ Human，没有任何路径让 LLM 写 <b>risk_decision.decided_by</b> 或改订单状态。</span><span class="en">Java 17 + Spring Boot 3.3 ledger-api — Flyway 20 business tables; payments, 4 hard rules, recon runs, success-rate metrics, human override; decision authority is Rule ∪ Human only — no path for an LLM to write <b>risk_decision.decided_by</b> or flip order status.</span></li>
+            <li>🔐 <span class="zh">人工 override 原先信任请求体里的 actor 字符串、可伪造审批人并翻转 REJECT→ALLOW；改为 <b>X-LDR-Reviewer-Key</b> 映射 reviewer，audit actor 只来自已认证密钥，缺 key 返回 401。</span><span class="en">Human override used to trust an <b>actor</b> string in the body (anyone could forge a reviewer and flip REJECT→ALLOW); now <b>X-LDR-Reviewer-Key</b> maps to a reviewer and the audit actor comes only from the authenticated key (401 if missing).</span></li>
+            <li>🤖 <span class="zh">可选 ldr-ai（FastAPI）只润色规则已给出的文案，超时/无模型时回落规则原文、行为不变；mcp-ldr 暴露 3 个只读 MCP 工具；Next.js 值班台覆盖订单 / 对账。</span><span class="en">Optional ldr-ai (FastAPI) only polishes wording the rule already produced — timeout / no model falls back to the rule text with no behavior change; mcp-ldr exposes 3 read-only MCP tools; Next.js duty console covers orders / recon.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Java 17</span><span class="envtag">Spring Boot 3.3</span><span class="envtag">Flyway / Postgres</span><span class="envtag">FastAPI</span><span class="envtag">MCP</span><span class="envtag">Next.js</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-rgsentry">
+        <summary>
+          <span class="fdot" style="background:#c45c26"></span>
+          <span class="pname">RGSentry</span>
+          <span class="pdesc zh">责任游戏规则熔断与追损检测</span>
+          <span class="pdesc en">Responsible-gaming circuit &amp; chasing detection</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">责任游戏工作台：Soft Circuit 决策树 + 追损检测 + 合规模板，看板可接 MaxCompute。AlphaOdds 里有一份轻量 RG 模块，细节以本仓库为准。不计入 DigiPlus 生产。</p>
+          <p class="en">Responsible-gaming workbench: Soft Circuit decision tree, chasing detection, and compliance templates, with optional MaxCompute dashboards. AlphaOdds carries a lighter RG module; this repo is the source of truth. Not DigiPlus production.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🛡 <span class="zh">Soft Circuit 静态树 + 追损检测（会话窗口近似）已在真实 ODPS 用户/会话表上跑；六级干预动作库与 PAGCOR 等合规模板。</span><span class="en">Soft Circuit static tree + chasing detection (session-window approximation) run on real ODPS user/session tables; six-level intervention catalog and PAGCOR-class templates.</span></li>
+            <li>🧠 <span class="zh">Behavioral AI 是真训的 sklearn GBDT（生物识别代理 + 点击流 + 词典情绪），权重在仓库内；标签和遥测目前是 mock，AUC 来自这份合成训练，不拿生产标签吹。</span><span class="en">Behavioral AI is a real sklearn GBDT (biometric proxies + clickstream + lexicon sentiment) with weights in-repo; labels and telemetry are mock, so AUC is from that synthetic train — not production labels.</span></li>
+            <li>🔒 <span class="zh">查真实 login_name / user_id 的接口要求 <b>X-API-Key</b>，挡住匿名枚举画像；SQL 注入用白名单校验。PLE 多任务只做架构展示，推理是哈希模拟，没有权重文件。</span><span class="en">Endpoints that look up real login_name / user_id require <b>X-API-Key</b> to block anonymous profiling; SQL injection is allowlist-checked. PLE multi-task is architecture-only — hash-simulated inference, no weight files.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">FastAPI</span><span class="envtag">sklearn GBDT</span><span class="envtag">MaxCompute / PyODPS</span><span class="envtag">Next.js</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-growthforge">
+        <summary>
+          <span class="fdot" style="background:#0e7490"></span>
+          <span class="pname">LTVForge / CausalMix / BonusForge</span>
+          <span class="pdesc zh">LTV · 营销因果 · 促销 OPE</span>
+          <span class="pdesc en">LTV · causal marketing · promo OPE</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">三条可独立跑、又可互相调用的增长工作台：LTVForge 看用户价值，CausalMix 做因果/Uplift，BonusForge 用 OPE 判促销策略能不能上线。看板可选接 MaxCompute；TFT / DeepHit / PPO 等深度模型是架构展示，不拿未训练权重当生产模型。</p>
+          <p class="en">Three workbenches that run alone or call each other: LTVForge for user value, CausalMix for causal/uplift, BonusForge for promo OPE go-live gates. Optional MaxCompute; TFT / DeepHit / PPO-class deep models are architecture demos — no untrained weights sold as production models.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>📈 <span class="zh">LTVForge — Cohort / 鲸鱼帕累托 / 冷启动路径；真正训过的是 LightGBM baseline（ODPS cohort → holdout MAE）。TFT / DeepHit 只保留结构图与接口，没有 torch 权重。</span><span class="en">LTVForge — cohorts / whale Pareto / cold-start paths; the trained model is a LightGBM baseline (ODPS cohort → holdout MAE). TFT / DeepHit stay as architecture + reserved APIs, no torch weights.</span></li>
+            <li>🧪 <span class="zh">CausalMix — 27 个 API 里约 5 个接真实 ODPS，其余为教学/合成。真链路是渠道映射 + Double ML（register_cnt → GGR，5-fold cross-fitting）；MMM / 预算 What-If 主体仍是 mock。Uplift 分群 HTTP 给 BonusForge 约束 Do-Not-Disturb 用户不发 Bonus。</span><span class="en">CausalMix — ~5 of 27 APIs hit real ODPS, the rest teaching/synthetic. The live path is channel mapping + Double ML (register_cnt → GGR, 5-fold cross-fitting); MMM / budget What-If stay mock. Uplift-segment HTTP lets BonusForge withhold bonus from Do-Not-Disturb users.</span></li>
+            <li>🎁 <span class="zh">BonusForge — IPS / SNIPS / DR 是真公式（行为策略来自 ODPS 促销曝光，评估策略跑在分层抽样用户上）；PPO / Double DQN 是规则+扰动的 Policy Simulator，不是训过的神经网络。CausalMix 不可达时 fail-open 并在响应里标明约束未生效。</span><span class="en">BonusForge — IPS / SNIPS / DR are real formulas (behavior policy from ODPS promo exposure, evaluation on stratified users); PPO / Double DQN is a rule+noise policy simulator, not a trained net. CausalMix downtime fail-opens and the response flags that the constraint did not apply.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">FastAPI</span><span class="envtag">LightGBM</span><span class="envtag">sklearn DML</span><span class="envtag">OPE · IPS/DR</span><span class="envtag">MaxCompute</span><span class="envtag">Next.js</span>
           </div>
         </div>
       </details>
@@ -1079,58 +1303,34 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
         <h2 class="head en" style="font-size:1.7rem;margin-bottom:26px">Earlier roles</h2>
       </div>
 
-      <details class="earlier" id="e-ddu">
-        <summary><span class="cap">2022.01 – 2023.01</span><span class="cos">DDU · Digital Entertainment Platform</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Golang Developer · <span class="zh">团队 6 人</span><span class="en">team of 6</span></span><span class="fold">▸</span></summary>
-        <div class="ebody">
-          <p class="zh">在线娱乐平台，定位是让用户快速拥有一个全新的娱乐网站，已打通多品类互动娱乐内容（体育资讯、真人互动、休闲游戏、棋牌、IM 语音等）和支付渠道。团队负责后端核心 + 第三方支付通道集成 + 体育数据 feed 集成，峰值 QPS 5K+，平均响应 &lt;80ms。</p>
-          <p class="en">Online entertainment platform: sports, live, casual, cards, IM voice, and payments. Owned core backend, third-party payment rails, and sports feeds. Peak 5K+ QPS, avg latency &lt;80ms.</p>
-          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
-          <ul>
-            <li class="zh">用 Golang 构建可扩展、模块化后端：组件开发、对接其他 Web 服务、故障排除与性能优化、技术方案探索、技术文档、代码审查。</li>
-            <li class="en">Built modular Go backends: components, service integrations, troubleshooting, performance work, design notes, docs, and code review.</li>
-            <li class="zh">深入 Goroutine / Channel 常见模式、Go 模板、代码生成（Stringer 等）以及团队 Go 框架与工具栈。</li>
-            <li class="en">Go idioms: goroutine/channel patterns, templates, codegen (Stringer), and the team’s Go stack.</li>
-            <li class="zh">Gin + Gorm + Viper + Zap + JWT + MD5；MySQL + Redis 双层缓存；峰值 QPS 5K+，平均响应 &lt;80ms。</li>
-            <li class="en">Gin + Gorm + Viper + Zap + JWT + MD5; MySQL + Redis cache; peak 5K+ QPS, avg &lt;80ms.</li>
-            <li class="zh">WebSocket + UDP 实时通信 — IM 语音房间、体育直播互动、实时数据推送，支撑万级并发长连接。</li>
-            <li class="en">WebSocket + UDP for IM voice rooms, live sports, and realtime push; 10k-class long connections.</li>
-            <li class="zh">gRPC + Protocol Buffers 微服务通信；多个 C 端 API + 后台对接 + 第三方支付通道 + 体育数据 feed。</li>
-            <li class="en">gRPC + Protobuf; C-end APIs, admin, payment rails, and sports-data feeds.</li>
-            <li class="zh">参与 code review 与技术文档，推动代码规范与单测覆盖率从 30% 提升到 70%。</li>
-            <li class="en">Code review and docs; unit-test coverage 30% → 70%.</li>
-          </ul>
-          <div class="envtags">
-            <span class="envtag">Go 1.18+</span><span class="envtag">Gin / Gorm</span><span class="envtag">gRPC</span><span class="envtag">WebSocket / UDP</span><span class="envtag">MySQL + Redis</span><span class="envtag">JWT</span><span class="envtag">Jenkins</span>
-          </div>
-        </div>
-      </details>
-
       <details class="earlier" id="e-seektop">
-        <summary><span class="cap">2020.07 – 2021.12</span><span class="cos">SeekTop</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Senior Engineer</span><span class="fold">▸</span></summary>
+        <summary><span class="cap">2020.07 – 2023.11</span><span class="cos">SeekTop</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">golang Developer</span><span class="fold">▸</span></summary>
         <div class="ebody">
-          <p class="zh">游戏棋牌公司。团队负责核心后端微服务化改造与高并发优化，涉及游戏房间 / 支付 / 用户积分 / 区块链 / 数字货币等多模块。</p>
-          <p class="en">Card-game company: microservice rewrite and high-concurrency work across rooms, payments, points, blockchain, and crypto wallets.</p>
+          <p class="zh">游戏棋牌公司。主导核心后端 Go 微服务化改造与高并发优化，覆盖游戏房间 / 实时对局 / 支付钱包 / 用户积分 / 数字货币充提。峰值 QPS 5K+，P99 &lt;80ms。</p>
+          <p class="en">Card-game company: led the Go microservice rewrite and high-concurrency work across rooms, realtime matches, payments/wallets, points, and crypto deposit/withdraw. Peak 5K+ QPS, P99 &lt;80ms.</p>
           <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
           <ul>
-            <li class="zh">深入 Java 与常见开源框架；JVM 垃圾收集器 / 集合 / 多线程 / 网络 IO / 锁 / 事件 / 异常 / 泛型有实践经验。</li>
-            <li class="en">Java internals in production: GC, collections, concurrency, network I/O, locks, events, exceptions, generics.</li>
-            <li class="zh">Netty 高性能网络 / Spring IOC·AOP·MVC / MyBatis / Dubbo RPC；集合、多线程、JVM 原理与底层优化。</li>
-            <li class="en">Netty, Spring (IOC/AOP/MVC), MyBatis, Dubbo RPC; collections, threading, JVM tuning.</li>
-            <li class="zh">MySQL 原理与 SQL 优化：事务、锁、索引、慢 SQL、执行计划、分库分表。</li>
-            <li class="en">MySQL: transactions, locks, indexes, slow-SQL / explain, sharding.</li>
-            <li class="zh">Spring Boot + Spring Cloud（Eureka / Config / Gateway / Hystrix / Feign）：核心服务拆分、API 设计、服务间通信与熔断降级。</li>
-            <li class="en">Spring Cloud (Eureka / Config / Gateway / Hystrix / Feign): service splits, APIs, inter-service calls, circuit-breaking.</li>
-            <li class="zh">RabbitMQ / RocketMQ / Kafka：批量发送、消费者并发、消息幂等、死信、积压排查与重试。</li>
-            <li class="en">RabbitMQ / RocketMQ / Kafka: batching, consumer concurrency, idempotency, DLQ, backlog and retry.</li>
-            <li class="zh">Zookeeper / Etcd 服务发现与配置；分布式缓存；高并发、高可用架构落地。</li>
-            <li class="en">Zookeeper / Etcd discovery and config; distributed cache; HA under load.</li>
-            <li class="zh">Elasticsearch / Solr 线上使用与优化 — 索引设计、查询性能、分词器、热点缓存。</li>
-            <li class="en">Elasticsearch / Solr: index design, query perf, analyzers, hot-key cache.</li>
-            <li class="zh">区块链 / 数字货币：钱包接入、链上交易追踪、合约调用等后端实现。</li>
-            <li class="en">Crypto wallets, on-chain tracking, and contract-call backends.</li>
+            <li class="zh">Gin + gRPC + Protobuf 拆分房间 / 对局 / 支付 / 积分 / 钱包服务；Goroutine / Channel / Context 做并发与超时控制，理解 GMP 调度、逃逸分析与 GC。</li>
+            <li class="en">Split rooms / match / pay / points / wallet with Gin + gRPC + Protobuf. Goroutine / Channel / Context for concurrency and deadlines; GMP, escape analysis, GC in production.</li>
+            <li class="zh">WebSocket + UDP 实时对局与房间推送，支撑万级长连接；无状态扩缩容、连接池治理与容量预估。</li>
+            <li class="en">WebSocket + UDP for live matches and room push; 10k-class long connections, stateless scale-out, connection-pool and capacity planning.</li>
+            <li class="zh">高可用治理：限流 / 熔断 / 降级 / 超时重试 / 灰度切流；Consul 服务发现与健康检查，配置中心驱动弹性伸缩。</li>
+            <li class="en">HA: rate limit / circuit break / degrade / timeout-retry / canary. Consul discovery + health checks; config-center driven scale.</li>
+            <li class="zh">MySQL 表设计、索引、慢 SQL、读写分离与分库分表；Redis 多级缓存 / 分布式锁 / 限流，处理穿透、击穿、雪崩与热点 key。</li>
+            <li class="en">MySQL: schema, indexes, slow-SQL, read/write split, sharding. Redis: multi-tier cache, locks, rate limits; penetration / breakdown / avalanche / hot keys.</li>
+            <li class="zh">Kafka Producer / Consumer：分区与消费者组、Offset、幂等消费、死信与积压治理；支付与积分账本保证不丢不重。</li>
+            <li class="en">Kafka producers/consumers: partitions, consumer groups, offsets, idempotent consume, DLQ and backlog; pay/points ledgers at-least-once without dupes.</li>
+            <li class="zh">性能与可观测性：pprof / trace / benchmark 定位 GC 停顿、内存泄漏、缓存命中率与消息堆积；zap + Prometheus + OpenTelemetry 全链路，按 Metrics → Logs → Traces 排障。</li>
+            <li class="en">Perf + observability: pprof / trace / benchmark for GC pauses, leaks, cache hit rate, queue backlog; zap + Prometheus + OpenTelemetry; triage via Metrics → Logs → Traces.</li>
+            <li class="zh">Docker / Kubernetes + Jenkins CI/CD；REST / gRPC / OpenAPI 接口规范；单测覆盖 30% → 70%，code review 与线上故障复盘。</li>
+            <li class="en">Docker / Kubernetes + Jenkins CI/CD; REST / gRPC / OpenAPI contracts; unit-test coverage 30% → 70%; review and incident write-ups.</li>
+            <li class="zh">PHP 存量可读可改（Laravel / ThinkPHP 路由、控制器、ORM）；把支付 / 房间等高并发模块迁到 Go，灰度切流、接口契约对比，迁移前后不丢不重。</li>
+            <li class="en">Can read/change leftover PHP (Laravel / ThinkPHP routes, controllers, ORM); moved hot pay/room paths to Go with canary cutover and contract diffs so nothing dropped or duplicated.</li>
+            <li class="zh">支付 / 钱包 / 积分账本与区块链充提：幂等下单、对账、链上交易追踪与合约调用后端。</li>
+            <li class="en">Payments, wallets, points ledger, and crypto rails: idempotent orders, reconciliation, on-chain tracking, contract-call backends.</li>
           </ul>
           <div class="envtags">
-            <span class="envtag">Java 8/11</span><span class="envtag">Spring Cloud</span><span class="envtag">Dubbo / Netty</span><span class="envtag">MySQL / Redis</span><span class="envtag">Kafka / MQ</span><span class="envtag">ES / Solr</span>
+            <span class="envtag">Go 1.18+</span><span class="envtag">Gin / Gorm</span><span class="envtag">gRPC / Protobuf</span><span class="envtag">PHP (read/migrate)</span><span class="envtag">WebSocket / UDP</span><span class="envtag">MySQL + Redis</span><span class="envtag">Kafka</span><span class="envtag">Consul</span><span class="envtag">Docker / K8s</span><span class="envtag">Prometheus / OTel</span><span class="envtag">Jenkins</span>
           </div>
         </div>
       </details>
@@ -1259,6 +1459,32 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
         </div>
       </details>
 
+      <details class="earlier" id="e-ecommerce">
+        <summary><span class="cap">2017.06 – 2017.12</span><span class="cos zh">某电商</span><span class="cos en">E-commerce</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">PHP / Java Developer</span><span class="fold">▸</span></summary>
+        <div class="ebody">
+          <p class="zh">电商中后台：商品 / 订单 / 促销 / 会员。PHP 承接 C 端与运营后台，Java 承接支付对账；离线侧用 Hive + Spark SQL 出经营报表。</p>
+          <p class="en">E-commerce back office: catalog, orders, promotions, membership. PHP for storefront and ops admin; Java for payment recon; Hive + Spark SQL for ops reports.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li class="zh">PHP 7 + Laravel / ThinkPHP：商品、订单、促销、会员接口与运营后台；Composer 依赖、MVC 分层、Eloquent / 查询构造器。</li>
+            <li class="en">PHP 7 + Laravel / ThinkPHP: catalog, order, promo, membership APIs and admin; Composer, MVC, Eloquent / query builder.</li>
+            <li class="zh">读懂并改存量 PHP 业务（路由 / 控制器 / ORM / 配置），Java 服务对接支付与对账，保证两边接口契约一致。</li>
+            <li class="en">Read and change legacy PHP (routes / controllers / ORM / config); Java services for pay/recon with a shared API contract.</li>
+            <li class="zh">MySQL 表设计、索引与慢 SQL；Redis 缓存热点商品与会话；订单状态机与库存扣减防超卖。</li>
+            <li class="en">MySQL schema, indexes, slow-SQL; Redis for hot SKUs and sessions; order state machine and stock deduct against oversell.</li>
+            <li class="zh">Hive 离线报表：行为 / 订单日志入 ODS，清洗到 DWD，按日聚合 DWS 经营指标。</li>
+            <li class="en">Hive batch reports: behavior/order logs into ODS, clean to DWD, daily DWS ops metrics.</li>
+            <li class="zh">Spark SQL 小作业做渠道 / SKU 聚合，处理数据倾斜与小文件合并；调度失败可重跑。</li>
+            <li class="en">Spark SQL jobs for channel/SKU rollups; skew and small-file cleanup; rerunnable on failure.</li>
+            <li class="zh">Linux + Nginx + PHP-FPM 发布；Git 分支与 code review。</li>
+            <li class="en">Linux + Nginx + PHP-FPM deploys; Git branches and review.</li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">PHP 7</span><span class="envtag">Laravel / ThinkPHP</span><span class="envtag">Java 8</span><span class="envtag">MySQL / Redis</span><span class="envtag">Hive / Spark SQL</span><span class="envtag">Nginx / PHP-FPM</span>
+          </div>
+        </div>
+      </details>
+
       <details class="earlier" id="e-pharma">
         <summary><span class="cap">2016.01 – 2017.05</span><span class="cos zh">某制药</span><span class="cos en">Pharma</span><span class="role mono" style="color:var(--t-f);font-size:.8rem">Java Developer</span><span class="fold">▸</span></summary>
         <div class="ebody">
@@ -1342,14 +1568,14 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
             <li class="en">Spring REST for event registration and assignment; API contract, errors, versioning.</li>
             <li class="zh">TDD：JUnit 单元 / 集成 / 系统测试，核心模块覆盖 75%+。</li>
             <li class="en">TDD with JUnit unit/integration/system tests; core coverage 75%+.</li>
-            <li class="zh">Java 8 Lambda / 函数式接口，压缩内联调用、提高可读性。</li>
-            <li class="en">Java 8 lambdas and functional interfaces for tighter, readable call sites.</li>
+            <li class="zh">Java 6/7 集合与接口分层，压缩重复调用、提高可读性。</li>
+            <li class="en">Java 6/7 collections and interface layering for tighter, readable call sites.</li>
             <li class="zh">AJAX + JSON 异步加载，减少全页刷新。</li>
             <li class="en">AJAX + JSON to cut full-page reloads.</li>
-            <li class="zh">Oracle 12c：授信额度 / 担保 / 流水核心表与复杂查询索引。</li>
-            <li class="en">Oracle 12c tables for limits, collateral, ledger; index work on heavy queries.</li>
-            <li class="zh">HTML5 / CSS3 / Bootstrap 3.3.7 / jQuery：响应式表格、动态表单、AJAX 联动校验。</li>
-            <li class="en">Bootstrap 3.3.7 + jQuery: responsive tables, dynamic forms, AJAX validation.</li>
+            <li class="zh">Oracle 11g：授信额度 / 担保 / 流水核心表与复杂查询索引。</li>
+            <li class="en">Oracle 11g tables for limits, collateral, ledger; index work on heavy queries.</li>
+            <li class="zh">HTML / CSS / jQuery / Bootstrap 2：表格、动态表单、AJAX 联动校验。</li>
+            <li class="en">HTML / CSS / jQuery / Bootstrap 2: tables, dynamic forms, AJAX validation.</li>
             <li class="zh">Log4J 滚动日志 + ERROR 邮件告警。</li>
             <li class="en">Log4J rolling logs and ERROR email alerts.</li>
             <li class="zh">Tomcat 7.0 JNDI 数据源：连接池、超时、健康检查。</li>
@@ -1360,7 +1586,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
             <li class="en">SVN/Jenkins/Tomcat deploy scripts with DevOps; 2h manual → 15 min automated.</li>
           </ul>
           <div class="envtags">
-            <span class="envtag">Java 8</span><span class="envtag">Struts2 / Spring / iBatis</span><span class="envtag">Oracle 12c</span><span class="envtag">Tomcat 7</span><span class="envtag">Jenkins / SVN</span>
+            <span class="envtag">Java 6/7</span><span class="envtag">Struts2 / Spring / iBatis</span><span class="envtag">Oracle 11g</span><span class="envtag">Tomcat 7</span><span class="envtag">Jenkins / SVN</span>
           </div>
         </div>
       </details>
@@ -1398,7 +1624,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
 <div class="statusbar">
   <span class="seg accent"><svg><use href="#i-git"></use></svg>main</span>
   <span class="seg hide-s"><svg><use href="#i-check"></use></svg>0 errors</span>
-  <span class="seg"><span class="live"></span><span class="zh">12+ 年经验 · Manila, PH · 开放远程</span><span class="en">12+ yrs · Manila, PH · Open to remote</span></span>
+  <span class="seg"><span class="live"></span><span class="zh">15 年经验 · Manila, PH · 开放远程</span><span class="en">15 yrs · Manila, PH · Open to remote</span></span>
   <span class="sp"></span>
   <span class="seg hide-s">UTF-8</span>
   <span class="seg hide-s">LF</span>
@@ -1453,8 +1679,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
     if (savedTheme === 'day' || savedTheme === 'night') setTheme(savedTheme);
   } catch (e) {}
 
-  var descZh = 'Yancy — 12+ 年后端 / 大数据 / Flink Tech Lead。DigiPlus Interactive Corp（BGC, PH）带 8 人团队。远程协作 · Telegram @ukHarley';
-  var descEn = 'Yancy — 12+ years backend / big data / Flink Tech Lead at DigiPlus Interactive Corp (BGC, PH). Remote. Telegram @ukHarley';
+  var descZh = 'Yancy — 15 年后端 / 大数据 / Flink Tech Lead。DigiPlus Interactive Corp（BGC, PH）带 8 人团队。远程协作 · Telegram @ukHarley';
+  var descEn = 'Yancy — 15 years backend / big data / Flink Tech Lead at DigiPlus Interactive Corp (BGC, PH). Remote. Telegram @ukHarley';
   function setLang(lang){
     var en = lang === 'en';
     document.documentElement.setAttribute('data-lang', en ? 'en' : 'zh');
