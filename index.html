@@ -711,8 +711,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
 
       <div class="hero-cta">
         <a href="mailto:yancysu1006@gmail.com" class="btn pri"><span class="zh">合作咨询 ›</span><span class="en">Get in touch ›</span></a>
-        <a href="https://t.me/ukHarley" class="btn sec" target="_blank" rel="noopener"><svg><use href="#i-tg"></use></svg>Telegram</a>
         <a href="resume.pdf" class="btn sec" id="resumeDl" download><svg><use href="#i-download"></use></svg><span class="zh">下载简历 PDF</span><span class="en">Download résumé PDF</span></a>
+        <a href="https://t.me/ukHarley" class="btn sec" target="_blank" rel="noopener"><svg><use href="#i-tg"></use></svg>Telegram</a>
       </div>
       <div class="hero-links">
         <a href="#experience" class="hero-link zh">查看专业经验</a>
@@ -813,8 +813,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
         </div>
         <div class="stackcard">
           <h4><span class="fdot" style="background:var(--t-t)"></span>Go 2020–Now</h4>
-          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Protobuf / Goroutine / Channel / Context。SeekTop 峰值 QPS 5K+，PHP 存量可迁 Go；DigiPlus 仍用 Go Worker / ChainPayGraph。SportCore 自 2021，GoGate / AgentFlow 自 2023。多级缓存、限流熔断、灰度、OpenTelemetry / pprof。</p>
-          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Protobuf / goroutines / channels / context. SeekTop peak 5K+ QPS, PHP leftovers moved to Go; DigiPlus still uses Go. SportCore from 2021, GoGate / AgentFlow from 2023. Multi-tier cache, rate limit / circuit break / canary, OpenTelemetry / pprof.</p>
+          <p class="zh" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Protobuf / Goroutine / Channel / Context。SeekTop（2020–2023）峰值 QPS 5K+、P99 &lt;80ms，能读 PHP 存量并把热路径迁 Go。DigiPlus 仍用 Go Worker 与 ChainPayGraph。自研 SportCore 自 2021，GoGate / AgentFlow 自 2023。熟悉 go-zero / Kratos；多级缓存、限流熔断、灰度、OpenTelemetry / Prometheus、pprof。</p>
+          <p class="en" style="color:var(--sub);font-size:.88rem;line-height:1.7">Gin / gRPC / Protobuf / goroutines / channels / context. SeekTop (2020–2023) peak 5K+ QPS, P99 &lt;80ms; can read leftover PHP and move hot paths to Go. DigiPlus still ships a Go worker and ChainPayGraph. Independent SportCore from 2021, GoGate / AgentFlow from 2023. Comfortable with go-zero / Kratos-class frameworks; multi-tier cache, rate limit / circuit break / canary, OpenTelemetry / Prometheus, pprof.</p>
         </div>
         <div class="stackcard">
           <h4><span class="fdot" style="background:var(--t-s)"></span>Python + Flink 2023–Now</h4>
@@ -853,7 +853,11 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-t)"></span>Go</h4>
           <div class="chiprow">
-            <span class="chip">Gin / gRPC / Protobuf</span><span class="chip">Fiber / gnet</span><span class="chip">PHP 7/8（可读可迁）</span><span class="chip">WebSocket / SSE</span><span class="chip">Gorm / go-redis</span><span class="chip">限流 / 熔断 / 灰度</span><span class="chip">OpenTelemetry / Prometheus</span><span class="chip">pprof / Docker / K8s</span>
+            <span class="chip">Gin / gRPC / Protobuf</span><span class="chip">Fiber / gnet</span><span class="chip"><span class="zh">PHP 7/8（生产读写 + 迁移到 Go）</span><span class="en">PHP 7/8 (production + migrated to Go)</span></span><span class="chip">WebSocket / SSE</span><span class="chip">Gorm / go-redis</span><span class="chip">限流 / 熔断 / 灰度</span><span class="chip">OpenTelemetry / Prometheus</span><span class="chip">pprof / Docker / K8s</span>
+          </div></div>
+        <div class="stackcard"><h4><span class="fdot" style="background:#e07856"></span><span class="zh">前端</span><span class="en">Frontend</span></h4>
+          <div class="chiprow">
+            <span class="chip">Next.js 14 / React 18</span><span class="chip">TypeScript 5</span><span class="chip">Tailwind 3</span><span class="chip"><span class="zh">70+ 前端 Panel / 组件（8 个产品自建）</span><span class="en">70+ panels / components shipped (8 products)</span></span><span class="chip">Angular 4/7</span><span class="chip">HTML5 / CSS3</span>
           </div></div>
         <div class="stackcard"><h4><span class="fdot" style="background:var(--t-k)"></span>AI / LLM</h4>
           <div class="chiprow">
@@ -1104,8 +1108,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           <span class="cos zh">自研项目</span><span class="cos en">Independent / side projects</span>
           <span class="role"><span class="zh">非 DigiPlus 生产交付</span><span class="en">Not DigiPlus production</span></span>
         </div>
-        <p class="lede zh">业余自研，不计入 DigiPlus 生产：SportCore 自 2021（Go 撮合）；GoGate / AgentFlow / TradePilot / SlotForge 自 2023（AI 网关、编排、量化与数学引擎）；LDR（法币同步决策沙箱）、RGSentry（责任游戏）、LTVForge / CausalMix / BonusForge（LTV · 因果 · 促销 OPE）。</p>
-        <p class="lede en">Side projects, not DigiPlus production: SportCore from 2021 (Go matching); GoGate / AgentFlow / TradePilot / SlotForge from 2023 (AI gateway, orchestration, quant, math engine); LDR (fiat decision sandbox), RGSentry (responsible gaming), LTVForge / CausalMix / BonusForge (LTV · causal · promo OPE).</p>
+        <p class="lede zh">业余自研，不计入 DigiPlus 生产：SportCore 自 2021（Go 撮合）；GoGate / AgentFlow / TradePilot / SlotForge 自 2023（AI 网关、编排、量化与数学引擎）；LDR（法币同步决策沙箱）、RGSentry（用户风险行为管理）、LTVForge / CausalMix / BonusForge（LTV · 因果 · 促销 OPE）。</p>
+        <p class="lede en">Side projects, not DigiPlus production: SportCore from 2021 (Go matching); GoGate / AgentFlow / TradePilot / SlotForge from 2023 (AI gateway, orchestration, quant, math engine); LDR (fiat decision sandbox), RGSentry (user risk-behavior management), LTVForge / CausalMix / BonusForge (LTV · causal · promo OPE).</p>
       </div>
 
       <details class="proj" id="p-tradepilot">
@@ -1207,14 +1211,14 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
         <summary>
           <span class="fdot" style="background:#7c3aed"></span>
           <span class="pname">SlotForge</span>
-          <span class="pdesc zh">老虎机数学引擎与 Spin API 后端</span>
-          <span class="pdesc en">Slot-machine math engine &amp; spin API backend</span>
+          <span class="pdesc zh">概率型游戏数值引擎与结果生成 API 后端</span>
+          <span class="pdesc en">Probability-driven game math engine &amp; outcome API backend</span>
           <span class="fold">▸</span>
         </summary>
         <div class="pbody">
           <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">面向 Slot / Casino Game 的数学模型工作台——闭式 RTP 分解 + 全窗口穷举交叉验证 + 大规模仿真标定，落地成 Python 后端 + FastAPI 服务 + Next.js 策划工作台，覆盖游戏后端 API 设计、确定性 RNG、结果可复现审计与发布门禁。</p>
-          <p class="en">A math workbench for slot/casino games — closed-form RTP breakdown, exhaustive cross-validation, and large-scale simulation calibration, shipped as a Python backend + FastAPI service + Next.js planning UI covering game-backend API design, deterministic RNG, replayable audit, and release gating.</p>
+          <p class="zh">面向概率型游戏机制（如老虎机等随机结果类玩法）的数学模型工作台——闭式 RTP 分解 + 全窗口穷举交叉验证 + 大规模仿真标定，落地成 Python 后端 + FastAPI 服务 + Next.js 策划工作台，覆盖游戏后端 API 设计、确定性 RNG、结果可复现审计与发布门禁。</p>
+          <p class="en">A math workbench for probability-driven game mechanics (such as slot-style random-outcome games) — closed-form RTP breakdown, exhaustive cross-validation, and large-scale simulation calibration, shipped as a Python backend + FastAPI service + Next.js planning UI covering game-backend API design, deterministic RNG, replayable audit, and release gating.</p>
           <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
           <ul>
             <li>🎰 <span class="zh">OutcomeEngine 状态机（spin → RoundResult）+ 确定性 RNG，配合 seed 复现工具做结果审计，杜绝"线上分数对不上账"。</span><span class="en">OutcomeEngine state machine (spin → RoundResult) + deterministic RNG, paired with a seed-replay tool for result audit — no "the payout doesn't match the log" gaps.</span></li>
@@ -1254,17 +1258,17 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
         <summary>
           <span class="fdot" style="background:#c45c26"></span>
           <span class="pname">RGSentry</span>
-          <span class="pdesc zh">责任游戏规则熔断与追损检测</span>
-          <span class="pdesc en">Responsible-gaming circuit &amp; chasing detection</span>
+          <span class="pdesc zh">用户风险行为规则熔断与异常消费检测</span>
+          <span class="pdesc en">User risk-behavior circuit breaker &amp; abnormal-spend detection</span>
           <span class="fold">▸</span>
         </summary>
         <div class="pbody">
           <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">责任游戏工作台：Soft Circuit 决策树 + 追损检测 + 合规模板，看板可接 MaxCompute。AlphaOdds 里有一份轻量 RG 模块，细节以本仓库为准。不计入 DigiPlus 生产。</p>
-          <p class="en">Responsible-gaming workbench: Soft Circuit decision tree, chasing detection, and compliance templates, with optional MaxCompute dashboards. AlphaOdds carries a lighter RG module; this repo is the source of truth. Not DigiPlus production.</p>
+          <p class="zh">用户风险行为管理工作台：Soft Circuit 决策树 + 异常消费/连续加大投入检测 + 合规模板，看板可接 MaxCompute。AlphaOdds 里有一份轻量同类模块，细节以本仓库为准。不计入 DigiPlus 生产。</p>
+          <p class="en">User risk-behavior workbench: Soft Circuit decision tree, abnormal-spend detection, and compliance templates, with optional MaxCompute dashboards. AlphaOdds carries a lighter version of the same module; this repo is the source of truth. Not DigiPlus production.</p>
           <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
           <ul>
-            <li>🛡 <span class="zh">Soft Circuit 静态树 + 追损检测（会话窗口近似）已在真实 ODPS 用户/会话表上跑；六级干预动作库与 PAGCOR 等合规模板。</span><span class="en">Soft Circuit static tree + chasing detection (session-window approximation) run on real ODPS user/session tables; six-level intervention catalog and PAGCOR-class templates.</span></li>
+            <li>🛡 <span class="zh">Soft Circuit 静态树 + 异常消费检测（会话窗口近似）已在真实 ODPS 用户/会话表上跑；六级干预动作库与合规模板。</span><span class="en">Soft Circuit static tree + abnormal-spend detection (session-window approximation) run on real ODPS user/session tables; six-level intervention catalog and compliance templates.</span></li>
             <li>🧠 <span class="zh">Behavioral AI 是真训的 sklearn GBDT（生物识别代理 + 点击流 + 词典情绪），权重在仓库内；标签和遥测目前是 mock，AUC 来自这份合成训练，不拿生产标签吹。</span><span class="en">Behavioral AI is a real sklearn GBDT (biometric proxies + clickstream + lexicon sentiment) with weights in-repo; labels and telemetry are mock, so AUC is from that synthetic train — not production labels.</span></li>
             <li>🔒 <span class="zh">查真实 login_name / user_id 的接口要求 <b>X-API-Key</b>，挡住匿名枚举画像；SQL 注入用白名单校验。PLE 多任务只做架构展示，推理是哈希模拟，没有权重文件。</span><span class="en">Endpoints that look up real login_name / user_id require <b>X-API-Key</b> to block anonymous profiling; SQL injection is allowlist-checked. PLE multi-task is architecture-only — hash-simulated inference, no weight files.</span></li>
           </ul>
