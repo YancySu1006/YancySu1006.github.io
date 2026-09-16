@@ -630,12 +630,12 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
   <details open>
     <summary><span class="fold">▸</span>📁 experience/</summary>
     <a class="indent" href="#exp-digiplus" data-target="experience"><span class="fdot" style="background:var(--t-p)"></span>DigiPlus/</a>
-    <a class="indent" href="#p-aibiz" data-target="experience"><span class="fdot" style="background:#3d6dd8"></span>AIBusinessPlatform.ts</a>
     <a class="indent" href="#p-riskguard" data-target="experience"><span class="fdot" style="background:#a06820"></span>RiskGuard.ts</a>
     <a class="indent" href="#p-videai" data-target="experience"><span class="fdot" style="background:#1a8a7a"></span>VideAI.ts</a>
     <a class="indent" href="#p-chainpay" data-target="experience"><span class="fdot" style="background:#3a7a3a"></span>ChainPayGraph.go</a>
     <a class="indent" href="#p-digiinfo" data-target="experience"><span class="fdot" style="background:#6b4fa8"></span>DigiInfoMarket.ts</a>
     <a class="indent" href="#p-alphaodds" data-target="experience"><span class="fdot" style="background:#2d5cb8"></span>AlphaOdds.ts</a>
+    <a class="indent" href="#p-aibiz" data-target="experience"><span class="fdot" style="background:#3d6dd8"></span>AIBusinessPlatform.ts</a>
     <a class="indent" href="#p-infra" data-target="experience"><span class="fdot" style="background:#7080a0"></span>bigdata-infra.md</a>
   </details>
   <details>
@@ -643,12 +643,12 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
     <a class="indent" href="#exp-indie" data-target="experience"><span class="fdot" style="background:var(--t-t)"></span>indie/</a>
     <a class="indent" href="#p-tradepilot" data-target="experience" title="TradePilot+StrategyForge.java"><span class="fdot" style="background:#a06820"></span><span class="fname">TradePilot+StrategyForge.java</span></a>
     <a class="indent" href="#p-sportcore" data-target="experience"><span class="fdot" style="background:#2a7ab8"></span>SportCore.go</a>
+    <a class="indent" href="#p-growthforge" data-target="experience" title="LTVForge+CausalMix+BonusForge.py"><span class="fdot" style="background:#0e7490"></span><span class="fname">LTV+Causal+Bonus.py</span></a>
+    <a class="indent" href="#p-rgsentry" data-target="experience"><span class="fdot" style="background:#c45c26"></span>RGSentry.py</a>
     <a class="indent" href="#p-gogate" data-target="experience"><span class="fdot" style="background:#0891b2"></span>GoGate.go</a>
     <a class="indent" href="#p-agentflow" data-target="experience"><span class="fdot" style="background:#22d3ee"></span>AgentFlow.go</a>
-    <a class="indent" href="#p-slotforge" data-target="experience"><span class="fdot" style="background:#7c3aed"></span>SlotForge.py</a>
     <a class="indent" href="#p-ldr" data-target="experience"><span class="fdot" style="background:#2d5cb8"></span>LDR.java</a>
-    <a class="indent" href="#p-rgsentry" data-target="experience"><span class="fdot" style="background:#c45c26"></span>RGSentry.py</a>
-    <a class="indent" href="#p-growthforge" data-target="experience" title="LTVForge+CausalMix+BonusForge.py"><span class="fdot" style="background:#0e7490"></span><span class="fname">LTV+Causal+Bonus.py</span></a>
+    <a class="indent" href="#p-slotforge" data-target="experience"><span class="fdot" style="background:#7c3aed"></span>SlotForge.py</a>
   </details>
   <details>
     <summary><span class="fold">▸</span>📁 earlier-roles/</summary>
@@ -895,39 +895,7 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
       <p class="lede en">Digital marketing and interactive entertainment group (realtime trading / risk). Core product: 480K daily transactions, 85K DAU, $267M turnover, 420M order events, 737M ad clicks. The team shipped six production platforms: AIBusinessPlatform, four AI decision platforms (RiskGuard / VideAI / DigiInfoMarket / AlphaOdds), and ChainPayGraph.</p>
       </div>
 
-      <details class="proj" open id="p-aibiz">
-        <summary>
-          <span class="fdot" style="background:#3d6dd8"></span>
-          <span class="pname">AIBusinessPlatform</span>
-          <span class="pdesc zh">AI 企业业务平台 · Analyst / Agent / Customer 共享架构</span>
-          <span class="pdesc en">Shared AI core for Analyst / Agent / Customer</span>
-          <span class="fold">▸</span>
-        </summary>
-        <div class="pbody">
-          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">前身 QueryForge（Text2SQL 数据分析）。按内部架构扩展为三个产品共享的 AI 核心：AI Analyst（数据分析）/ AI Agent（自动执行）/ AI Customer（客服销售）。三者共用同一套 LLM / RAG / Text2SQL / Workflow，而不是各自重复用户系统、Agent、权限、日志、数据库和知识库。</p>
-          <p class="en">Grew out of QueryForge (Text2SQL). One shared AI core for three products: Analyst (analytics), Agent (execution), Customer (support/sales). Shared LLM / RAG / Text2SQL / Workflow — not three copies of users, agents, RBAC, logs, DBs, and knowledge bases.</p>
-          <h5><span class="zh">技术架构</span><span class="en">Architecture</span></h5>
-          <p class="zh">5 层：可编辑安装的共享 Python 包 + Java 统一认证网关 + Nginx 入口 + Go Worker（Kafka / 通知 / 定时）+ 三个 FastAPI 后端 + 三个 Next.js 前端。CI：pytest + mvn test + tsc --noEmit；本地 Go / Python / Java 测试与 compose config 均通过。</p>
-          <p class="en">Five layers: editable-installed shared Python package + Java auth gateway + Nginx + Go worker (Kafka / notify / cron) + three FastAPI backends + three Next.js UIs. CI: pytest + mvn test + tsc --noEmit; local Go / Python / Java tests and compose config green.</p>
-          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
-          <ul>
-            <li>🏗 <b>platform-common</b> — <span class="zh">把三产品重复的数仓目录 / 连接器 / LLM 客户端 / SQL 校验 / 认证 / Redis 收成共享 pip 包。数据源注册表默认按进程目录落盘，收成共享包后会误共享「谁注册了哪个源」；用独立环境变量把注册库拆开（真实数仓结构仍共享）。</span><span class="en">Collapsed duplicated catalog / connectors / LLM client / SQL validator / auth / Redis into a shared pip package. Datasource registry defaulted to process cwd, so three products accidentally shared registrations — split with an explicit env var (warehouse catalogs still shared).</span></li>
-            <li>🔐 <span class="zh">三产品统一 Java 认证网关 + SSO；前端共用同一 JWT，禁止浏览器直连 Python 服务。</span><span class="en">Single Java auth gateway + SSO; one JWT; no browser-to-Python bypass.</span></li>
-            <li>🚦 <span class="zh">Nginx 统一入口 + IP 限流；可切换 TLS。</span><span class="en">Nginx front door + IP rate limit; optional TLS.</span></li>
-            <li>📨 <span class="zh">Go Worker 消费通知类 Kafka topic（SMTP + Telegram）；其余 topic 只写回执（业务已在 Python 完成）；cron 由 Go 触发、Python 执行。</span><span class="en">Go worker: real SMTP + Telegram on the notification topic; other topics write receipts only (Python already ran the work); cron = Go WHEN, Python HOW.</span></li>
-            <li>🗄 <span class="zh">Redis 用于会话 / Agent 状态 / 租户限流 / 审批锁。未配置时诚实 no-op；审批竞态另有数据库原子更新兜底。</span><span class="en">Redis for session / agent state / tenant rate limit / approval lock. Honest no-op when unset; DB atomic update as last race guard.</span></li>
-            <li>🧩 <span class="zh">领域模型覆盖项目 / Agent / 工作流 / 任务；套餐配额与执行类权限可调。</span><span class="en">Domain: project / agent / workflow / task; plan quotas and execution permissions are patchable.</span></li>
-            <li>🤝 <span class="zh">统一对话入口按产品上下文路由到各 Python AI Gateway，并保留各产品原有 API 形状。</span><span class="en">Unified chat entry routes by product context to each Python AI gateway, keeping existing API shapes.</span></li>
-            <li>🎛 <span class="zh">Prompt / 模型路由 / 租户限流与成本边界；高风险工具 HITL 审批；日志审计与灰度。日常用 Cursor / Claude Code 做重构、补测与排障，不盲信生成代码。</span><span class="en">Prompt / model routing / tenant rate limits and cost caps; HITL for high-risk tools; audit logs and canaries. Daily Cursor / Claude Code for refactor / tests / triage — generated code is reviewed, not trusted blindly.</span></li>
-            <li>✅ <span class="zh">诚实披露：Analyst 对接生产数仓；Agent 有 Tool+Workflow 与高风险人工审批；Customer 混合语义检索 + 退款审批幂等。本机 Docker 端到端通常未拉起，不冒充已验证。</span><span class="en">Honest status: Analyst on a live warehouse; Agent Tool+Workflow with HITL for high-risk ops; Customer hybrid search + idempotent refunds. Local Docker E2E usually not up — not claimed as proven.</span></li>
-          </ul>
-          <div class="envtags">
-            <span class="envtag">Python 3.10+ / FastAPI</span><span class="envtag">Java 17 + Spring Boot 3</span><span class="envtag">Go</span><span class="envtag">Kafka</span><span class="envtag">Redis</span><span class="envtag">Nginx</span><span class="envtag">PostgreSQL + pgvector</span><span class="envtag">SQLite</span><span class="envtag">Next.js 14</span><span class="envtag">Docker Compose</span><span class="envtag">GitHub Actions</span>
-          </div>
-        </div>
-      </details>
-      <details class="proj" id="p-riskguard">
+      <details class="proj" open id="p-riskguard">
         <summary>
           <span class="fdot" style="background:#a06820"></span>
           <span class="pname">RiskGuard</span>
@@ -1076,6 +1044,38 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div>
         </div>
       </details>
+      <details class="proj" id="p-aibiz">
+        <summary>
+          <span class="fdot" style="background:#3d6dd8"></span>
+          <span class="pname">AIBusinessPlatform</span>
+          <span class="pdesc zh">AI 企业业务平台 · Analyst / Agent / Customer 共享架构</span>
+          <span class="pdesc en">Shared AI core for Analyst / Agent / Customer</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">前身 QueryForge（Text2SQL 数据分析）。按内部架构扩展为三个产品共享的 AI 核心：AI Analyst（数据分析）/ AI Agent（自动执行）/ AI Customer（客服销售）。三者共用同一套 LLM / RAG / Text2SQL / Workflow，而不是各自重复用户系统、Agent、权限、日志、数据库和知识库。</p>
+          <p class="en">Grew out of QueryForge (Text2SQL). One shared AI core for three products: Analyst (analytics), Agent (execution), Customer (support/sales). Shared LLM / RAG / Text2SQL / Workflow — not three copies of users, agents, RBAC, logs, DBs, and knowledge bases.</p>
+          <h5><span class="zh">技术架构</span><span class="en">Architecture</span></h5>
+          <p class="zh">5 层：可编辑安装的共享 Python 包 + Java 统一认证网关 + Nginx 入口 + Go Worker（Kafka / 通知 / 定时）+ 三个 FastAPI 后端 + 三个 Next.js 前端。CI：pytest + mvn test + tsc --noEmit；本地 Go / Python / Java 测试与 compose config 均通过。</p>
+          <p class="en">Five layers: editable-installed shared Python package + Java auth gateway + Nginx + Go worker (Kafka / notify / cron) + three FastAPI backends + three Next.js UIs. CI: pytest + mvn test + tsc --noEmit; local Go / Python / Java tests and compose config green.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🏗 <b>platform-common</b> — <span class="zh">把三产品重复的数仓目录 / 连接器 / LLM 客户端 / SQL 校验 / 认证 / Redis 收成共享 pip 包。数据源注册表默认按进程目录落盘，收成共享包后会误共享「谁注册了哪个源」；用独立环境变量把注册库拆开（真实数仓结构仍共享）。</span><span class="en">Collapsed duplicated catalog / connectors / LLM client / SQL validator / auth / Redis into a shared pip package. Datasource registry defaulted to process cwd, so three products accidentally shared registrations — split with an explicit env var (warehouse catalogs still shared).</span></li>
+            <li>🔐 <span class="zh">三产品统一 Java 认证网关 + SSO；前端共用同一 JWT，禁止浏览器直连 Python 服务。</span><span class="en">Single Java auth gateway + SSO; one JWT; no browser-to-Python bypass.</span></li>
+            <li>🚦 <span class="zh">Nginx 统一入口 + IP 限流；可切换 TLS。</span><span class="en">Nginx front door + IP rate limit; optional TLS.</span></li>
+            <li>📨 <span class="zh">Go Worker 消费通知类 Kafka topic（SMTP + Telegram）；其余 topic 只写回执（业务已在 Python 完成）；cron 由 Go 触发、Python 执行。</span><span class="en">Go worker: real SMTP + Telegram on the notification topic; other topics write receipts only (Python already ran the work); cron = Go WHEN, Python HOW.</span></li>
+            <li>🗄 <span class="zh">Redis 用于会话 / Agent 状态 / 租户限流 / 审批锁。未配置时诚实 no-op；审批竞态另有数据库原子更新兜底。</span><span class="en">Redis for session / agent state / tenant rate limit / approval lock. Honest no-op when unset; DB atomic update as last race guard.</span></li>
+            <li>🧩 <span class="zh">领域模型覆盖项目 / Agent / 工作流 / 任务；套餐配额与执行类权限可调。</span><span class="en">Domain: project / agent / workflow / task; plan quotas and execution permissions are patchable.</span></li>
+            <li>🤝 <span class="zh">统一对话入口按产品上下文路由到各 Python AI Gateway，并保留各产品原有 API 形状。</span><span class="en">Unified chat entry routes by product context to each Python AI gateway, keeping existing API shapes.</span></li>
+            <li>🎛 <span class="zh">Prompt / 模型路由 / 租户限流与成本边界；高风险工具 HITL 审批；日志审计与灰度。日常用 Cursor / Claude Code 做重构、补测与排障，不盲信生成代码。</span><span class="en">Prompt / model routing / tenant rate limits and cost caps; HITL for high-risk tools; audit logs and canaries. Daily Cursor / Claude Code for refactor / tests / triage — generated code is reviewed, not trusted blindly.</span></li>
+            <li>✅ <span class="zh">诚实披露：Analyst 对接生产数仓；Agent 有 Tool+Workflow 与高风险人工审批；Customer 混合语义检索 + 退款审批幂等。本机 Docker 端到端通常未拉起，不冒充已验证。</span><span class="en">Honest status: Analyst on a live warehouse; Agent Tool+Workflow with HITL for high-risk ops; Customer hybrid search + idempotent refunds. Local Docker E2E usually not up — not claimed as proven.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">Python 3.10+ / FastAPI</span><span class="envtag">Java 17 + Spring Boot 3</span><span class="envtag">Go</span><span class="envtag">Kafka</span><span class="envtag">Redis</span><span class="envtag">Nginx</span><span class="envtag">PostgreSQL + pgvector</span><span class="envtag">SQLite</span><span class="envtag">Next.js 14</span><span class="envtag">Docker Compose</span><span class="envtag">GitHub Actions</span>
+          </div>
+        </div>
+      </details>
       <details class="proj" id="p-infra">
         <summary>
           <span class="fdot" style="background:#7080a0"></span>
@@ -1159,6 +1159,52 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div>
         </div>
       </details>
+      <details class="proj" id="p-growthforge">
+        <summary>
+          <span class="fdot" style="background:#0e7490"></span>
+          <span class="pname">LTVForge / CausalMix / BonusForge</span>
+          <span class="pdesc zh">LTV · 营销因果 · 促销 OPE</span>
+          <span class="pdesc en">LTV · causal marketing · promo OPE</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">三条可独立跑、又可互相调用的增长工作台：LTVForge 看用户价值，CausalMix 做因果/Uplift，BonusForge 用 OPE 判促销策略能不能上线。看板可选接 MaxCompute；TFT / DeepHit / PPO 等深度模型是架构展示，不拿未训练权重当生产模型。</p>
+          <p class="en">Three workbenches that run alone or call each other: LTVForge for user value, CausalMix for causal/uplift, BonusForge for promo OPE go-live gates. Optional MaxCompute; TFT / DeepHit / PPO-class deep models are architecture demos — no untrained weights sold as production models.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>📈 <span class="zh">LTVForge — Cohort / 鲸鱼帕累托 / 冷启动路径；真正训过的是 LightGBM baseline（ODPS cohort → holdout MAE）。TFT / DeepHit 只保留结构图与接口，没有 torch 权重。</span><span class="en">LTVForge — cohorts / whale Pareto / cold-start paths; the trained model is a LightGBM baseline (ODPS cohort → holdout MAE). TFT / DeepHit stay as architecture + reserved APIs, no torch weights.</span></li>
+            <li>🧪 <span class="zh">CausalMix — 27 个 API 里约 5 个接真实 ODPS，其余为教学/合成。真链路是渠道映射 + Double ML（register_cnt → GGR，5-fold cross-fitting）；MMM / 预算 What-If 主体仍是 mock。Uplift 分群 HTTP 给 BonusForge 约束 Do-Not-Disturb 用户不发 Bonus。</span><span class="en">CausalMix — ~5 of 27 APIs hit real ODPS, the rest teaching/synthetic. The live path is channel mapping + Double ML (register_cnt → GGR, 5-fold cross-fitting); MMM / budget What-If stay mock. Uplift-segment HTTP lets BonusForge withhold bonus from Do-Not-Disturb users.</span></li>
+            <li>🎁 <span class="zh">BonusForge — IPS / SNIPS / DR 是真公式（行为策略来自 ODPS 促销曝光，评估策略跑在分层抽样用户上）；PPO / Double DQN 是规则+扰动的 Policy Simulator，不是训过的神经网络。CausalMix 不可达时 fail-open 并在响应里标明约束未生效。</span><span class="en">BonusForge — IPS / SNIPS / DR are real formulas (behavior policy from ODPS promo exposure, evaluation on stratified users); PPO / Double DQN is a rule+noise policy simulator, not a trained net. CausalMix downtime fail-opens and the response flags that the constraint did not apply.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">FastAPI</span><span class="envtag">LightGBM</span><span class="envtag">sklearn DML</span><span class="envtag">OPE · IPS/DR</span><span class="envtag">MaxCompute</span><span class="envtag">Next.js</span>
+          </div>
+        </div>
+      </details>
+      <details class="proj" id="p-rgsentry">
+        <summary>
+          <span class="fdot" style="background:#c45c26"></span>
+          <span class="pname">RGSentry</span>
+          <span class="pdesc zh">用户风险行为规则熔断与异常消费检测</span>
+          <span class="pdesc en">User risk-behavior circuit breaker &amp; abnormal-spend detection</span>
+          <span class="fold">▸</span>
+        </summary>
+        <div class="pbody">
+          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
+          <p class="zh">用户风险行为管理工作台：Soft Circuit 决策树 + 异常消费/连续加大投入检测 + 合规模板，看板可接 MaxCompute。AlphaOdds 里有一份轻量同类模块，细节以本仓库为准。不计入 DigiPlus 生产。</p>
+          <p class="en">User risk-behavior workbench: Soft Circuit decision tree, abnormal-spend detection, and compliance templates, with optional MaxCompute dashboards. AlphaOdds carries a lighter version of the same module; this repo is the source of truth. Not DigiPlus production.</p>
+          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
+          <ul>
+            <li>🛡 <span class="zh">Soft Circuit 静态树 + 异常消费检测（会话窗口近似）已在真实 ODPS 用户/会话表上跑；六级干预动作库与合规模板。</span><span class="en">Soft Circuit static tree + abnormal-spend detection (session-window approximation) run on real ODPS user/session tables; six-level intervention catalog and compliance templates.</span></li>
+            <li>🧠 <span class="zh">Behavioral AI 是真训的 sklearn GBDT（生物识别代理 + 点击流 + 词典情绪），权重在仓库内；标签和遥测目前是 mock，AUC 来自这份合成训练，不拿生产标签吹。</span><span class="en">Behavioral AI is a real sklearn GBDT (biometric proxies + clickstream + lexicon sentiment) with weights in-repo; labels and telemetry are mock, so AUC is from that synthetic train — not production labels.</span></li>
+            <li>🔒 <span class="zh">查真实 login_name / user_id 的接口要求 <b>X-API-Key</b>，挡住匿名枚举画像；SQL 注入用白名单校验。PLE 多任务只做架构展示，推理是哈希模拟，没有权重文件。</span><span class="en">Endpoints that look up real login_name / user_id require <b>X-API-Key</b> to block anonymous profiling; SQL injection is allowlist-checked. PLE multi-task is architecture-only — hash-simulated inference, no weight files.</span></li>
+          </ul>
+          <div class="envtags">
+            <span class="envtag">FastAPI</span><span class="envtag">sklearn GBDT</span><span class="envtag">MaxCompute / PyODPS</span><span class="envtag">Next.js</span>
+          </div>
+        </div>
+      </details>
       <details class="proj" id="p-gogate">
         <summary>
           <span class="fdot" style="background:#0891b2"></span>
@@ -1207,30 +1253,6 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div>
         </div>
       </details>
-      <details class="proj" id="p-slotforge">
-        <summary>
-          <span class="fdot" style="background:#7c3aed"></span>
-          <span class="pname">SlotForge</span>
-          <span class="pdesc zh">概率型游戏数值引擎与结果生成 API 后端</span>
-          <span class="pdesc en">Probability-driven game math engine &amp; outcome API backend</span>
-          <span class="fold">▸</span>
-        </summary>
-        <div class="pbody">
-          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">面向概率型游戏机制（如老虎机等随机结果类玩法）的数学模型工作台——闭式 RTP 分解 + 全窗口穷举交叉验证 + 大规模仿真标定，落地成 Python 后端 + FastAPI 服务 + Next.js 策划工作台，覆盖游戏后端 API 设计、确定性 RNG、结果可复现审计与发布门禁。</p>
-          <p class="en">A math workbench for probability-driven game mechanics (such as slot-style random-outcome games) — closed-form RTP breakdown, exhaustive cross-validation, and large-scale simulation calibration, shipped as a Python backend + FastAPI service + Next.js planning UI covering game-backend API design, deterministic RNG, replayable audit, and release gating.</p>
-          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
-          <ul>
-            <li>🎰 <span class="zh">OutcomeEngine 状态机（spin → RoundResult）+ 确定性 RNG，配合 seed 复现工具做结果审计，杜绝"线上分数对不上账"。</span><span class="en">OutcomeEngine state machine (spin → RoundResult) + deterministic RNG, paired with a seed-replay tool for result audit — no "the payout doesn't match the log" gaps.</span></li>
-            <li>🧮 <span class="zh">RTP/命中率/Feature 触发率闭式期望推导与全窗口穷举交叉验证双路径互证，不是拿仿真估算冒充精确解；不同 RTP 档位（96%/94%）权重逐位相同、只有赔付缩放不同，用测试锁定。</span><span class="en">Closed-form expectation for RTP / hit rate / feature-trigger rate cross-verified against exhaustive full-window enumeration — not a simulation estimate dressed up as exact; two RTP tiers (96%/94%) share identical weights with only payout scaling different, locked by tests.</span></li>
-            <li>🔌 <span class="zh">FastAPI 暴露 /v1/spin /v1/theory /v1/sim /audit/replay，含配置结构校验与发布门禁（spec_fail_reasons）；77 条 pytest 用例（含 2 条全窗口穷举回归）。</span><span class="en">FastAPI exposes /v1/spin /v1/theory /v1/sim /audit/replay with config validation and a release gate (spec_fail_reasons); 77 pytest cases including 2 exhaustive full-window regressions.</span></li>
-            <li>🔍 <span class="zh">两轮自我代码评审（docs/REVIEW.md）：发现并修复幂等、性能（19.4s→0.75s）与配置校验类 bug，记录发现-修复-验证全过程。</span><span class="en">Two self-review passes (docs/REVIEW.md): found and fixed idempotency, performance (19.4s→0.75s), and config-validation bugs, with the full find-fix-verify trail documented.</span></li>
-          </ul>
-          <div class="envtags">
-            <span class="envtag">Python 3.11</span><span class="envtag">FastAPI</span><span class="envtag">Pydantic</span><span class="envtag">pytest</span><span class="envtag">Next.js</span>
-          </div>
-        </div>
-      </details>
       <details class="proj" id="p-ldr">
         <summary>
           <span class="fdot" style="background:#2d5cb8"></span>
@@ -1254,49 +1276,27 @@ footer{border-top:1px solid var(--line);padding:56px 24px 60px;text-align:center
           </div>
         </div>
       </details>
-      <details class="proj" id="p-rgsentry">
+      <details class="proj" id="p-slotforge">
         <summary>
-          <span class="fdot" style="background:#c45c26"></span>
-          <span class="pname">RGSentry</span>
-          <span class="pdesc zh">用户风险行为规则熔断与异常消费检测</span>
-          <span class="pdesc en">User risk-behavior circuit breaker &amp; abnormal-spend detection</span>
+          <span class="fdot" style="background:#7c3aed"></span>
+          <span class="pname">SlotForge</span>
+          <span class="pdesc zh">概率型游戏数值引擎与结果生成 API 后端</span>
+          <span class="pdesc en">Probability-driven game math engine &amp; outcome API backend</span>
           <span class="fold">▸</span>
         </summary>
         <div class="pbody">
           <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">用户风险行为管理工作台：Soft Circuit 决策树 + 异常消费/连续加大投入检测 + 合规模板，看板可接 MaxCompute。AlphaOdds 里有一份轻量同类模块，细节以本仓库为准。不计入 DigiPlus 生产。</p>
-          <p class="en">User risk-behavior workbench: Soft Circuit decision tree, abnormal-spend detection, and compliance templates, with optional MaxCompute dashboards. AlphaOdds carries a lighter version of the same module; this repo is the source of truth. Not DigiPlus production.</p>
+          <p class="zh">面向概率型游戏机制（如老虎机等随机结果类玩法）的数学模型工作台——闭式 RTP 分解 + 全窗口穷举交叉验证 + 大规模仿真标定，落地成 Python 后端 + FastAPI 服务 + Next.js 策划工作台，覆盖游戏后端 API 设计、确定性 RNG、结果可复现审计与发布门禁。</p>
+          <p class="en">A math workbench for probability-driven game mechanics (such as slot-style random-outcome games) — closed-form RTP breakdown, exhaustive cross-validation, and large-scale simulation calibration, shipped as a Python backend + FastAPI service + Next.js planning UI covering game-backend API design, deterministic RNG, replayable audit, and release gating.</p>
           <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
           <ul>
-            <li>🛡 <span class="zh">Soft Circuit 静态树 + 异常消费检测（会话窗口近似）已在真实 ODPS 用户/会话表上跑；六级干预动作库与合规模板。</span><span class="en">Soft Circuit static tree + abnormal-spend detection (session-window approximation) run on real ODPS user/session tables; six-level intervention catalog and compliance templates.</span></li>
-            <li>🧠 <span class="zh">Behavioral AI 是真训的 sklearn GBDT（生物识别代理 + 点击流 + 词典情绪），权重在仓库内；标签和遥测目前是 mock，AUC 来自这份合成训练，不拿生产标签吹。</span><span class="en">Behavioral AI is a real sklearn GBDT (biometric proxies + clickstream + lexicon sentiment) with weights in-repo; labels and telemetry are mock, so AUC is from that synthetic train — not production labels.</span></li>
-            <li>🔒 <span class="zh">查真实 login_name / user_id 的接口要求 <b>X-API-Key</b>，挡住匿名枚举画像；SQL 注入用白名单校验。PLE 多任务只做架构展示，推理是哈希模拟，没有权重文件。</span><span class="en">Endpoints that look up real login_name / user_id require <b>X-API-Key</b> to block anonymous profiling; SQL injection is allowlist-checked. PLE multi-task is architecture-only — hash-simulated inference, no weight files.</span></li>
+            <li>🎰 <span class="zh">OutcomeEngine 状态机（spin → RoundResult）+ 确定性 RNG，配合 seed 复现工具做结果审计，杜绝"线上分数对不上账"。</span><span class="en">OutcomeEngine state machine (spin → RoundResult) + deterministic RNG, paired with a seed-replay tool for result audit — no "the payout doesn't match the log" gaps.</span></li>
+            <li>🧮 <span class="zh">RTP/命中率/Feature 触发率闭式期望推导与全窗口穷举交叉验证双路径互证，不是拿仿真估算冒充精确解；不同 RTP 档位（96%/94%）权重逐位相同、只有赔付缩放不同，用测试锁定。</span><span class="en">Closed-form expectation for RTP / hit rate / feature-trigger rate cross-verified against exhaustive full-window enumeration — not a simulation estimate dressed up as exact; two RTP tiers (96%/94%) share identical weights with only payout scaling different, locked by tests.</span></li>
+            <li>🔌 <span class="zh">FastAPI 暴露 /v1/spin /v1/theory /v1/sim /audit/replay，含配置结构校验与发布门禁（spec_fail_reasons）；77 条 pytest 用例（含 2 条全窗口穷举回归）。</span><span class="en">FastAPI exposes /v1/spin /v1/theory /v1/sim /audit/replay with config validation and a release gate (spec_fail_reasons); 77 pytest cases including 2 exhaustive full-window regressions.</span></li>
+            <li>🔍 <span class="zh">两轮自我代码评审（docs/REVIEW.md）：发现并修复幂等、性能（19.4s→0.75s）与配置校验类 bug，记录发现-修复-验证全过程。</span><span class="en">Two self-review passes (docs/REVIEW.md): found and fixed idempotency, performance (19.4s→0.75s), and config-validation bugs, with the full find-fix-verify trail documented.</span></li>
           </ul>
           <div class="envtags">
-            <span class="envtag">FastAPI</span><span class="envtag">sklearn GBDT</span><span class="envtag">MaxCompute / PyODPS</span><span class="envtag">Next.js</span>
-          </div>
-        </div>
-      </details>
-      <details class="proj" id="p-growthforge">
-        <summary>
-          <span class="fdot" style="background:#0e7490"></span>
-          <span class="pname">LTVForge / CausalMix / BonusForge</span>
-          <span class="pdesc zh">LTV · 营销因果 · 促销 OPE</span>
-          <span class="pdesc en">LTV · causal marketing · promo OPE</span>
-          <span class="fold">▸</span>
-        </summary>
-        <div class="pbody">
-          <h5><span class="zh">项目背景</span><span class="en">Background</span></h5>
-          <p class="zh">三条可独立跑、又可互相调用的增长工作台：LTVForge 看用户价值，CausalMix 做因果/Uplift，BonusForge 用 OPE 判促销策略能不能上线。看板可选接 MaxCompute；TFT / DeepHit / PPO 等深度模型是架构展示，不拿未训练权重当生产模型。</p>
-          <p class="en">Three workbenches that run alone or call each other: LTVForge for user value, CausalMix for causal/uplift, BonusForge for promo OPE go-live gates. Optional MaxCompute; TFT / DeepHit / PPO-class deep models are architecture demos — no untrained weights sold as production models.</p>
-          <h5><span class="zh">职责范围</span><span class="en">What I owned</span></h5>
-          <ul>
-            <li>📈 <span class="zh">LTVForge — Cohort / 鲸鱼帕累托 / 冷启动路径；真正训过的是 LightGBM baseline（ODPS cohort → holdout MAE）。TFT / DeepHit 只保留结构图与接口，没有 torch 权重。</span><span class="en">LTVForge — cohorts / whale Pareto / cold-start paths; the trained model is a LightGBM baseline (ODPS cohort → holdout MAE). TFT / DeepHit stay as architecture + reserved APIs, no torch weights.</span></li>
-            <li>🧪 <span class="zh">CausalMix — 27 个 API 里约 5 个接真实 ODPS，其余为教学/合成。真链路是渠道映射 + Double ML（register_cnt → GGR，5-fold cross-fitting）；MMM / 预算 What-If 主体仍是 mock。Uplift 分群 HTTP 给 BonusForge 约束 Do-Not-Disturb 用户不发 Bonus。</span><span class="en">CausalMix — ~5 of 27 APIs hit real ODPS, the rest teaching/synthetic. The live path is channel mapping + Double ML (register_cnt → GGR, 5-fold cross-fitting); MMM / budget What-If stay mock. Uplift-segment HTTP lets BonusForge withhold bonus from Do-Not-Disturb users.</span></li>
-            <li>🎁 <span class="zh">BonusForge — IPS / SNIPS / DR 是真公式（行为策略来自 ODPS 促销曝光，评估策略跑在分层抽样用户上）；PPO / Double DQN 是规则+扰动的 Policy Simulator，不是训过的神经网络。CausalMix 不可达时 fail-open 并在响应里标明约束未生效。</span><span class="en">BonusForge — IPS / SNIPS / DR are real formulas (behavior policy from ODPS promo exposure, evaluation on stratified users); PPO / Double DQN is a rule+noise policy simulator, not a trained net. CausalMix downtime fail-opens and the response flags that the constraint did not apply.</span></li>
-          </ul>
-          <div class="envtags">
-            <span class="envtag">FastAPI</span><span class="envtag">LightGBM</span><span class="envtag">sklearn DML</span><span class="envtag">OPE · IPS/DR</span><span class="envtag">MaxCompute</span><span class="envtag">Next.js</span>
+            <span class="envtag">Python 3.11</span><span class="envtag">FastAPI</span><span class="envtag">Pydantic</span><span class="envtag">pytest</span><span class="envtag">Next.js</span>
           </div>
         </div>
       </details>
